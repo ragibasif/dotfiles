@@ -1,6 +1,9 @@
 # Dotfiles
 
 
+TODO:
+[force gnu stow to overwrite](https://www.reddit.com/r/linux4noobs/comments/b5ig2h/is_there_any_way_to_force_gnu_stow_to_overwrite/)
+
 Dotfiles management is done through `GNU Stow`.
 
 ## Getting Started
