@@ -1,0 +1,46 @@
+{
+  "editor.fontFamily": "JetBrains Mono",
+  "editor.fontSize": 13,
+  "editor.fontLigatures": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "k"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "vim.visualModeKeyBindings": [
+    {
+      "before": ["j", "k"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "vim.smartRelativeLine": true,
+  "vim.vimrc.enable": true,
+  "C_Cpp.default.compilerPath": "/usr/bin/gcc",
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "javascript.format.enable": false,
+  "editor.formatOnSave": true,
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "powermode.enabled": true,
+  "workbench.startupEditor": "none",
+  "[scss]": {
+    "editor.defaultFormatter": "sibiraj-s.vscode-scss-formatter"
+  },
+  "markdown.occurrencesHighlight.enabled": true,
+  "[markdown]": {
+    "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+  },
+  "editor.linkedEditing": true,
+  "workbench.iconTheme": "vscode-icons",
+  "workbench.colorTheme": "Gruvbox Dark Hard"
+}

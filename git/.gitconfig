@@ -1,0 +1,45 @@
+;   _______  __  .___________.
+;  /  _____||  | |           |
+; |  |  __  |  | `---|  |----`
+; |  | |_ | |  |     |  |
+; |  |__| | |  |     |  |
+;  \______| |__|     |__|
+
+[user]
+	name = Ragib Asif
+    email = 182296466+ragibasif@users.noreply.github.com
+	username = ragibasif
+[init]
+	defaultBranch = master
+[core]
+	editor = nvim
+	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+	pager = less -F -X
+[web]
+	browser = google-chrome
+[color]
+	ui = true
+[color "branch"]
+	current = yellow bold
+	local = green bold
+	remote = cyan bold
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+[color "status"]
+	added = green bold
+	changed = yellow bold
+	untracked = red bold
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
+[gitflow "prefix"]
+	versiontag = v
+[sequence]
+	editor = interactive-rebase-tool
+[commit]
+	template = ~/.gitmessage

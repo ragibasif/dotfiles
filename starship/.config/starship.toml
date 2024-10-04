@@ -1,0 +1,137 @@
+# Configure the prompt
+[git_status]
+# Enable or disable the Git status module
+disabled = false
+# Style to use for the Git status module
+style = "bold red"
+# Symbols to use for various Git states
+ahead = "⇡"
+behind = "⇣"
+diverged = "⇕"
+untracked = "?"
+staged = "+"
+conflicted = "×"
+deleted = "✘"
+modified = "!"
+renamed = "»"
+stashed = "$"
+
+# Configure the directory module
+[directory]
+read_only = " 󰌾"
+# Number of parent folders to show in the prompt
+truncation_length = 3
+# Style to use for the directory module
+style = "bold blue"
+# Show only the current directory name
+truncate_to_repo = true
+
+# Configure the time module
+[time]
+# Enable the time module
+disabled = false
+# Time format to display
+format = "[$time]($style) "
+# Time format string (see chrono documentation)
+time_format = "%H:%M:%S"
+# Style to use for the time module
+style = "bold yellow"
+[aws]
+symbol = "  "
+
+[buf]
+symbol = " "
+
+[c]
+symbol = " "
+
+[conda]
+symbol = " "
+
+[dart]
+symbol = " "
+
+
+[docker_context]
+symbol = " "
+
+[elixir]
+symbol = " "
+
+[elm]
+symbol = " "
+
+[fossil_branch]
+symbol = " "
+
+[git_branch]
+symbol = " "
+
+[golang]
+symbol = " "
+
+[guix_shell]
+symbol = " "
+
+[haskell]
+symbol = " "
+
+[haxe]
+symbol = "⌘ "
+
+[hg_branch]
+symbol = " "
+
+[hostname]
+ssh_symbol = " "
+
+[java]
+symbol = " "
+
+[julia]
+symbol = " "
+
+[lua]
+symbol = " "
+
+[memory_usage]
+symbol = "󰍛 "
+
+[meson]
+symbol = "󰔷 "
+
+[nim]
+symbol = "󰆥 "
+
+[nix_shell]
+symbol = " "
+
+[nodejs]
+symbol = " "
+
+[os.symbols]
+Arch = " "
+
+[package]
+symbol = "󰏗 "
+
+[pijul_channel]
+symbol = "🪺 "
+
+[python]
+symbol = " "
+
+[rlang]
+symbol = "󰟔 "
+
+[ruby]
+symbol = " "
+
+[rust]
+symbol = " "
+
+[scala]
+symbol = " "
+
+[spack]
+symbol = "🅢 "
