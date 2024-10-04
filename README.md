@@ -1,5 +1,5 @@
 <div align="center">
-  <a href="https://github.com/ragibcs/dotfiles">
+  <a href="https://github.com/ragibasif/dotfiles">
       <h1>Dotfiles</h1>
   </a>
 </div>
@@ -51,7 +51,7 @@ sudo pacman -S neovim tmux kitty vim
 Clone the repo into your $HOME directory using git.
 
 ```bash
-git clone git@github.com/ragibcs/dotfiles.git
+git clone git@github.com/ragibasif/dotfiles.git
 cd dotfiles
 ```
 
