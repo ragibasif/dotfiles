@@ -45,3 +45,5 @@ fastfetch
 eval "$(zoxide init bash)"
 
 export PATH="$HOME/bin:$PATH" # this allows me to run the bash scripts i wrote
+
+[ -f "/$HOME/.ghcup/env" ] && . "/$HOME/.ghcup/env" # ghcup-env

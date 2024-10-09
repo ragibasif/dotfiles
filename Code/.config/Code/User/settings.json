@@ -43,5 +43,6 @@
   "editor.linkedEditing": true,
   "workbench.iconTheme": "vscode-icons",
   "workbench.colorTheme": "Gruvbox Dark Hard",
-  "files.autoSave": "afterDelay"
+  "files.autoSave": "afterDelay",
+  "svelte.enable-ts-plugin": true
 }

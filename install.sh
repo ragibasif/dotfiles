@@ -14,6 +14,7 @@
 #sudo pacman -S alacritty bash starship kitty neovim vim git tmux fastfetch
 
 stow --adopt alacritty
+stow --adopt bin
 stow --adopt bash
 stow --adopt starship
 stow --adopt kitty
@@ -22,7 +23,6 @@ stow --adopt vim
 stow --adopt Code
 stow --adopt git
 stow --adopt tmux
-# stow --adopt scripts
 stow --adopt fastfetch
 
 git restore .
