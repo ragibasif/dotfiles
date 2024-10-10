@@ -55,7 +55,7 @@ if has("autocmd")
 endif
 
 " make gruvbox the colorscheme
-autocmd vimenter * ++nested colorscheme gruvbox
+" autocmd vimenter * ++nested colorscheme gruvbox
 
 " Set `jk` to Escape in Insert Mode and Visual Mode
 inoremap jk <esc>
