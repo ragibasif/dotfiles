@@ -10,5 +10,5 @@ nvim -c "norm Go" \
   -c "norm Go## $(date +%r)" \
   -c "norm G2o" \
   -c "norm zz" \
-  # -c "startinsert" $note
+  -c "startinsert" $note
 
