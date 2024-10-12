@@ -1,6 +1,6 @@
 #!/bin/bash
 
-note="$HOME/repos/ideas/notes/$(date +%Y-%m-%d).md"
+note="$HOME/repos/notes/inbox/$(date +%Y-%m-%d).md"
 
 if [ ! -f $note ]; then
   echo "# $(date +%A\,\ %B\,\ %d\,\ %Y)" > $note

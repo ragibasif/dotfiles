@@ -24,6 +24,7 @@ prettify() {
         echo "Directory does not exist: $search_dir"
         exit 1
     fi
+
 }
 
 prettify " "
@@ -53,3 +54,6 @@ prettify "+"
 prettify "="
 prettify "<"
 prettify ">"
+
+for f in *.*; do pre="${f%.*}"; suf="${f##*.}"; \
+                 mv -i -- "$f" "${pre//./_}.${suf}"; done
