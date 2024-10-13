@@ -11,4 +11,5 @@ require("keymaps")
 require("colorscheme")
 require("autocommands")
 require("lastplace")
+require("plugins")
 
