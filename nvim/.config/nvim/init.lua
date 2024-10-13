@@ -1,8 +1,13 @@
--- This is the default leader key
-vim.g.mapleader = '\'
-vim.g.maplocalleader = '\'
+-- .__   __.  _______   ______   ____    ____  __  .___  ___.
+-- |  \ |  | |   ____| /  __  \  \   \  /   / |  | |   \/   |
+-- |   \|  | |  |__   |  |  |  |  \   \/   /  |  | |  \  /  |
+-- |  . `  | |   __|  |  |  |  |   \      /   |  | |  |\/|  |
+-- |  |\   | |  |____ |  `--'  |    \    /    |  | |  |  |  |
+-- |__| \__| |_______| \______/      \__/     |__| |__|  |__|
 
--- Only make true if a Nerd Font is installed
-vim.g.have_nerd_font = true
 
-vim: ts=2 sts=2 sw=2 et
+require("options")
+require("keymaps")
+-- require("colorscheme")
+require("autocommands")
+require("lastplace")
