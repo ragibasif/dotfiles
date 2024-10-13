@@ -8,6 +8,7 @@
 
 require("options")
 require("keymaps")
--- require("colorscheme")
+require("colorscheme")
 require("autocommands")
 require("lastplace")
+

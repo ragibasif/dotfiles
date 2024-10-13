@@ -12,3 +12,4 @@ map("v", "jk", "<esc>",opts)
 
 -- Command mode key mappings
 -- map("c", "w!!", "w !sudo tee % > /dev/null", { noremap = true }) -- Save with sudo
+

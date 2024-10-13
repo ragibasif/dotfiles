@@ -1245,3 +1245,4 @@ Gruvbox.load = function()
 end
 
 return Gruvbox
+
