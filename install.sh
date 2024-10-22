@@ -24,5 +24,6 @@ stow --adopt Code
 stow --adopt git
 stow --adopt tmux
 stow --adopt fastfetch
+stow --adopt zsh
 
 git restore .
