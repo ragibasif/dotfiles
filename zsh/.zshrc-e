@@ -113,5 +113,3 @@ alias ls="lsd"
 alias cat="bat"
 
 fastfetch
-
-[ -f "/Users/mt/.ghcup/env" ] && . "/Users/mt/.ghcup/env" # ghcup-env
