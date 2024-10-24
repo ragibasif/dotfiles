@@ -25,5 +25,6 @@ stow --adopt git
 stow --adopt tmux
 stow --adopt fastfetch
 stow --adopt zsh
+stow --adopt amethyst
 
 git restore .
