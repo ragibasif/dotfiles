@@ -6,9 +6,10 @@
 -- |__| \__| |_______| \______/      \__/     |__| |__|  |__|
 
 
-require("options")
-require("keymaps")
-require("colorscheme")
-require("autocommands")
-require("lastplace")
+require("config.options")
+require("config.keymaps")
+-- require("config.colorscheme") -- gruvbox
+require("config.autocommands")
+require("config.lastplace")
+require("config.lazy")
 

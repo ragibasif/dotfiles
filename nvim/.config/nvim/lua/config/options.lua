@@ -7,6 +7,7 @@ vim.opt.number = true           -- Show line numbers
 vim.opt.relativenumber = true   -- Show relative line numbers
 vim.opt.hidden = true           -- Enable background buffers
 vim.opt.wrap = false            -- Disable line wrap
+vim.opt.syntax = "on"           -- Enable syntax highlighting
 
 -- Sync clipboard between OS and Neovim.
 --  Schedule the setting after `UiEnter` because it can increase startup-time.
