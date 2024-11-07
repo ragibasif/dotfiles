@@ -60,4 +60,5 @@ vim.opt.pumheight = 10          -- Limit completion items
 vim.opt.showmode = false        -- Don't show mode in command line
 vim.opt.shortmess:append "c"    -- Don't show completion messages
 vim.opt.breakindent = true      -- Enable break indent
+vim.opt.conceallevel = 1
 
