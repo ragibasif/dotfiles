@@ -115,6 +115,7 @@ alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias v="nvim"
 alias ls="lsd"
 alias cat="bat"
+alias cd="z"
 
 fastfetch
 
@@ -126,3 +127,6 @@ export NVM_DIR="$HOME/.nvm"
 autoload zmv
 
 [ -f "/Users/ragibasif/.ghcup/env" ] && . "/Users/ragibasif/.ghcup/env" # ghcup-env
+
+eval "$(zoxide init zsh)"
+source <(fzf --zsh)
