@@ -15,7 +15,7 @@ vim.schedule(function()
   vim.opt.clipboard = 'unnamedplus'
 end)
 
-vim.opt.mouse = "a"             -- Enable mouse support
+vim.opt.mouse = ""              -- Disable mouse support (to enable: vim.opt.mouse = "a")
 vim.opt.swapfile = false        -- Disable swap file
 vim.opt.backup = false          -- Disable backup file
 vim.opt.undodir = vim.fn.stdpath("config") .. "/undo" -- Set undo directory
