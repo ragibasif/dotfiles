@@ -33,8 +33,6 @@
 	added = green bold
 	changed = yellow bold
 	untracked = red bold
-[diff]
-	tool = vimdiff
 [difftool]
 	prompt = false
 [gitflow "prefix"]
@@ -43,3 +41,31 @@
 	editor = interactive-rebase-tool
 [commit]
 	template = ~/.gitmessage
+[core]
+    editor = nvim
+    autocrlf = input
+    excludesfile = ~/.gitignore_global
+
+[diff]
+    tool = nvimdiff
+    renames = copies
+
+[merge]
+    tool = nvimdiff
+    conflictstyle = diff3
+
+[color]
+    ui = true
+
+[push]
+    default = simple
+
+[fetch]
+    prune = true
+
+[rebase]
+    autosquash = true
+
+[pull]
+    rebase = true
+
