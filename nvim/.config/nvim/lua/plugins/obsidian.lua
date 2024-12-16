@@ -12,6 +12,9 @@ return {
             {
                 name = "notes",
                 path = "~/repos/notes",
+            },{
+                name = "university",
+                path = "~/repos/university",
             },
         },
     },-- Preview markdown code directly in your neovim terminal
