@@ -27,6 +27,7 @@ stow --adopt fastfetch
 stow --adopt zsh
 stow --adopt amethyst
 
-sudo cp -i bin/bin/* /usr/local/bin/
+# on MACOS
+sudo cp -i ~/dotfiles/bin/bin/* /usr/local/bin/
 
 git restore .

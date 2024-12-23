@@ -10,11 +10,8 @@ return {
     opts = {
         workspaces = {
             {
-                name = "notes",
-                path = "~/repos/notes",
-            },{
-                name = "university",
-                path = "~/repos/university",
+                name = "obsidian",
+                path = "~/repos/obsidian",
             },
         },
     },-- Preview markdown code directly in your neovim terminal
