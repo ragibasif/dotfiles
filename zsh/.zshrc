@@ -126,7 +126,5 @@ export NVM_DIR="$HOME/.nvm"
 # for macbook
 autoload zmv
 
-[ -f "/Users/ragibasif/.ghcup/env" ] && . "/Users/ragibasif/.ghcup/env" # ghcup-env
-
 eval "$(zoxide init zsh)"
 source <(fzf --zsh)
