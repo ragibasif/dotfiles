@@ -12,13 +12,14 @@ return {
             {
                 name = "obsidian",
                 path = "~/repos/obsidian",
-            },{
-                name = "university",
-                path = "~/repos/university",
-            },{
-                name = "notes",
-                path = "~/repos/notes",
             },
+            -- {
+            --     name = "university",
+            --     path = "~/repos/university",
+            -- },{
+            --     name = "notes",
+            --     path = "~/repos/notes",
+            -- },
         },
     },-- Preview markdown code directly in your neovim terminal
 
