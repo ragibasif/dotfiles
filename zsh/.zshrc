@@ -115,6 +115,8 @@ alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias v="nvim"
 alias ls="lsd"
 alias cat="bat"
+alias grep='grep --color=auto'
+alias yt-dlp-audio='yt-dlp --ignore-errors --output "%(title)s.%(ext)s" --extract-audio --audio-format mp3'
 alias cd="z"
 
 fastfetch
@@ -128,3 +130,5 @@ autoload zmv
 
 eval "$(zoxide init zsh)"
 source <(fzf --zsh)
+
+[ -f "/Users/ragibasif/.ghcup/env" ] && . "/Users/ragibasif/.ghcup/env" # ghcup-env

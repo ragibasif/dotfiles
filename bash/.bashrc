@@ -30,10 +30,6 @@ export HISTCONTROL=ignoredups:erasedups
 export EDITOR=nvim
 export VISUAL=nvim
 
-# make anki work on wayland
-export QT_QPA_PLATFORM=wayland
-export ANKI_WAYLAND=1
-
 eval "$(starship init bash)"
 
 export NVM_DIR="$HOME/.nvm"
@@ -46,4 +42,3 @@ eval "$(zoxide init bash)"
 
 export PATH="$HOME/bin:$PATH" # this allows me to run the bash scripts i wrote
 
-[ -f "/$HOME/.ghcup/env" ] && . "/$HOME/.ghcup/env" # ghcup-env
