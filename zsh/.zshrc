@@ -116,7 +116,10 @@ alias v="nvim"
 alias ls="lsd"
 alias cat="bat"
 alias grep='grep --color=auto'
-alias yt-dlp-audio='yt-dlp --ignore-errors --output "%(title)s.%(ext)s" --extract-audio --audio-format mp3'
+# alias yt-dlp-audio='yt-dlp --ignore-errors --output "%(title)s.%(ext)s" --extract-audio --audio-format mp3'
+# alias yt-dlp-audio='yt-dlp -P "~/YouTube" -i -o "%(title)s.%(ext)s" -x --audio-format mp3'
+alias yt-dlp-audio='yt-dlp -P "~/YouTube" -i -o "%(uploader)s-%(title)s.%(ext)s" -x --audio-format mp3'
+
 alias cd="z"
 
 fastfetch
