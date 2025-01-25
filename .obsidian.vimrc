@@ -19,7 +19,13 @@ exmap forward obcommand app:go-forward
 nmap <C-i> :forward
 
 inoremap jk <Esc>
+inoremap Jk <Esc>
+inoremap JK <Esc>
+inoremap jK <Esc>
 vnoremap jk <Esc>
+vnoremap Jk <Esc>
+vnoremap JK <Esc>
+vnoremap jK <Esc>
 
 " Emulate Original gt and gT https://vimhelp.org/tabpage.txt.html#gt
 exmap nextTab obcommand workspace:next-tab
