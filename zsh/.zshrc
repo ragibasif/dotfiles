@@ -116,7 +116,7 @@ alias v="nvim"
 alias ls="lsd"
 alias cat="bat"
 alias grep='grep --color=auto'
-alias yt-dlp-audio='yt-dlp -P "~/YouTube" -x --audio-format mp3 --audio-quality 0 -o "%(uploader)s_%(playlist)s/%(title)s.%(ext)s" -i'
+alias yt-dlp-audio='yt-dlp -P "~/Music/YouTube" -x --audio-format mp3 --audio-quality 0 -o "%(uploader)s_%(playlist)s/%(title)s.%(ext)s" -i'
 
 alias cd="z"
 
