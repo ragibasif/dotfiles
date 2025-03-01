@@ -129,4 +129,3 @@ function lastplace.lastplace_ft(buffer)
 end
 
 return lastplace
-
