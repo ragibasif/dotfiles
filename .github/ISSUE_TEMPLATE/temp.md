@@ -1,18 +1,18 @@
 ---
-name: Add a Contribution Guide
-about: Create a guide for new contributors.
-title: "[Documentation] Add a contribution guide"
+name: Add a Changelog
+about: Create a changelog to track changes in the repository.
+title: "[Documentation] Add a changelog"
 labels: documentation, good first issue
 assignees: ''
 
 ---
 
 ### Description
-Create a `CONTRIBUTING.md` file to guide new contributors on how to set up the project, make changes, and submit pull requests.
+Create a `CHANGELOG.md` file to track changes, new features, and bug fixes in the repository.
 
 ### Tasks
-- Write a detailed contribution guide.
-- Include coding standards, testing instructions, and PR guidelines.
+- Document recent changes and future plans.
+- Use a standard format (e.g., Keep a Changelog).
 
 ### Additional Notes
-- Make the guide beginner-friendly and easy to follow.
+- Update the changelog with each release.
