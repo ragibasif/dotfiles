@@ -1,18 +1,18 @@
 ---
-name: Add a Dry-Run Option to `install.sh`
-about: Add a `--dry-run` flag to simulate the installation process.
-title: "[Enhancement] Add dry-run option to install.sh"
-labels: enhancement, scripting
+name: Improve Windows Support
+about: Enhance the `install.sh` script to support Windows.
+title: "[Enhancement] Improve Windows support"
+labels: enhancement, windows
 assignees: ''
 
 ---
 
 ### Description
-Add a `--dry-run` flag to the `install.sh` script to simulate the installation process without making any changes.
+Enhance the `install.sh` script to support Windows (e.g., via WSL or native tools like Git Bash).
 
 ### Tasks
-- Modify the script to support a dry-run mode.
-- Display a summary of changes that would be made.
+- Detect Windows environments and adjust symlink creation (e.g., use `mklink`).
+- Add Windows-specific instructions to the README.
 
 ### Additional Notes
-- Ensure the dry-run output is clear and easy to understand.
+- Test the script on both WSL and native Windows environments.
