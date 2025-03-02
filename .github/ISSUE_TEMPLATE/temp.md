@@ -1,18 +1,18 @@
 ---
-name: Add Support for Additional Terminal Emulators
-about: Add configurations for terminal emulators like alacritty and wezterm.
-title: "[Enhancement] Add support for more terminal emulators"
-labels: enhancement, good first issue
+name: Add a Theme Switcher Script
+about: Create a script to switch between different themes.
+title: "[Enhancement] Add a theme switcher script"
+labels: enhancement, scripting
 assignees: ''
 
 ---
 
 ### Description
-Add configurations for other popular terminal emulators like `alacritty`, `wezterm`, and `xterm`.
+Create a script to switch between different themes (e.g., light/dark mode) for terminal, `nvim`, and other tools.
 
 ### Tasks
-- Create configuration files for each terminal emulator.
-- Add installation instructions to the README.
+- Write a script that updates configuration files to apply a theme.
+- Add themes for popular tools (e.g., `kitty`, `nvim`).
 
 ### Additional Notes
-- Ensure the configurations are modular and easy to maintain.
+- Ensure the script is easy to use and well-documented.
