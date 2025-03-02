@@ -1,18 +1,18 @@
 ---
-name: Add a Theme Switcher Script
-about: Create a script to switch between different themes.
-title: "[Enhancement] Add a theme switcher script"
-labels: enhancement, scripting
+name: Add a Contribution Guide
+about: Create a guide for new contributors.
+title: "[Documentation] Add a contribution guide"
+labels: documentation, good first issue
 assignees: ''
 
 ---
 
 ### Description
-Create a script to switch between different themes (e.g., light/dark mode) for terminal, `nvim`, and other tools.
+Create a `CONTRIBUTING.md` file to guide new contributors on how to set up the project, make changes, and submit pull requests.
 
 ### Tasks
-- Write a script that updates configuration files to apply a theme.
-- Add themes for popular tools (e.g., `kitty`, `nvim`).
+- Write a detailed contribution guide.
+- Include coding standards, testing instructions, and PR guidelines.
 
 ### Additional Notes
-- Ensure the script is easy to use and well-documented.
+- Make the guide beginner-friendly and easy to follow.
