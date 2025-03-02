@@ -1,18 +1,18 @@
 ---
-name: Add a FAQ Section
-about: Create a FAQ to address common questions.
-title: "[Documentation] Add a FAQ section"
-labels: documentation, good first issue
+name: Add a Script to Sync Dotfiles Across Machines
+about: Create a script to sync dotfiles across multiple machines.
+title: "[Enhancement] Add a sync script"
+labels: enhancement, scripting
 assignees: ''
 
 ---
 
 ### Description
-Create a `FAQ.md` file to address common questions and issues related to the dotfiles.
+Create a script to sync dotfiles across multiple machines using Git or a cloud storage service.
 
 ### Tasks
-- Compile a list of frequently asked questions.
-- Provide clear and concise answers.
+- Write a script to pull and apply the latest dotfiles.
+- Add instructions for setting up the sync process.
 
 ### Additional Notes
-- Keep the FAQ updated as new questions arise.
+- Ensure the script is secure and easy to use.
