@@ -1,18 +1,18 @@
 ---
-name: Create a Backup Script
-about: Add a script to back up existing dotfiles before applying new configurations.
-title: "[Enhancement] Add a backup script"
+name: Add a Dry-Run Option to `install.sh`
+about: Add a `--dry-run` flag to simulate the installation process.
+title: "[Enhancement] Add dry-run option to install.sh"
 labels: enhancement, scripting
 assignees: ''
 
 ---
 
 ### Description
-Add a script to back up existing dotfiles before applying new configurations. This will prevent accidental overwrites and make it easier to revert changes.
+Add a `--dry-run` flag to the `install.sh` script to simulate the installation process without making any changes.
 
 ### Tasks
-- Write a backup script that copies existing dotfiles to a `backup/` directory.
-- Integrate the script into the `install.sh` process.
+- Modify the script to support a dry-run mode.
+- Display a summary of changes that would be made.
 
 ### Additional Notes
-- Ensure the backup script is cross-platform and works on Linux, macOS, and Windows (WSL).
+- Ensure the dry-run output is clear and easy to understand.
