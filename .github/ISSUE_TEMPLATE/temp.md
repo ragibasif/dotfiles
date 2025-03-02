@@ -1,18 +1,18 @@
 ---
-name: Add a GitHub Actions Workflow
-about: Set up a GitHub Actions workflow for automation.
-title: "[Automation] Add a GitHub Actions workflow"
-labels: automation, enhancement
+name: Add a FAQ Section
+about: Create a FAQ to address common questions.
+title: "[Documentation] Add a FAQ section"
+labels: documentation, good first issue
 assignees: ''
 
 ---
 
 ### Description
-Set up a GitHub Actions workflow to automate tasks like linting, testing, and releasing new versions of the dotfiles.
+Create a `FAQ.md` file to address common questions and issues related to the dotfiles.
 
 ### Tasks
-- Create a workflow file (e.g., `.github/workflows/ci.yml`).
-- Add jobs for linting, testing, and deployment.
+- Compile a list of frequently asked questions.
+- Provide clear and concise answers.
 
 ### Additional Notes
-- Ensure the workflow is easy to extend and maintain.
+- Keep the FAQ updated as new questions arise.
