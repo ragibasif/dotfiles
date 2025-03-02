@@ -96,6 +96,7 @@ return {
 		lspconfig.bashls.setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
+			filetypes = { "sh", "bash", "make" },
 		})
 
 		-- Python
@@ -105,7 +106,7 @@ return {
 		})
 
 		-- JavaScript/TypeScript
-		lspconfig.tsserver.setup({
+		lspconfig.ts_ls.setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
