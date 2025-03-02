@@ -1,18 +1,18 @@
 ---
-name: Add a License Header to Scripts
-about: Add a license header to all scripts and configuration files.
-title: "[Documentation] Add license headers"
-labels: documentation, good first issue
+name: Add a Script to Check for Updates
+about: Create a script to check for updates to the dotfiles repository.
+title: "[Enhancement] Add an update checker script"
+labels: enhancement, scripting
 assignees: ''
 
 ---
 
 ### Description
-Add a license header to all scripts and configuration files to ensure proper attribution and compliance.
+Create a script to check for updates to the dotfiles repository and notify the user.
 
 ### Tasks
-- Add the MIT license header to each file.
-- Use a script to automate the process.
+- Write a script that fetches the latest changes from the remote repository.
+- Display a message if updates are available.
 
 ### Additional Notes
-- Ensure the headers are consistent and properly formatted.
+- Ensure the script is lightweight and easy to use.
