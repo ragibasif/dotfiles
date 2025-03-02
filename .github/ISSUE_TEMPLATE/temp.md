@@ -1,18 +1,18 @@
 ---
-name: Add a Script to Sync Dotfiles Across Machines
-about: Create a script to sync dotfiles across multiple machines.
-title: "[Enhancement] Add a sync script"
-labels: enhancement, scripting
+name: Add a License Header to Scripts
+about: Add a license header to all scripts and configuration files.
+title: "[Documentation] Add license headers"
+labels: documentation, good first issue
 assignees: ''
 
 ---
 
 ### Description
-Create a script to sync dotfiles across multiple machines using Git or a cloud storage service.
+Add a license header to all scripts and configuration files to ensure proper attribution and compliance.
 
 ### Tasks
-- Write a script to pull and apply the latest dotfiles.
-- Add instructions for setting up the sync process.
+- Add the MIT license header to each file.
+- Use a script to automate the process.
 
 ### Additional Notes
-- Ensure the script is secure and easy to use.
+- Ensure the headers are consistent and properly formatted.
