@@ -3,13 +3,14 @@ return {
 	"stevearc/conform.nvim",
 	dependencies = "williamboman/mason.nvim", -- dependency updates RTP
 	event = "BufWritePre",
+	lazy = true,
 	cmd = "ConformInfo",
 	opts = {
 		formatters_by_ft = {
 			c = { "clang_format" },
 			cpp = { "clang_format" },
 			lua = { "stylua" },
-			markdown = { "prettier" },
+			markdown = { "mdformat" },
 			css = { "prettier" },
 			graphql = { "prettier" },
 			html = { "prettier" },
@@ -21,15 +22,17 @@ return {
 			typescript = { "prettier" },
 			vue = { "prettier" },
 			yaml = { "prettier" },
+			sh = { "shfmt" },
 		},
 		default_format_opts = {
 			lsp_format = "fallback",
+			timeout_ms = 3000,
+			async = false, -- not recommended to change
+			quiet = false, -- not recommended to change
 		},
-		format_on_save = function(bufnr)
-			-- set during lsp config
-			if vim.b[bufnr].autoformat then
-				return { time_ms = 3000, lsp_format = "fallback" }
-			end
-		end,
+		format_on_save = {
+			timeout_ms = 500, -- Timeout for formatting
+			lsp_fallback = true, -- Fallback to LSP formatting if no formatter is available
+		},
 	},
 }
