@@ -1,18 +1,18 @@
 ---
-name: Add a Uninstall Script
-about: Create a script to remove the dotfiles and restore the system to its original state.
-title: "[Enhancement] Add an uninstall script"
-labels: enhancement, scripting
+name: Document Keybindings and Aliases
+about: Add a file to document custom keybindings and aliases.
+title: "[Documentation] Add keybindings and aliases documentation"
+labels: documentation, good first issue
 assignees: ''
 
 ---
 
 ### Description
-Create a script to remove the dotfiles and restore the system to its original state.
+Add a `KEYBINDINGS.md` or `ALIASES.md` file to document custom keybindings and aliases for tools like `tmux`, `nvim`, and `bash`.
 
 ### Tasks
-- Write a script that removes symlinks and restores backups (if available).
-- Document how to use the uninstall script.
+- List all custom keybindings and aliases.
+- Explain their purpose and usage.
 
 ### Additional Notes
-- Ensure the script is safe to run and does not delete user data.
+- Organize the document by tool for easy navigation.
