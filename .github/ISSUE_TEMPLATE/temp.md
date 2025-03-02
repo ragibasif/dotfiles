@@ -1,18 +1,18 @@
 ---
-name: Improve Windows Support
-about: Enhance the `install.sh` script to support Windows.
-title: "[Enhancement] Improve Windows support"
-labels: enhancement, windows
+name: Add a Uninstall Script
+about: Create a script to remove the dotfiles and restore the system to its original state.
+title: "[Enhancement] Add an uninstall script"
+labels: enhancement, scripting
 assignees: ''
 
 ---
 
 ### Description
-Enhance the `install.sh` script to support Windows (e.g., via WSL or native tools like Git Bash).
+Create a script to remove the dotfiles and restore the system to its original state.
 
 ### Tasks
-- Detect Windows environments and adjust symlink creation (e.g., use `mklink`).
-- Add Windows-specific instructions to the README.
+- Write a script that removes symlinks and restores backups (if available).
+- Document how to use the uninstall script.
 
 ### Additional Notes
-- Test the script on both WSL and native Windows environments.
+- Ensure the script is safe to run and does not delete user data.
