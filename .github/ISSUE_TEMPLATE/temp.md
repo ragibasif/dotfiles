@@ -1,18 +1,18 @@
 ---
-name: Add a Dependency Checker
-about: Enhance the `install.sh` script to check for required dependencies.
-title: "[Enhancement] Add a dependency checker"
-labels: enhancement, scripting
+name: Add a GitHub Actions Workflow
+about: Set up a GitHub Actions workflow for automation.
+title: "[Automation] Add a GitHub Actions workflow"
+labels: automation, enhancement
 assignees: ''
 
 ---
 
 ### Description
-Enhance the `install.sh` script to check for required dependencies (e.g., `git`, `stow`) and provide installation instructions if they are missing.
+Set up a GitHub Actions workflow to automate tasks like linting, testing, and releasing new versions of the dotfiles.
 
 ### Tasks
-- Add dependency checks for each tool.
-- Display helpful error messages with installation instructions.
+- Create a workflow file (e.g., `.github/workflows/ci.yml`).
+- Add jobs for linting, testing, and deployment.
 
 ### Additional Notes
-- Ensure the script works on Linux, macOS, and Windows (WSL).
+- Ensure the workflow is easy to extend and maintain.
