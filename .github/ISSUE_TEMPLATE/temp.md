@@ -1,20 +1,18 @@
 ---
-name: Add Support for Additional Shells
-about: Add support for shells like zsh and fish.
-title: "[Enhancement] Add support for zsh and fish"
-labels: enhancement, good first issue
+name: Create a Backup Script
+about: Add a script to back up existing dotfiles before applying new configurations.
+title: "[Enhancement] Add a backup script"
+labels: enhancement, scripting
 assignees: ''
 
 ---
 
 ### Description
-Currently, the dotfiles focus on `bash`. This issue aims to add support for other popular shells like `zsh` and `fish`.
+Add a script to back up existing dotfiles before applying new configurations. This will prevent accidental overwrites and make it easier to revert changes.
 
 ### Tasks
-- Create separate configuration files for `zsh` and `fish`.
-- Add installation instructions for each shell.
-- Test compatibility across different systems.
+- Write a backup script that copies existing dotfiles to a `backup/` directory.
+- Integrate the script into the `install.sh` process.
 
 ### Additional Notes
-- Ensure the configurations are modular and easy to maintain.
-- Document how to switch between shells in the README.
+- Ensure the backup script is cross-platform and works on Linux, macOS, and Windows (WSL).
