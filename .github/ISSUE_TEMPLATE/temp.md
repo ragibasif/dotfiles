@@ -1,18 +1,18 @@
 ---
-name: Document Keybindings and Aliases
-about: Add a file to document custom keybindings and aliases.
-title: "[Documentation] Add keybindings and aliases documentation"
-labels: documentation, good first issue
+name: Add a Test Suite
+about: Create a test suite to validate the dotfiles setup.
+title: "[Testing] Add a test suite"
+labels: testing, enhancement
 assignees: ''
 
 ---
 
 ### Description
-Add a `KEYBINDINGS.md` or `ALIASES.md` file to document custom keybindings and aliases for tools like `tmux`, `nvim`, and `bash`.
+Create a test suite to validate the dotfiles setup on different systems and environments.
 
 ### Tasks
-- List all custom keybindings and aliases.
-- Explain their purpose and usage.
+- Write tests for key configurations (e.g., check if symlinks are created correctly).
+- Use a CI/CD tool (e.g., GitHub Actions) to run tests automatically.
 
 ### Additional Notes
-- Organize the document by tool for easy navigation.
+- Ensure the test suite is easy to extend and maintain.
