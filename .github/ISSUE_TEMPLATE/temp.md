@@ -1,18 +1,18 @@
 ---
-name: Add a Changelog
-about: Create a changelog to track changes in the repository.
-title: "[Documentation] Add a changelog"
-labels: documentation, good first issue
+name: Add a Dependency Checker
+about: Enhance the `install.sh` script to check for required dependencies.
+title: "[Enhancement] Add a dependency checker"
+labels: enhancement, scripting
 assignees: ''
 
 ---
 
 ### Description
-Create a `CHANGELOG.md` file to track changes, new features, and bug fixes in the repository.
+Enhance the `install.sh` script to check for required dependencies (e.g., `git`, `stow`) and provide installation instructions if they are missing.
 
 ### Tasks
-- Document recent changes and future plans.
-- Use a standard format (e.g., Keep a Changelog).
+- Add dependency checks for each tool.
+- Display helpful error messages with installation instructions.
 
 ### Additional Notes
-- Update the changelog with each release.
+- Ensure the script works on Linux, macOS, and Windows (WSL).
