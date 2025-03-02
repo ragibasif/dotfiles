@@ -1,18 +1,18 @@
 ---
-name: Add a Cheatsheet for Common Workflows
-about: Create a cheatsheet for common workflows and commands.
-title: "[Documentation] Add a cheatsheet"
-labels: documentation, good first issue
+name: Add Support for Additional Terminal Emulators
+about: Add configurations for terminal emulators like alacritty and wezterm.
+title: "[Enhancement] Add support for more terminal emulators"
+labels: enhancement, good first issue
 assignees: ''
 
 ---
 
 ### Description
-Create a `CHEATSHEET.md` file to document common workflows and commands (e.g., how to use `tmux` sessions, how to navigate `nvim`).
+Add configurations for other popular terminal emulators like `alacritty`, `wezterm`, and `xterm`.
 
 ### Tasks
-- Write concise examples and explanations.
-- Organize the cheatsheet by tool or workflow.
+- Create configuration files for each terminal emulator.
+- Add installation instructions to the README.
 
 ### Additional Notes
-- Include screenshots or GIFs to make the cheatsheet more engaging.
+- Ensure the configurations are modular and easy to maintain.
