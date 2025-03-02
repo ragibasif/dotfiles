@@ -1,18 +1,18 @@
 ---
-name: Add a Test Suite
-about: Create a test suite to validate the dotfiles setup.
-title: "[Testing] Add a test suite"
-labels: testing, enhancement
+name: Add a Cheatsheet for Common Workflows
+about: Create a cheatsheet for common workflows and commands.
+title: "[Documentation] Add a cheatsheet"
+labels: documentation, good first issue
 assignees: ''
 
 ---
 
 ### Description
-Create a test suite to validate the dotfiles setup on different systems and environments.
+Create a `CHEATSHEET.md` file to document common workflows and commands (e.g., how to use `tmux` sessions, how to navigate `nvim`).
 
 ### Tasks
-- Write tests for key configurations (e.g., check if symlinks are created correctly).
-- Use a CI/CD tool (e.g., GitHub Actions) to run tests automatically.
+- Write concise examples and explanations.
+- Organize the cheatsheet by tool or workflow.
 
 ### Additional Notes
-- Ensure the test suite is easy to extend and maintain.
+- Include screenshots or GIFs to make the cheatsheet more engaging.
