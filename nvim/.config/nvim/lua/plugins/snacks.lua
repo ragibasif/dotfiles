@@ -12,7 +12,7 @@ local header = [[
 
 local footer = [[
 ▀ ▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀ ▀ ▀▀▀▀▀▀▀▀▀▀▀▀▀ ▀
-                                      r a g i b     ]]
+                                      n e o v i m   ]]
 
 return {
         "folke/snacks.nvim",
@@ -59,6 +59,7 @@ return {
                 notification = { border = "single" },
                 notification_history = { border = "single" },
             },
+            git = { enabled = true },
             indent = { enabled = true },
             input = { enabled = true },
             notifier = {
