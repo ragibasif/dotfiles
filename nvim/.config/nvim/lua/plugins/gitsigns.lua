@@ -23,7 +23,7 @@ return {
 			current_line_blame_opts = {
 				virt_text = true, -- Show blame in virtual text
 				virt_text_pos = "eol", -- Position of virtual text (end of line)
-				delay = 100, -- Delay before showing blame
+				delay = 1000, -- Delay before showing blame
 				ignore_whitespace = false, -- Don't ignore whitespace changes
 			},
 			current_line_blame_formatter = "<author>, <author_time:%Y-%m-%d> - <summary>", -- Blame format
