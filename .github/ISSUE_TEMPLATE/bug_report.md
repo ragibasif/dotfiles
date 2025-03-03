@@ -1,7 +1,7 @@
 ---
-name: Issue Template
-about: Create a detailed issue to help improve the project
-title: "[Issue]: "
+name: Bug Report
+about: Create a detailed bug report to help us improve the project
+title: "[Bug]: "
 labels: []
 assignees: []
 ---
@@ -26,9 +26,6 @@ assignees: []
 
 ## 📚 Possible Solution (Optional)
 <!-- Suggest a possible fix or reason for the issue. -->
-
-## 💡 Feature Request (If applicable)
-<!-- If you're requesting a feature, describe how it will benefit users. -->
 
 ## 📦 Environment
 - **OS:** [e.g., Windows, macOS, Linux]

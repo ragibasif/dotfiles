@@ -10,7 +10,7 @@ return {
 			c = { "clang_format" },
 			cpp = { "clang_format" },
 			lua = { "stylua" },
-			markdown = { "mdformat" },
+			-- markdown = { "mdformat" },
 			css = { "prettier" },
 			graphql = { "prettier" },
 			html = { "prettier" },
