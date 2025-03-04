@@ -10,18 +10,18 @@ return {
 			c = { "clang_format" },
 			cpp = { "clang_format" },
 			lua = { "stylua" },
-			-- markdown = { "mdformat" },
-			css = { "prettier" },
-			graphql = { "prettier" },
-			html = { "prettier" },
-			json = { "prettier" },
-			jsx = { "prettier" },
-			javascript = { "prettier" },
-			less = { "prettier" },
-			scss = { "prettier" },
-			typescript = { "prettier" },
-			vue = { "prettier" },
-			yaml = { "prettier" },
+			markdown = { "prettier", "prettierd", stop_after_first = true },
+			css = { "prettier", "prettierd", stop_after_first = true },
+			graphql = { "prettier", "prettierd", stop_after_first = true },
+			html = { "prettier", "prettierd", stop_after_first = true },
+			json = { "prettier", "prettierd", stop_after_first = true },
+			jsx = { "prettier", "prettierd", stop_after_first = true },
+			javascript = { "prettier", "prettierd", stop_after_first = true },
+			less = { "prettier", "prettierd", stop_after_first = true },
+			scss = { "prettier", "prettierd", stop_after_first = true },
+			typescript = { "prettier", "prettierd", stop_after_first = true },
+			vue = { "prettier", "prettierd", stop_after_first = true },
+			yaml = { "prettier", "prettierd", stop_after_first = true },
 			sh = { "shfmt" },
 		},
 		default_format_opts = {
@@ -31,8 +31,8 @@ return {
 			quiet = false, -- not recommended to change
 		},
 		format_on_save = {
-			timeout_ms = 500, -- Timeout for formatting
-			lsp_fallback = true, -- Fallback to LSP formatting if no formatter is available
+			lsp_format = "fallback",
+			timeout_ms = 500,
 		},
 	},
 }

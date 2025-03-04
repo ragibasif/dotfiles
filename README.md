@@ -18,10 +18,12 @@ Welcome to my dotfiles repository! This is where I store and manage my precious 
 Before you begin, ensure you have the following tools installed on your system:
 
 **Required:**
+
 - **`git`**: For cloning and managing the repository.
 - **`stow`**: For symlinking and managing dotfiles.
 
 **Optional (but recommended):**
+
 - **`neovim`**: For a modern Vim experience.
 - **`tmux`**: For terminal multiplexing and session management.
 
