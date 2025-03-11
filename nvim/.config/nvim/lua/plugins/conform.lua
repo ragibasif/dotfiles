@@ -18,6 +18,7 @@ return {
 			jsx = { "prettier", "prettierd", stop_after_first = true },
 			javascript = { "prettier", "prettierd", stop_after_first = true },
 			less = { "prettier", "prettierd", stop_after_first = true },
+			python = { "ruff", stop_after_first = true },
 			scss = { "prettier", "prettierd", stop_after_first = true },
 			typescript = { "prettier", "prettierd", stop_after_first = true },
 			vue = { "prettier", "prettierd", stop_after_first = true },
