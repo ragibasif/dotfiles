@@ -2,6 +2,15 @@
 
 Welcome to my dotfiles repository! This is where I store and manage my precious configuration files (commonly referred to as "dotfiles"). These files are essential for customizing and optimizing my development environment. To manage these configurations efficiently, I use **GNU Stow**, a symlink manager that helps keep everything organized and easily deployable.
 
+> [!warning]
+> Not all configurations are actively maintained and the `install.sh` script needs to be updated, which I shall get to soon (hopefully). Use at your own risk!
+> List of **NOT** actively maintained configuration files:
+>
+> - alacritty
+> - kitty
+> - starship
+> - vim
+
 ## Table of Contents
 
 - [Getting Started](#getting-started)
@@ -83,7 +92,3 @@ Here are some additional resources to help you understand and manage dotfiles wi
 
 - [Using GNU Stow to manage your dotfiles](https://brandon.invergo.net/news/2012-05-26-using-gnu-stow-to-manage-your-dotfiles.html): A comprehensive guide on using `stow` for dotfiles management.
 - [Force GNU stow to overwrite existing config file](https://www.reddit.com/r/linux4noobs/comments/b5ig2h/is_there_any_way_to_force_gnu_stow_to_overwrite/): A Reddit thread discussing how to handle conflicts with `stow`.
-
----
-
-Feel free to explore the repository and customize it to fit your needs. If you have any questions or suggestions, please open an issue or submit a pull request. Happy coding! 🚀
