@@ -31,3 +31,4 @@ docs
 .github
 wallpapers
 *.md
+.yamllint
