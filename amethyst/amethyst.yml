@@ -15,9 +15,9 @@
 layouts:
   - tall
   - fullscreen
-  # - tall-right
+  - tall-right
   - wide
-  # - two-pane
+  - two-pane
   # - middle-wide
   # - 3column-left
   # - middle-wide # The legacy name of "3column-middle"
@@ -25,8 +25,8 @@ layouts:
   # - 4column-left
   # - 4column-right
   - column
-  # - row
-  # - floating
+  - row
+  - floating
   # - widescreen-tall
   # - widescreen-tall-right
   # - bsp

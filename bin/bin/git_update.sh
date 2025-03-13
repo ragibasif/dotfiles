@@ -6,5 +6,5 @@
 master=master
 
 git add -A  # Add all files and commit them
-git commit -m "{{UPDATE}} $(date +%c)"
+git commit -m "{{AUTOMATED UPDATE}} $(date +%c)"
 git push origin $master # push master branch to github
