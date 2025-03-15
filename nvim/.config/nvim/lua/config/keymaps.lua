@@ -10,8 +10,11 @@ map("", "<right>", "<nop>", opts)
 
 -- map jk to escape
 map("i", "jk", "<ESC>", opts)
+map("i", "Jk", "<ESC>", opts)
 map("i", "JK", "<ESC>", opts)
 map("i", "jK", "<ESC>", opts)
+
 map("v", "jk", "<ESC>", opts)
+map("v", "Jk", "<ESC>", opts)
 map("v", "JK", "<ESC>", opts)
 map("v", "jK", "<ESC>", opts)
