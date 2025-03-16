@@ -1,0 +1,47 @@
+# editorconfig.org
+
+# top-most EditorConfig file
+root = true
+
+# Set default charset
+# Unix-style newlines with a newline ending every file
+# 4 space indentation
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+indent_style = space
+indent_size = 4
+trim_trailing_whitespace = true
+max_line_length = 80
+
+[*.py]
+indent_style = space
+indent_size = 4
+
+# Matches multiple files with brace expansion notation
+[*.{js,ts,jsx,tsx,css,scss,html,json,yml,yaml,md}]
+indent_size = 2
+trim_trailing_whitespace = true
+
+# Indentation override for all JS under lib directory
+[lib/**.js]
+indent_style = space
+indent_size = 2
+
+# Matches the exact files either package.json or .travis.yml
+[{package.json,.travis.yml}]
+indent_style = space
+indent_size = 2
+
+[*.md]
+trim_trailing_whitespace = false
+
+[*.{sh,bash,zsh}]
+indent_style = space
+indent_size = 2
+
+# Tab indentation (no size specified)
+[Makefile]
+indent_style = tab
+
