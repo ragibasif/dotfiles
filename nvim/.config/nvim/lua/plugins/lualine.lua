@@ -15,7 +15,25 @@ return {
 				lualine_a = { "mode" }, -- Leftmost section (mode)
 				lualine_b = { "branch", "diff", "diagnostics" }, -- Git branch, diff, and LSP diagnostics
 				lualine_c = { "filename" }, -- Current filename
-				lualine_x = { "encoding", "fileformat", "filetype" }, -- Encoding, file format, and file type
+				-- lualine_x = { "encoding", "fileformat", "filetype" }, -- Encoding, file format, and file type
+				lualine_x = { -- pomo.nvim
+					function()
+						local ok, pomo = pcall(require, "pomo")
+						if not ok then
+							return ""
+						end
+
+						local timer = pomo.get_first_to_finish()
+						if timer == nil then
+							return ""
+						end
+
+						return "󰄉 " .. tostring(timer)
+					end,
+					"encoding",
+					"fileformat",
+					"filetype",
+				},
 				lualine_y = { "progress" }, -- Current position in the file (line:column)
 				lualine_z = { "location" }, -- Current cursor location
 			},
