@@ -7,19 +7,18 @@
             "2": "yellow"
         },
         "padding": {
-            "left": 3,
-            "top": 3
+             "left": 1,
+             "top": 1
         }
     },
     "display": {
         "separator": "  ",
         "color": {
-            "keys": "magenta",
-            "values": "white"
+            "keys": "magenta"
         },
         "size": {
-            "ndigits": 1,
-            "maxPrefix": "GB"
+            "ndigits": 0,
+            "maxPrefix": "MB"
         },
         "key": {
             "type": "icon"
@@ -36,23 +35,18 @@
         },
         "separator",
         "os",
-        "kernel",
         "shell",
         "editor",
         "terminal",
-        "cpu",
-        "gpu",
-        "memory",
         "battery",
         "uptime",
         {
             "type": "colors",
-            "key": "Colors",
+            "key": "Colors", // For printing icon
             "symbol": "circle",
             "block": {
-                "range": [1, 8]
+                "range": [1, 6]
             }
         }
     ]
 }
-

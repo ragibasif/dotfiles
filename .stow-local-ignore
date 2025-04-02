@@ -33,3 +33,4 @@ wallpapers
 *.md
 .yamllint
 obsidian
+.deprecated

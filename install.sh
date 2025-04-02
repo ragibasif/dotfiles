@@ -11,16 +11,10 @@
 # Stow will create a symlink and overwrite the files inside your repository and git will undo the changes and return to the original files but the symlinks will stay there.
 #
 
-#sudo pacman -S alacritty bash starship kitty neovim vim git tmux fastfetch
 
-stow --adopt alacritty
-stow --adopt bin
 stow --adopt bash
-stow --adopt starship
-stow --adopt kitty
 stow --adopt nvim
 stow --adopt vim
-stow --adopt Code
 stow --adopt git
 stow --adopt tmux
 stow --adopt fastfetch
@@ -28,6 +22,10 @@ stow --adopt zsh
 stow --adopt amethyst
 
 # on MACOS
-sudo cp -i ~/dotfiles/bin/bin/* /usr/local/bin/
+if [[ $OSTYPE == 'darwin'* ]]; then
+  sudo cp -i ~/dotfiles/bin/bin/* /usr/local/bin/
+else
+  stow --adopt bin
+fi
 
 git restore .
