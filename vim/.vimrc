@@ -1,8 +1,10 @@
 set nocompatible
+
 filetype on
 filetype plugin on
 filetype indent on
 syntax on
+
 set background=dark
 set number
 set relativenumber
@@ -42,7 +44,7 @@ set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8
 set ttyfast
-    
+
 set hidden
 set wildmenu
 set scrolloff=8

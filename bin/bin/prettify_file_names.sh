@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# Define the directory to search
-# in this case this one will be the current working directory
 search_dir="./"
 
 prettify() {
@@ -16,7 +14,7 @@ prettify() {
                 if [[ "$file" != "$new_file" ]]; then
                     # rename file name to prettified file
                     mv "$file" "$new_file"
-                    echo "Renamed: $file -> $new_file"
+                    # echo "Renamed: $file -> $new_file"
                 fi
             fi
         done
@@ -27,33 +25,20 @@ prettify() {
 
 }
 
-prettify " "
-prettify "-"
-prettify "("
-prettify ")"
-prettify "["
-prettify "]"
-prettify "{"
-prettify "}"
-prettify ","
-prettify ";"
-prettify ":"
-prettify "$"
-prettify "%"
-prettify "&"
-prettify "*"
-prettify "^"
-prettify "#"
-prettify "@"
-prettify "!"
-prettify "'"
-prettify "\`"
-prettify "~"
-prettify "|"
-prettify "+"
-prettify "="
-prettify "<"
-prettify ">"
+
+chars=(" " "-" "(" ")" "[" "]" "{" "}" "," ";" ":" "$" "%" "&" "*" "^" "#" "@" "!" "'" "\`" "\"" "~" "|" "+" "=" "<" ">" "＂")
+
+for char in "${chars[@]}"; do
+    prettify "$char"
+done
+
 
 for f in *.*; do pre="${f%.*}"; suf="${f##*.}"; \
-                 mv -i -- "$f" "${pre//./_}.${suf}"; done
+                 mv -- "$f" "${pre//./_}.${suf}"; done
+
+for file in *; do
+    new_name=$(echo "$file" | sed 's/_*_/_/g')
+    if [ "$file" != "$new_name" ]; then
+        mv "$file" "$new_name"
+    fi
+done
