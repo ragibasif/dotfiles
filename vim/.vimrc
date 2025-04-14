@@ -105,6 +105,10 @@ noremap YY "+y<CR>
 noremap <leader>p "+gP<CR>
 noremap XX "+x<CR>
 
+nnoremap <leader>l :set list!<CR>
+nnoremap <leader>w :FixWhitespace<CR>
+
+
 " inoremap jk <esc>
 " inoremap Jk <esc>
 " inoremap JK <esc>
