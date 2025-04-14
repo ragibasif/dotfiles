@@ -40,11 +40,11 @@ vim.opt.autoread = true
 vim.opt.softtabstop = 4
 vim.opt.numberwidth = 4
 vim.opt.ruler = true
-vim.opt.background = "dark"
 vim.opt.writebackup = false
 vim.opt.cursorcolumn = true
 vim.opt.colorcolumn = "80"
 vim.opt.guicursor = "" -- Set insert mode cursor to block
+vim.opt.background = "dark"
 
 -- Advanced settings
 vim.opt.splitbelow = true -- Split window below
@@ -57,7 +57,7 @@ vim.opt.completeopt = { "menuone", "noselect" } -- Better completion
 vim.opt.list = true -- Show some invisible characters
 vim.opt.listchars = { tab = "» ", trail = "·", extends = "→", precedes = "←", nbsp = "␣", eol = "¬" }
 vim.opt.pumheight = 10 -- Limit completion items
-vim.opt.showmode = false -- Don't show mode in command line
+vim.opt.showmode = true -- Don't show mode in command line
 vim.opt.shortmess:append("c") -- Don't show completion messages
 vim.opt.breakindent = true -- Enable break indent
-vim.opt.conceallevel = 1
+-- vim.opt.conceallevel = 1

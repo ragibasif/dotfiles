@@ -1,1 +1,5 @@
-vim.cmd("colorscheme default")
+vim.cmd [[colorscheme quiet]]
+-- vim.cmd [[colorscheme retrobox]]
+-- vim.cmd [[colorscheme lunaperche]]
+-- vim.cmd [[colorscheme sorbet]]
+-- vim.cmd [[colorscheme wildcharm]]

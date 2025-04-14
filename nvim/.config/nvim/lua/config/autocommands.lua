@@ -54,8 +54,16 @@ autocmd("FileType", {
 	pattern = { "python", "lua", "javascript", "typescript" },
 	command = "setlocal shiftwidth=4 tabstop=4",
 })
+
 autocmd("FileType", {
 	group = "FileTypeSettings",
 	pattern = { "html", "css", "scss" },
 	command = "setlocal shiftwidth=2 tabstop=2",
 })
+
+autocmd("FileType", {
+	group = "FileTypeSettings",
+	pattern = { "make", "cmake" },
+	command = "setlocal noexpandtab",
+})
+
