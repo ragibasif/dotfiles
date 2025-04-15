@@ -127,3 +127,5 @@ export NVM_DIR="$HOME/.nvm"
 
 
 export PATH="$HOME/bin:$PATH" # this allows me to run the bash scripts i wrote
+
+[ -f "/Users/ragibasif/.ghcup/env" ] && . "/Users/ragibasif/.ghcup/env" # ghcup-env

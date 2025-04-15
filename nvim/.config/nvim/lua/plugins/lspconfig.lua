@@ -76,12 +76,34 @@ return {
 		lspconfig.clangd.setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
+			cmd = {
+				"clangd",
+				"--fallback-style=llvm",
+			},
+			root_markers = {
+				{
+					".clangd",
+					".clang-tidy",
+					".clang-format",
+					"compile_commands.json",
+					"compile_flags.txt",
+					"configure.ac",
+					".git",
+				},
+			},
 		})
 
 		-- Lua
 		lspconfig.lua_ls.setup({
 			settings = {
 				Lua = {
+					format = {
+						enable = true,
+						defaultConfig = {
+							indent_style = "space",
+							indent_size = "4",
+						},
+					},
 					runtime = { version = "LuaJIT" },
 					diagnostics = { globals = { "vim" } },
 					workspace = { library = vim.api.nvim_get_runtime_file("", true) },
