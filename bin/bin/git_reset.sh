@@ -1,7 +1,11 @@
 #!/bin/bash
 
+# set -x
+set -vx
+
 # clear history of remote git repo
-#
+# https://stackoverflow.com/questions/9683279/make-the-current-commit-the-only-initial-commit-in-a-git-repository
+
 
 master=master
 

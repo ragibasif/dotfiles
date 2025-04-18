@@ -3,6 +3,9 @@
 # Backup/update current directory to github
 #
 
+# set -x
+set -vx
+
 master=master
 
 git add -A  # Add all files and commit them

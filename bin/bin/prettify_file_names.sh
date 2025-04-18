@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -vx
+
 search_dir="./"
 
 prettify() {
