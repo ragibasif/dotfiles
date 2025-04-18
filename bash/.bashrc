@@ -12,7 +12,7 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-alias v='nvim --noplugin'
+alias v='nvim'
 alias ls='lsd'
 alias cat='bat'
 alias grep='grep --color=auto'

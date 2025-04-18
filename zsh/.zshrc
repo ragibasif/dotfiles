@@ -112,7 +112,7 @@ fi
 # aliases
 alias zshconfig="nvim ~/.zshrc"
 alias ohmyzsh="nvim ~/.oh-my-zsh"
-alias v="nvim --noplugin"
+alias v="nvim"
 alias ls="lsd"
 alias cat="bat"
 alias grep='grep --color=auto'

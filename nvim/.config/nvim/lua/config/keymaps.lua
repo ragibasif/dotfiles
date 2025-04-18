@@ -18,3 +18,8 @@ map("v", "jk", "<ESC>", opts)
 map("v", "Jk", "<ESC>", opts)
 map("v", "JK", "<ESC>", opts)
 map("v", "jK", "<ESC>", opts)
+
+map("c", "jk", "<ESC>", opts)
+map("c", "Jk", "<ESC>", opts)
+map("c", "JK", "<ESC>", opts)
+map("c", "jK", "<ESC>", opts)
