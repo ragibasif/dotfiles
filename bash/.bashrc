@@ -12,13 +12,21 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-alias v='nvim'
-alias ls='lsd'
-alias cat='bat'
-alias grep='grep --color=auto'
-alias dl-song='yt-dlp -P "~/Music" -x --audio-format mp3 --audio-quality 0 -o "%(uploader)s_%(playlist)s/%(title)s.%(ext)s" --embed-metadata --parse-metadata "%(title)s:%(meta_title)s" --parse-metadata "%(uploader)s:%(meta_artist)s" --parse-metadata "%(playlist)s:%(meta_album)s" --parse-metadata "%(playlist_index)s:%(meta_track)s" -i'
-PS1='[\u@\h \W]\$ '
+source "./.aliases"
 
+# alias v='nvim'
+# alias ls='lsd'
+# alias cat='bat'
+# alias grep='grep --color=auto'
+# alias dl-song='yt-dlp -P "~/Music" -x --audio-format mp3 --audio-quality 0 -o "%(uploader)s_%(playlist)s/%(title)s.%(ext)s" --embed-metadata --parse-metadata "%(title)s:%(meta_title)s" --parse-metadata "%(uploader)s:%(meta_artist)s" --parse-metadata "%(playlist)s:%(meta_album)s" --parse-metadata "%(playlist_index)s:%(meta_track)s" -i'
+# PS1='[\u@\h \W]\$ '
+#
+# alias val='valgrind --tool=memcheck --leak-check=full --show-reachable=yes --error-exitcode=1'
+#
+# alias mv='mv -iv'
+# ## undo mv:
+# function unmv { mv -iv "$2" "$1" }
+#
 
 # enable vi mode
 set -o vi
@@ -28,8 +36,8 @@ export TERM="xterm-256color"
 
 # no duplicate entries
 export HISTCONTROL=ignoredups:erasedups
-export EDITOR=vim
-export VISUAL=vim
+export EDITOR=nvim
+export VISUAL=nvim
 
 eval "$(starship init bash)"
 
@@ -41,4 +49,3 @@ export NVM_DIR="$HOME/.nvm"
 fastfetch
 
 export PATH="$HOME/bin:$PATH" # this allows me to run the bash scripts i wrote
-

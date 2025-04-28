@@ -101,6 +101,10 @@ fi
 # Compilation flags
 # export ARCHFLAGS="-arch $(uname -m)"
 
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+
 # Set personal aliases, overriding those provided by Oh My Zsh libs,
 # plugins, and themes. Aliases can be placed here, though Oh My Zsh
 # users are encouraged to define aliases within a top-level file in
@@ -110,13 +114,22 @@ fi
 # For a full list of active aliases, run `alias`.
 #
 # aliases
-alias zshconfig="nvim ~/.zshrc"
-alias ohmyzsh="nvim ~/.oh-my-zsh"
-alias v="nvim"
-alias ls="lsd"
-alias cat="bat"
-alias grep='grep --color=auto'
-alias dl-song='yt-dlp -P "~/Music" -x --audio-format mp3 --audio-quality 0 -o "%(uploader)s_%(playlist)s/%(title)s.%(ext)s" --embed-metadata --parse-metadata "%(title)s:%(meta_title)s" --parse-metadata "%(uploader)s:%(meta_artist)s" --parse-metadata "%(playlist)s:%(meta_album)s" --parse-metadata "%(playlist_index)s:%(meta_track)s" -i'
+source "./.aliases"
+# alias zshconfig="nvim ~/.zshrc"
+# alias ohmyzsh="nvim ~/.oh-my-zsh"
+# alias v="nvim"
+# alias ls="lsd"
+# alias cat="bat"
+# alias grep='grep --color=auto'
+# alias dl-song='yt-dlp -P "~/Music" -x --audio-format mp3 --audio-quality 0 -o "%(uploader)s_%(playlist)s/%(title)s.%(ext)s" --embed-metadata --parse-metadata "%(title)s:%(meta_title)s" --parse-metadata "%(uploader)s:%(meta_artist)s" --parse-metadata "%(playlist)s:%(meta_album)s" --parse-metadata "%(playlist_index)s:%(meta_track)s" -i'
+#
+#
+# alias val='valgrind --tool=memcheck --leak-check=full --show-reachable=yes --error-exitcode=1'
+#
+# alias mv='mv -iv'
+# ## undo mv:
+# function unmv { mv -iv "$2" "$1" }
+#
 
 
 fastfetch
@@ -129,3 +142,4 @@ export NVM_DIR="$HOME/.nvm"
 export PATH="$HOME/bin:$PATH" # this allows me to run the bash scripts i wrote
 
 [ -f "/Users/ragibasif/.ghcup/env" ] && . "/Users/ragibasif/.ghcup/env" # ghcup-env
+

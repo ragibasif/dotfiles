@@ -17,6 +17,7 @@ stow --adopt git
 
 stow --adopt bash
 stow --adopt zsh
+stow --adopt shell
 
 stow --adopt nvim
 stow --adopt vim

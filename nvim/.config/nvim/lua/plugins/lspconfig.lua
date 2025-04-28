@@ -118,7 +118,7 @@ return {
 		lspconfig.bashls.setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
-			filetypes = { "sh", "bash", "make" },
+			filetypes = { "sh", "bash" },
 		})
 
 		-- Python

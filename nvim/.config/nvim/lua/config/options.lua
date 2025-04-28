@@ -55,7 +55,9 @@ vim.opt.wildmenu = true -- Enable command-line completion
 vim.opt.wildmode = "longest:full,full" -- Command-line completion mode
 vim.opt.completeopt = { "menuone", "noselect" } -- Better completion
 vim.opt.list = true -- Show some invisible characters
-vim.opt.listchars = { tab = "» ", trail = "·", extends = "→", precedes = "←", nbsp = "␣", eol = "¬" }
+vim.opt.listchars =
+	{ tab = "» ", space = "·", trail = "·", extends = "→", precedes = "←", nbsp = "␣", eol = "¬" }
+
 vim.opt.pumheight = 10 -- Limit completion items
 vim.opt.showmode = true -- Don't show mode in command line
 vim.opt.shortmess:append("c") -- Don't show completion messages
