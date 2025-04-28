@@ -1,0 +1,43 @@
+# ~/.aliases
+
+# Get OS type (Linux, Darwin/macOS, etc.)
+OS="$(uname -s)"
+
+# Linux-specific aliases
+if [ "$OS" = "Linux" ]; then
+    alias ls='ls --color=auto'
+fi
+
+# macOS-specific aliases
+if [ "$OS" = "Darwin" ]; then
+    alias ls='ls -G'
+fi
+
+alias ll='ls -lh'
+alias la='ls -lAh'
+
+# Disk space
+alias df='df -h'
+alias du='du -h'
+
+# Editor
+alias v="nvim"
+
+# Search
+alias grep='grep --color=auto'
+
+# Safety nets to prevent accidents
+alias rm='rm -iv'
+alias cp='cp -iv'
+alias mv='mv -iv'
+
+# Extras
+alias yt-dlp='yt-dlp -P "~/Music" -x --audio-format mp3 --audio-quality 0 -o "%(uploader)s_%(playlist)s/%(title)s.%(ext)s" --embed-metadata --parse-metadata "%(title)s:%(meta_title)s" --parse-metadata "%(uploader)s:%(meta_artist)s" --parse-metadata "%(playlist)s:%(meta_album)s" --parse-metadata "%(playlist_index)s:%(meta_track)s" -i'
+alias valgrind='valgrind --tool=memcheck --leak-check=full --show-reachable=yes --error-exitcode=1'
+
+# Fetch
+fastfetch
+
+# Package Management
+## For brew (macOS)
+alias brewup='brew update && brew upgrade && brew cleanup'
