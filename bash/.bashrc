@@ -14,8 +14,15 @@
 
 # PS1='[\u@\h \W]\$ '
 
+# aliases
+unalias -a
 if [ -f ~/.aliasrc ]; then
     source ~/.aliasrc
+fi
+
+# Only run in interactive shells
+if [[ $- == *i* ]]; then
+    source ~/.startrc
 fi
 
 # enable vi mode
