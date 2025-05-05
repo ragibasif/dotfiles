@@ -11,13 +11,15 @@
 # Stow will create a symlink and overwrite the files inside your repository and git will undo the changes and return to the original files but the symlinks will stay there.
 #
 
-set -vx
+set -evx
 
 stow --adopt git
 
 stow --adopt bash
 stow --adopt zsh
 stow --adopt shell
+
+stow --adopt ghostty
 
 stow --adopt nvim
 stow --adopt vim
