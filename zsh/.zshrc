@@ -2,9 +2,16 @@
 
 export ZSH="$HOME/.oh-my-zsh"
 
+
+# move annoying .zcompdump files into a better hidden directory
+autoload -Uz compinit
+compinit -d ~/.config/zsh/.zcompdump
+
 ZSH_THEME="apple"
 
 zstyle ':omz:update' mode auto      # update automatically without asking
+export UPDATE_ZSH_DAYS=1
+COMPLETION_WAITING_DOTS="true"
 
 DISABLE_AUTO_TITLE="true"
 
@@ -19,9 +26,9 @@ export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
+    export EDITOR='vim'
 else
-  export EDITOR='nvim'
+    export EDITOR='nvim'
 fi
 
 # If not running interactively, don't do anything
@@ -35,8 +42,13 @@ fi
 
 # Only run in interactive shells
 if [[ $- == *i* ]]; then
-  source ~/.startrc
+    source ~/.startrc
 fi
+
+
+# zsh-autosuggest config
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#666666"
+export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 
 export NVM_DIR="$HOME/.nvm"
