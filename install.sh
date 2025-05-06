@@ -19,8 +19,6 @@ stow --adopt bash
 stow --adopt zsh
 stow --adopt shell
 
-stow --adopt ghostty
-
 stow --adopt nvim
 stow --adopt vim
 
