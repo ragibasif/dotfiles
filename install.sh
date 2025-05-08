@@ -29,9 +29,11 @@ stow --adopt fastfetch
 # on MACOS
 if [[ $OSTYPE == 'darwin'* ]]; then
     sudo cp -i ~/dotfiles/bin/bin/* /usr/local/bin/
+    cp -i ~/dotfiles/Code/.config/Code/User/settings.json ~/Library/Application\ Support/Code/User/settings.json
     stow --adopt amethyst
 else
     stow --adopt bin
+    stow --adopt Code
 fi
 
 git restore .

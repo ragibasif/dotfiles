@@ -1,0 +1,117 @@
+{
+  "editor.formatOnSave": true,
+  "files.autoSave": "afterDelay",
+
+  "editor.suggest.insertMode": "replace",
+  "terminal.integrated.fontFamily": "FiraCode Nerd Font Mono",
+  "editor.linkedEditing": true,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "window.zoomLevel": 0.5,
+  "launch": {},
+  "workbench.statusBar.visible": false,
+  "editor.minimap.enabled": false,
+  "breadcrumbs.enabled": false,
+  "update.showReleaseNotes": false,
+  "workbench.activityBar.visible": false,
+  "zenMode.hideLineNumbers": false,
+  "zenMode.hideTabs": false,
+  "editor.lineNumbers": "relative",
+
+  "vim.hlsearch": true,
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<leader>", "c", "a"],
+      "commands": ["editor.action.quickFix"]
+    },
+    {
+      "before": ["<S-h>"],
+      "commands": ["editor.action.showDefinitionPreviewHover"]
+    }
+  ],
+  "go.toolsManagement.autoUpdate": true,
+  "workbench.colorTheme": "Panda Syntax",
+  "workbench.iconTheme": "material-icon-theme",
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "vscode.css-language-features"
+  },
+
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "k"],
+      "after": ["<Esc>"]
+    },
+    {
+      "before": ["J", "k"],
+      "after": ["<Esc>"]
+    },
+    {
+      "before": ["J", "K"],
+      "after": ["<Esc>"]
+    },
+    {
+      "before": ["j", "K"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "vim.visualModeKeyBindings": [
+    {
+      "before": ["j", "k"],
+      "after": ["<Esc>"]
+    },
+    {
+      "before": ["J", "k"],
+      "after": ["<Esc>"]
+    },
+    {
+      "before": ["J", "K"],
+      "after": ["<Esc>"]
+    },
+    {
+      "before": ["j", "K"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "vim.commandLineModeKeyBindings": [
+    {
+      "before": ["j", "k"],
+      "after": ["<Esc>"]
+    },
+    {
+      "before": ["J", "k"],
+      "after": ["<Esc>"]
+    },
+    {
+      "before": ["J", "K"],
+      "after": ["<Esc>"]
+    },
+    {
+      "before": ["j", "K"],
+      "after": ["<Esc>"]
+    }
+  ],
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "files.associations": {
+    "*.js": "javascript"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "antfu.slidev"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "markdown-preview-enhanced.codeBlockTheme": "auto.css",
+  "markdown-preview-enhanced.previewTheme": "github-dark.css",
+  "editor.fontFamily": "FiraCode Nerd Font Mono, Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontLigatures": true
+}

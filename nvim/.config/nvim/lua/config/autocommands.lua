@@ -66,4 +66,3 @@ autocmd("FileType", {
 	pattern = { "make", "cmake" },
 	command = "setlocal noexpandtab",
 })
-
