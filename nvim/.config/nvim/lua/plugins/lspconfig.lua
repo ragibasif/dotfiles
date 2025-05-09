@@ -94,27 +94,17 @@ return {
 		})
 
 		-- Go
-		lspconfig.golangci_lint_ls.setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-			cmd = { "golangci-lint-langserver" },
-			filetypes = { "go", "gomod" },
-			init_options = {
-				command = { "golangci-lint", "run", "--output.json.path=stdout", "--show-stats=false" },
-			},
-			root_markers = {
-				{
-					".golangci.yml",
-					".golangci.yaml",
-					".golangci.toml",
-					".golangci.json",
-					"go.work",
-					"go.mod",
-					".git",
+		lspconfig.gopls.setup({
+			settings = {
+				gopls = {
+					analyses = {
+						unusedparams = true,
+					},
+					staticcheck = true,
+					gofumpt = true,
 				},
 			},
 		})
-
 		-- Lua
 		lspconfig.lua_ls.setup({
 			settings = {
