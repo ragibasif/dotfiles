@@ -1,4 +1,4 @@
-# ~./startrc
+# ~./shellrc
 
 # If not running interactively, don't do anything
 case $- in
@@ -6,7 +6,26 @@ case $- in
       *) return;;
 esac
 
-
+# stolen from: https://unix.stackexchange.com/questions/9501/how-to-test-what-shell-i-am-using-in-a-terminal
+# get the current shell since $SHELL only returns the default shell
+# unset SH
+#
+# if [ -n "$ZSH_VERSION" ] && type zstyle >/dev/null 2>&1; then           # zsh
+#   SH=$(basename `command -v zsh`)
+# elif [ -x "$BASH_VERSION" ] && type caller >/dev/null 2>&1; then        # bash
+#   SH=$(basename `command -v bash`)
+# elif [ -x "$shell" ] && which setenv |grep -l builtin >/dev/null; then  # tcsh
+#   echo "DANGER: this script is likely not compatible with C shells!"
+#   sleep 5
+#   setenv SH "$(basename $shell)"
+# fi
+#
+# # verify
+# if [ ! -x "$SH" ]; then
+#   SH=`command -v "$(ps $$ |awk 'NR == 2 { print $NF }')"`
+#   [ -x "$SH" ] || SH="$(basename "${SHELL:-/bin/sh}")"  # default if verify fails
+# fi
+#
 # Auto-start tmux if not running
 if command -v tmux &>/dev/null && [[ -z "$TMUX" ]]; then
     tmux attach || tmux new
@@ -22,8 +41,8 @@ elif command -v neofetch &>/dev/null; then
 else
     echo -e "\n\e[1m$(whoami)@$(hostname)\e[0m"
     echo -e "OS: $(uname -srm)"
-    echo -e "Shell: $(basename "$SHELL") ${BASH_VERSION:-$ZSH_VERSION}"
-    echo -e "Uptime: $(uptime -p 2>/dev/null || uptime | awk -F',' '{print $1}')\n"
+    echo -e "Shell: $(basename "$SHELL") $(BASH_VERSION:-$ZSH_VERSION)"
+    echo -e "Uptime: $(uptime -p 2>/dev/null || uptime | awk -F',' '(print $1)')\n"
 fi
 
 # zoxide: https://github.com/ajeetdsouza/zoxide
@@ -64,11 +83,16 @@ if [ "$OS" = "Darwin" ]; then
     alias ls='ls -G'
 fi
 
+# lsd: https://github.com/lsd-rs/lsd
+if command -v lsd &>/dev/null; then
+    alias ls='lsd'
+fi
 
 # Listing
+alias l='ls -l'
+alias lla='ls -la'
 alias ll='ls -lh'
 alias la='ls -lAh'
-alias l='ls -CF'
 
 
 # eza: https://github.com/eza-community/eza
@@ -78,7 +102,7 @@ fi
 
 # bat: https://github.com/sharkdp/bat
 if command -v bat &>/dev/null; then
-    alias cat='bat -A'
+    alias cat='bat'
 fi
 
 # fzf: https://github.com/junegunn/fzf
@@ -86,6 +110,14 @@ if command -v fzf &>/dev/null; then
     alias fzf='fzf --preview "bat --color=always --style=numbers --line-range=:500 {}"'
 fi
 
+# if [ "$SH" = "bash" ]; then
+#     eval "$(fzf --bash)"
+# elif [ "$SH" = "zsh" ]; then
+#     source <(fzf --zsh)
+# elif [ "$SH" = "fish" ]; then
+#     fzf --fish | source
+# fi
+#
 # fd: https://github.com/sharkdp/fd
 if command -v fd &>/dev/null; then
     find='fd'

@@ -55,4 +55,4 @@ export PATH="$HOME/bin:$PATH" # this allows me to run the bash scripts i wrote
 # fzf: https://github.com/junegunn/fzf
 # fzf shell integration
 # Set up fzf key bindings and fuzzy completion
-source <(fzf --zsh)
+# source <(fzf --zsh)
