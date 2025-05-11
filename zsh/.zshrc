@@ -31,18 +31,10 @@ else
     export EDITOR='nvim'
 fi
 
-# If not running interactively, don't do anything
-[[ $- != *i* ]] && return
-
 # aliases
 unalias -a
-if [ -f ~/.aliasrc ]; then
-    source ~/.aliasrc
-fi
-
-# Only run in interactive shells
-if [[ $- == *i* ]]; then
-    source ~/.startrc
+if [ -f ~/.shellrc ]; then
+    source ~/.shellrc
 fi
 
 
@@ -60,4 +52,7 @@ export PATH="$HOME/bin:$PATH" # this allows me to run the bash scripts i wrote
 
 [ -f "/Users/ragibasif/.ghcup/env" ] && . "/Users/ragibasif/.ghcup/env" # ghcup-env
 
-
+# fzf: https://github.com/junegunn/fzf
+# fzf shell integration
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)

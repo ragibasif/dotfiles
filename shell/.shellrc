@@ -1,0 +1,121 @@
+# ~./startrc
+
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
+
+# Auto-start tmux if not running
+if command -v tmux &>/dev/null && [[ -z "$TMUX" ]]; then
+    tmux attach || tmux new
+fi
+
+# Prefer fastfetch if installed
+if command -v fastfetch &>/dev/null; then
+    fastfetch
+# Fallback to neofetch
+elif command -v neofetch &>/dev/null; then
+    neofetch
+# Minimal built-in display
+else
+    echo -e "\n\e[1m$(whoami)@$(hostname)\e[0m"
+    echo -e "OS: $(uname -srm)"
+    echo -e "Shell: $(basename "$SHELL") ${BASH_VERSION:-$ZSH_VERSION}"
+    echo -e "Uptime: $(uptime -p 2>/dev/null || uptime | awk -F',' '{print $1}')\n"
+fi
+
+# zoxide: https://github.com/ajeetdsouza/zoxide
+if command -v zoxide &>/dev/null; then
+    eval "$(zoxide init $(basename "$SHELL"))"
+    alias cd='z'
+fi
+
+# Restart the shell.
+restart-shell() {
+  exec -l $SHELL
+}
+
+# stolen from: https://effective-shell.com/part-5-building-your-toolkit/configuring-the-shell/
+# If I add this code to my ~/.bashrc file then whenever I start a new shell, a folder will be created with today's date in the /tmp/ directory, and a link will be created to this folder at ~/today. This provides a convenient way to have a temporary working folder for the day. You can then go back and refer to old temporary folders if you need to.
+# Get today's date in the format YYYY-MM-DD.
+today=$(date +"%Y-%m-%d")
+
+# Create the path to today's temp folder and then make sure the folder exists.
+temp_path="/tmp/${today}"
+mkdir -p "${temp_path}"
+
+# Now that we've created the folder, make a symlink to it in our homedir.
+ln -sf "${temp_path}" "${HOME}/today"
+
+# aliases
+
+# Get OS type (Linux, Darwin/macOS, etc.)
+OS="$(uname -s)"
+
+# Linux-specific aliases
+if [ "$OS" = "Linux" ]; then
+    alias ls='ls --color=auto'
+fi
+
+# macOS-specific aliases
+if [ "$OS" = "Darwin" ]; then
+    alias ls='ls -G'
+fi
+
+
+# Listing
+alias ll='ls -lh'
+alias la='ls -lAh'
+alias l='ls -CF'
+
+
+# eza: https://github.com/eza-community/eza
+if command -v eza &>/dev/null; then
+    alias tree='eza -TR --classify=always --color=always --icons=always --absolute=off'
+fi
+
+# bat: https://github.com/sharkdp/bat
+if command -v bat &>/dev/null; then
+    alias cat='bat -A'
+fi
+
+# fzf: https://github.com/junegunn/fzf
+if command -v fzf &>/dev/null; then
+    alias fzf='fzf --preview "bat --color=always --style=numbers --line-range=:500 {}"'
+fi
+
+# fd: https://github.com/sharkdp/fd
+if command -v fd &>/dev/null; then
+    find='fd'
+fi
+
+# Disk space
+alias df='df -h'
+alias du='du -h'
+
+# Editor
+alias v="nvim"
+
+# Open vim without loading the vimrc.
+alias vimnilla='vi -u NONE'
+
+# Open neovim without loading the init.lua.
+alias nvimnilla='nvim -u NONE'
+
+# Search
+alias grep='grep --color=auto'
+
+# Safety nets to prevent accidents
+alias rm='rm -iv'
+alias cp='cp -iv'
+alias mv='mv -iv'
+
+# Extras
+alias yt-dlp='yt-dlp -P "~/Music" -x --audio-format mp3 --audio-quality 0 -o "%(uploader)s_%(playlist)s/%(title)s.%(ext)s" --embed-metadata --parse-metadata "%(title)s:%(meta_title)s" --parse-metadata "%(uploader)s:%(meta_artist)s" --parse-metadata "%(playlist)s:%(meta_album)s" --parse-metadata "%(playlist_index)s:%(meta_track)s" -i'
+alias valgrind='valgrind --tool=memcheck --leak-check=full --show-reachable=yes --error-exitcode=1'
+
+# Package Management
+## For brew (macOS)
+alias brewup='brew update && brew upgrade && brew cleanup'

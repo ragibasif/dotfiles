@@ -9,21 +9,26 @@
 # ~/.bashrc
 #
 
-# If not running interactively, don't do anything
-[[ $- != *i* ]] && return
-
 # PS1='[\u@\h \W]\$ '
 
 # aliases
 unalias -a
-if [ -f ~/.aliasrc ]; then
-    source ~/.aliasrc
+
+if [ -f ~/.shellrc ]; then
+    source ~/.shellrc
 fi
 
-# Only run in interactive shells
-if [[ $- == *i* ]]; then
-    source ~/.startrc
-fi
+# SHELL options
+# append to the history file, don't overwrite it
+shopt -s histappend
+# If we enter a directory name on its own, assume we want to 'cd' into it.
+shopt -s autocd
+# Try to correct typos when auto-completing directory names.
+shopt -s dirspell
+
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=1000
+HISTFILESIZE=2000
 
 # enable vi mode
 set -o vi
@@ -43,3 +48,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
 export PATH="$HOME/bin:$PATH" # this allows me to run the bash scripts i wrote
+
+# fzf: https://github.com/junegunn/fzf
+# fzf shell integration
+# Set up fzf key bindings and fuzzy completion
+eval "$(fzf --bash)"
