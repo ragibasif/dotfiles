@@ -8,24 +8,24 @@ esac
 
 # stolen from: https://unix.stackexchange.com/questions/9501/how-to-test-what-shell-i-am-using-in-a-terminal
 # get the current shell since $SHELL only returns the default shell
-# unset SH
-#
-# if [ -n "$ZSH_VERSION" ] && type zstyle >/dev/null 2>&1; then           # zsh
-#   SH=$(basename `command -v zsh`)
-# elif [ -x "$BASH_VERSION" ] && type caller >/dev/null 2>&1; then        # bash
-#   SH=$(basename `command -v bash`)
-# elif [ -x "$shell" ] && which setenv |grep -l builtin >/dev/null; then  # tcsh
-#   echo "DANGER: this script is likely not compatible with C shells!"
-#   sleep 5
-#   setenv SH "$(basename $shell)"
-# fi
-#
-# # verify
-# if [ ! -x "$SH" ]; then
-#   SH=`command -v "$(ps $$ |awk 'NR == 2 { print $NF }')"`
-#   [ -x "$SH" ] || SH="$(basename "${SHELL:-/bin/sh}")"  # default if verify fails
-# fi
-#
+unset SH
+
+if [ -n "$ZSH_VERSION" ] && type zstyle >/dev/null 2>&1; then           # zsh
+  SH=$(basename `command -v zsh`)
+elif [ -x "$BASH_VERSION" ] && type caller >/dev/null 2>&1; then        # bash
+  SH=$(basename `command -v bash`)
+elif [ -x "$shell" ] && which setenv |grep -l builtin >/dev/null; then  # tcsh
+  echo "DANGER: this script is likely not compatible with C shells!"
+  sleep 5
+  setenv SH "$(basename $shell)"
+fi
+
+# verify
+if [ ! -x "$SH" ]; then
+  SH=`command -v "$(ps $$ |awk 'NR == 2 { print $NF }')"`
+  [ -x "$SH" ] || SH="$(basename "${SHELL:-/bin/sh}")"  # default if verify fails
+fi
+
 # Auto-start tmux if not running
 if command -v tmux &>/dev/null && [[ -z "$TMUX" ]]; then
     tmux attach || tmux new
@@ -55,18 +55,6 @@ fi
 restart-shell() {
   exec -l $SHELL
 }
-
-# stolen from: https://effective-shell.com/part-5-building-your-toolkit/configuring-the-shell/
-# If I add this code to my ~/.bashrc file then whenever I start a new shell, a folder will be created with today's date in the /tmp/ directory, and a link will be created to this folder at ~/today. This provides a convenient way to have a temporary working folder for the day. You can then go back and refer to old temporary folders if you need to.
-# Get today's date in the format YYYY-MM-DD.
-today=$(date +"%Y-%m-%d")
-
-# Create the path to today's temp folder and then make sure the folder exists.
-temp_path="/tmp/${today}"
-mkdir -p "${temp_path}"
-
-# Now that we've created the folder, make a symlink to it in our homedir.
-ln -sf "${temp_path}" "${HOME}/today"
 
 # aliases
 
@@ -110,14 +98,14 @@ if command -v fzf &>/dev/null; then
     alias fzf='fzf --preview "bat --color=always --style=numbers --line-range=:500 {}"'
 fi
 
-# if [ "$SH" = "bash" ]; then
-#     eval "$(fzf --bash)"
-# elif [ "$SH" = "zsh" ]; then
-#     source <(fzf --zsh)
-# elif [ "$SH" = "fish" ]; then
-#     fzf --fish | source
-# fi
-#
+if [ "$SH" = "bash" ]; then
+    eval "$(fzf --bash)"
+elif [ "$SH" = "zsh" ]; then
+    source <(fzf --zsh)
+elif [ "$SH" = "fish" ]; then
+    fzf --fish | source
+fi
+
 # fd: https://github.com/sharkdp/fd
 if command -v fd &>/dev/null; then
     find='fd'
