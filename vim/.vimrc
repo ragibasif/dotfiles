@@ -1,16 +1,22 @@
-" Required:
 set nocompatible
 filetype on
 filetype plugin on
 filetype indent on
 syntax on
 
-" make gruvbox the colorscheme
-autocmd vimenter * ++nested colorscheme gruvbox
-"colorscheme quiet
-"colorscheme retrobox
-"colorscheme lunaperche
-"colorscheme sorbet
+"colorscheme gruvbox
+" or
+"autocmd vimenter * ++nested colorscheme gruvbox
+
+"colorscheme duckbones
+colorscheme off
+"colorscheme sunbather
+
+
+set cursorline
+set cursorcolumn
+set cc=80
+
 
 set background=dark
 set number
@@ -58,7 +64,7 @@ set ttyfast
 
 set hidden
 set wildmenu
-set scrolloff=8
+set scrolloff=10
 set noerrorbells visualbell t_vb=
 
 "" Use modeline overrides
