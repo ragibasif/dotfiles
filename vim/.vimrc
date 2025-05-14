@@ -5,7 +5,9 @@ filetype plugin on
 filetype indent on
 syntax on
 
-colorscheme quiet
+" make gruvbox the colorscheme
+autocmd vimenter * ++nested colorscheme gruvbox
+"colorscheme quiet
 "colorscheme retrobox
 "colorscheme lunaperche
 "colorscheme sorbet
@@ -109,12 +111,12 @@ nnoremap <leader>l :set list!<CR>
 nnoremap <leader>w :FixWhitespace<CR>
 
 
-" inoremap jk <esc>
-" inoremap Jk <esc>
-" inoremap JK <esc>
-" inoremap jK <esc>
-" vnoremap jk <esc>
-" vnoremap Jk <esc>
-" vnoremap JK <esc>
-" vnoremap jK <esc>
+inoremap jk <esc>
+inoremap Jk <esc>
+inoremap JK <esc>
+inoremap jK <esc>
+vnoremap jk <esc>
+vnoremap Jk <esc>
+vnoremap JK <esc>
+vnoremap jK <esc>
 
