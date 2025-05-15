@@ -52,7 +52,3 @@ export PATH="$HOME/bin:$PATH" # this allows me to run the bash scripts i wrote
 
 [ -f "/Users/ragibasif/.ghcup/env" ] && . "/Users/ragibasif/.ghcup/env" # ghcup-env
 
-# fzf: https://github.com/junegunn/fzf
-# fzf shell integration
-# Set up fzf key bindings and fuzzy completion
-# source <(fzf --zsh)

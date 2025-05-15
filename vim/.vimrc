@@ -9,7 +9,8 @@ syntax on
 "autocmd vimenter * ++nested colorscheme gruvbox
 
 "colorscheme duckbones
-colorscheme off
+"colorscheme off
+colorscheme zenbones
 "colorscheme sunbather
 
 
