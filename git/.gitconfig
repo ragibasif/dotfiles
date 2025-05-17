@@ -15,14 +15,27 @@
 	editor = nvim
 	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
 	pager = less -F -X
+    autocrlf = input  # keep newlines as in input
+    excludesfile = ~/.gitignore_global
+    fsync = none
 [web]
 	browser = google-chrome
+
+[status]
+    branch = true
+    short = true
+    showStash = true
+    showUntrackedFiles = all  # show individual untracked files
+
 [color]
 	ui = true
 [color "branch"]
 	current = yellow bold
 	local = green bold
 	remote = cyan bold
+    upstream = green
+    plain    = blue
+
 [color "diff"]
 	meta = yellow bold
 	frag = magenta bold
@@ -41,14 +54,12 @@
 	editor = interactive-rebase-tool
 [commit]
 	template = ~/.gitmessage
-[core]
-    editor = nvim
-    autocrlf = input
-    excludesfile = ~/.gitignore_global
 
 [diff]
     tool = nvimdiff
-    renames = copies
+    context = 3  # less context in diffs
+    renames = copies  # detect copies as renames in diffs
+    interHunkContext = 10  # merge near hunks in diffs
 
 [merge]
     tool = nvimdiff
@@ -58,7 +69,9 @@
     ui = true
 
 [push]
-    default = simple
+    autoSetupRemote = true  # easier to push new branches
+    default = current  # push only current branch by default
+    followTags = true  # push also tags
 
 [fetch]
     prune = true
@@ -68,4 +81,30 @@
 
 [pull]
     rebase = true
+
+[blame]
+    coloring = highlightRecent
+    date = relative
+
+[log]
+    abbrevCommit = true  # short commits
+    graphColors = blue,yellow,cyan,magenta,green,red
+
+[pager]
+    branch = false  # no need to use pager for git branch
+    diff = $PAGER
+
+[submodule]
+    fetchJobs = 16
+
+[rebase]
+    autoStash = true
+
+# Colors
+[color "blame"]
+    highlightRecent = black bold,1 year ago,white,1 month ago,default,7 days ago,blue
+
+# URL shortcuts
+[url "git@github.com:"]
+    insteadOf = "gh:"
 

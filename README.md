@@ -30,21 +30,23 @@ Before you begin, ensure you have the following tools installed on your system:
 ### Installation
 
 1. **Clone the Repository:**
-   First, clone this repository into your `$HOME` directory. This ensures that the symlinks created by `stow` point to the correct locations.
 
-   ```bash
-   git clone git@github.com:ragibasif/dotfiles.git ~/dotfiles
-   cd ~/dotfiles
-   ```
+First, clone this repository into your `$HOME` directory. This ensures that the symlinks created by `stow` point to the correct locations.
+
+```bash
+git clone git@github.com:ragibasif/dotfiles.git ~/dotfiles
+cd ~/dotfiles
+```
 
 2. **Run the Installation Script:**
-   The `install.sh` script automates the process of stowing all the configuration files. It will also overwrite any pre-existing configuration files that may conflict with the ones in this repository.
 
-   ```bash
-   ./install.sh
-   ```
+The `install.sh` script automates the process of stowing all the configuration files. It will also overwrite any pre-existing configuration files that may conflict with the ones in this repository.
 
-   Alternatively, you can manually stow specific directories if you don't want to apply all configurations at once.
+```bash
+./install.sh
+```
+
+Alternatively, you can manually stow specific directories if you don't want to apply all configurations at once.
 
 ## Usage
 
@@ -71,6 +73,12 @@ By default, `stow` will not overwrite existing files. If you want to force `stow
 
 ```bash
 stow --override bash
+```
+
+or
+
+```bash
+stow --adopt zsh
 ```
 
 ## License
