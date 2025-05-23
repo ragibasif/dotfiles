@@ -25,7 +25,7 @@ autocmd("BufWritePre", {
 -- 	pattern = "*",
 -- 	command = "startinsert",
 -- })
---
+
 -- Save and restore folds
 augroup("RememberFolds", { clear = true })
 autocmd("BufWinLeave", {
@@ -65,4 +65,11 @@ autocmd("FileType", {
 	group = "FileTypeSettings",
 	pattern = { "make", "cmake" },
 	command = "setlocal noexpandtab",
+})
+
+-- Prevent continuation of comments on new line
+autocmd("FileType", {
+	group = "FileTypeSettings",
+	pattern = "*",
+	command = "setlocal formatoptions-=cro",
 })
