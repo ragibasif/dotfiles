@@ -15,15 +15,18 @@ case $- in
 *) return ;;
 esac
 
-PS1='[\u@\h \W]\$ '
+# PS1='[\u@\h \W]\$ '
+export PS1="➜ "
 
 # SHELL options
+
 # append to the history file, don't overwrite it
 shopt -s histappend
+
 # If we enter a directory name on its own, assume we want to 'cd' into it.
-shopt -s autocd
+# shopt -s autocd
 # Try to correct typos when auto-completing directory names.
-shopt -s dirspell
+# shopt -s dirspell
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000

@@ -1,6 +1,7 @@
-#!/bin/bash
+#!/bin/sh
 
-set -vx
+set -Ceuvx
+# set -n # debugging
 
 search_dir="./"
 

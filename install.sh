@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Stow all stowable files to the appropriate locations.
 # This approach is preferred over the dot or star command.
@@ -11,7 +11,7 @@
 # Stow will create a symlink and overwrite the files inside your repository and git will undo the changes and return to the original files but the symlinks will stay there.
 #
 
-set -evx
+set -Ceuvx
 
 stow --adopt git
 

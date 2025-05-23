@@ -6,27 +6,30 @@ case $- in
       *) return;;
 esac
 
-export ZSH="$HOME/.oh-my-zsh"
+# Prompt
+# PS1='[\u@\h \W]\$ '
+export PS1="➜ "
 
+# load modules
 # move annoying .zcompdump files into a better hidden directory
 autoload -Uz compinit
 compinit -d ~/.config/zsh/.zcompdump
+zmodload zsh/complist
+autoload -U colors && colors
 
-ZSH_THEME="apple"
 
-zstyle ':omz:update' mode auto      # update automatically without asking
-export UPDATE_ZSH_DAYS=1
-COMPLETION_WAITING_DOTS="true"
+# cmp opts
+zstyle ':completion:*' menu select # tab opens cmp menu
+zstyle ':completion:*' special-dirs true # force . and .. to show in cmp menu
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS} ma=0\;33 # colorize cmp menu
+# zstyle ':completion:*' file-list true # more detailed list
+zstyle ':completion:*' squeeze-slashes false # explicit disable to allow /*/ expansion
 
-DISABLE_AUTO_TITLE="true"
-
+# vi keybinds
 plugins=(
     vi-mode
 )
 
-source $ZSH/oh-my-zsh.sh
-
-# You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
@@ -36,45 +39,45 @@ else
     export EDITOR='nvim'
 fi
 
-# aliases
-unalias -a
-
+# Go Programming Language
 export GOROOT=
-export GOPATH=~/go
-export PATH=$PATH:$GOPATH/bin
+# export GOPATH=~/go
+export GOPATH="$XDG_DATA_HOME/go"
+# export PATH=$PATH:$GOPATH/bin
+export GOBIN="$GOPATH/bin"
+export GOMODCACHE="$XDG_CACHE_HOME/go/mod"
 alias lint='golangci-lint run'
+
+
+export CARGO_HOME="$XDG_DATA_HOME/cargo"
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
+
+# Start-up
 
 # Auto-start tmux if not running
 if command -v tmux &>/dev/null && [[ -z "$TMUX" ]]; then
     tmux attach || tmux new
 fi
 
-# Prefer fastfetch if installed
+# Auto-run fastfetch on start-up
+# fastfetch: https://github.com/fastfetch-cli/fastfetch
 if command -v fastfetch &>/dev/null; then
     fastfetch
-# Fallback to neofetch
-elif command -v neofetch &>/dev/null; then
-    neofetch
-# Minimal built-in display
-else
-    echo -e "\n\e[1m$(whoami)@$(hostname)\e[0m"
-    echo -e "OS: $(uname -srm)"
-    echo -e "Shell: $(basename "$SHELL") $(BASH_VERSION:-$ZSH_VERSION)"
-    echo -e "Uptime: $(uptime -p 2>/dev/null || uptime | awk -F',' '(print $1)')\n"
 fi
+
+# Restart the shell.
+restart_shell() {
+  exec -l $SHELL
+}
+
+# Aliases
+unalias -a
 
 # zoxide: https://github.com/ajeetdsouza/zoxide
 if command -v zoxide &>/dev/null; then
     eval "$(zoxide init $(basename "$SHELL"))"
     alias cd='z'
 fi
-
-# Restart the shell.
-restart-shell() {
-  exec -l $SHELL
-}
-
-# aliases
 
 # Get OS type (Linux, Darwin/macOS, etc.)
 OS="$(uname -s)"
@@ -94,7 +97,7 @@ if command -v lsd &>/dev/null; then
     alias ls='lsd'
 fi
 
-# Listing
+# ls
 alias l='ls -l'
 alias lla='ls -la'
 alias ll='ls -lh'
@@ -110,6 +113,17 @@ fi
 if command -v bat &>/dev/null; then
     alias cat='bat'
 fi
+
+# https://specifications.freedesktop.org/basedir-spec/latest/
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_STATE_HOME="$HOME/.local/state"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_DIRS="/usr/local/share/:/usr/share/"
+export XDG_CONFIG_DIRS="/etc/xdg"
+
+
+export MANPAGER="less -R --use-color -Dd+r -Du+b"
 
 # fzf: https://github.com/junegunn/fzf
 if command -v fzf &>/dev/null; then
@@ -129,7 +143,7 @@ fi
 
 # Disk space
 alias df='df -h'
-alias du='du -h'
+alias du='du -h -d 1'
 
 # Editor
 alias v="nvim"
@@ -148,14 +162,14 @@ alias rm='rm -iv'
 alias cp='cp -iv'
 alias mv='mv -iv'
 
-
 # Tmux
 alias ta='tmux attach'
 alias tl='tmux list-sessions'
 alias tn='tmux new-session -s'
 
 # Extras
-alias yt-dlp='yt-dlp -P "~/Music" -x --audio-format mp3 --audio-quality 0 -o "%(uploader)s_%(playlist)s/%(title)s.%(ext)s" --embed-metadata --parse-metadata "%(title)s:%(meta_title)s" --parse-metadata "%(uploader)s:%(meta_artist)s" --parse-metadata "%(playlist)s:%(meta_album)s" --parse-metadata "%(playlist_index)s:%(meta_track)s" -i'
+alias yt-dlp-music='yt-dlp -P "~/Music" -x --audio-format mp3 --audio-quality 0 -o "%(uploader)s_%(playlist)s/%(title)s.%(ext)s" --embed-metadata --parse-metadata "%(title)s:%(meta_title)s" --parse-metadata "%(uploader)s:%(meta_artist)s" --parse-metadata "%(playlist)s:%(meta_album)s" --parse-metadata "%(playlist_index)s:%(meta_track)s" -i'
+alias yt-dlp-video='yt-dlp -P "~/Videos" -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best"'
 alias valgrind='valgrind --tool=memcheck --leak-check=full --show-reachable=yes --error-exitcode=1'
 
 # Package Management
@@ -164,25 +178,38 @@ alias brewup='brew update && brew upgrade && brew cleanup'
 
 # Completion
 LISTMAX=10000  # do not show warning if there is too much items in completion
-setopt glob_dots  # include dotfiles into completion by default
 setopt hash_cmds  # hash command locations
 setopt list_packed
 
+# main opts
+setopt append_history inc_append_history share_history # better history
+setopt auto_menu menu_complete # autocmp first menu match
+setopt autocd # type a dir to cd
+setopt auto_param_slash # when a dir is completed, add a / instead of a trailing space
+setopt no_case_glob no_case_match # make cmp case insensitive
+setopt globdots # include dotfiles
+setopt extended_glob # match ~ # ^
+setopt interactive_comments # allow comments in shell
+unsetopt prompt_sp # don't autoclean blanklines
+# stty stop undef # disable accidental ctrl s
 
 # zsh-autosuggest config
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#666666"
 export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 
+
+# history opts
+HISTSIZE=1000000
+SAVEHIST=1000000
+HISTFILE="$XDG_CACHE_HOME/zsh_history" # move histfile to cache
+HISTCONTROL=ignoreboth # consecutive duplicates & commands starting with space are not saved
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-
 export PATH="$HOME/bin:$PATH" # this allows me to run the bash scripts i wrote
-
-[ -f "/Users/ragibasif/.ghcup/env" ] && . "/Users/ragibasif/.ghcup/env" # ghcup-env
-
 
 # free command doesn't exist in MacOS :(
 free_mac() {

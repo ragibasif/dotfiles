@@ -1,5 +1,7 @@
-#!/bin/bash
-set -vx
+#!/bin/sh
+
+set -Ceuvx
+# set -n # debugging
 
 git add -A # Add all files and commit them
 git commit -m "backup: automated update $(date +%c)"
