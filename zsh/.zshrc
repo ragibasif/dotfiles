@@ -1,70 +1,14 @@
 # ~/.zshrc
 
+################################################################################
+#                                    START                                     #
+################################################################################
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
       *) return;;
 esac
-
-################################################################################
-#                                   ALIASES                                    #
-################################################################################
-
-################################################################################
-#                                   EXPORTS                                    #
-################################################################################
-
-################################################################################
-#                                  FUNCTIONS                                   #
-################################################################################
-
-# Prompt
-# PS1='[\u@\h \W]\$ '
-export PS1="➜ "
-
-# load modules
-# move annoying .zcompdump files into a better hidden directory
-autoload -Uz compinit
-compinit -d ~/.config/zsh/.zcompdump
-zmodload zsh/complist
-autoload -U colors && colors
-
-
-# cmp opts
-zstyle ':completion:*' menu select # tab opens cmp menu
-zstyle ':completion:*' special-dirs true # force . and .. to show in cmp menu
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS} ma=0\;33 # colorize cmp menu
-# zstyle ':completion:*' file-list true # more detailed list
-zstyle ':completion:*' squeeze-slashes false # explicit disable to allow /*/ expansion
-
-# vi keybinds
-plugins=(
-    vi-mode
-)
-
-export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-    export EDITOR='vim'
-else
-    export EDITOR='nvim'
-fi
-
-# Go Programming Language
-export GOROOT=
-# export GOPATH=~/go
-export GOPATH="$XDG_DATA_HOME/go"
-# export PATH=$PATH:$GOPATH/bin
-export GOBIN="$GOPATH/bin"
-export GOMODCACHE="$XDG_CACHE_HOME/go/mod"
-alias lint='golangci-lint run'
-
-
-export CARGO_HOME="$XDG_DATA_HOME/cargo"
-export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
-
-# Start-up
 
 # Auto-start tmux if not running
 if command -v tmux &>/dev/null && [[ -z "$TMUX" ]]; then
@@ -77,13 +21,14 @@ if command -v fastfetch &>/dev/null; then
     fastfetch
 fi
 
-# Restart the shell.
-restart_shell() {
-  exec -l $SHELL
-}
+################################################################################
+#                                   ALIASES                                    #
+################################################################################
 
 # Aliases
 unalias -a
+
+alias lint='golangci-lint run'
 
 # zoxide: https://github.com/ajeetdsouza/zoxide
 if command -v zoxide &>/dev/null; then
@@ -125,17 +70,6 @@ fi
 if command -v bat &>/dev/null; then
     alias cat='bat'
 fi
-
-# https://specifications.freedesktop.org/basedir-spec/latest/
-export XDG_DATA_HOME="$HOME/.local/share"
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_STATE_HOME="$HOME/.local/state"
-export XDG_CACHE_HOME="$HOME/.cache"
-export XDG_DATA_DIRS="/usr/local/share/:/usr/share/"
-export XDG_CONFIG_DIRS="/etc/xdg"
-
-
-export MANPAGER="less -R --use-color -Dd+r -Du+b"
 
 # fzf: https://github.com/junegunn/fzf
 if command -v fzf &>/dev/null; then
@@ -205,26 +139,96 @@ setopt interactive_comments # allow comments in shell
 unsetopt prompt_sp # don't autoclean blanklines
 # stty stop undef # disable accidental ctrl s
 
-# zsh-autosuggest config
-export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#666666"
-export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-
-
-
 # history opts
-HISTSIZE=1000000
-SAVEHIST=1000000
+HISTSIZE=1000
+SAVEHIST=1000
 HISTFILE="$XDG_CACHE_HOME/zsh_history" # move histfile to cache
 HISTCONTROL=ignoreboth # consecutive duplicates & commands starting with space are not saved
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-export PATH="$HOME/bin:$PATH" # this allows me to run the bash scripts i wrote
+################################################################################
+#                                  FUNCTIONS                                   #
+################################################################################
 
 # free command doesn't exist in MacOS :(
 free_mac() {
     vm_stat | perl -ne '/page size of (\d+)/ and $size=$1; /Pages\s+([^:]+)[^\d]+(\d+)/ and printf("%-16s % 16.2f Mi\n", "$1:", $2 * $size / 1048576);'
 }
+
+# Restart the shell.
+restart_shell() {
+  exec -l $SHELL
+}
+
+################################################################################
+#                                     ZSH                                      #
+################################################################################
+
+# load modules
+# move annoying .zcompdump files into a better hidden directory
+autoload -Uz compinit
+compinit -d ~/.config/zsh/.zcompdump
+zmodload zsh/complist
+autoload -U colors && colors
+
+# cmp opts
+zstyle ':completion:*' menu select # tab opens cmp menu
+zstyle ':completion:*' special-dirs true # force . and .. to show in cmp menu
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS} ma=0\;33 # colorize cmp menu
+# zstyle ':completion:*' file-list true # more detailed list
+zstyle ':completion:*' squeeze-slashes false # explicit disable to allow /*/ expansion
+
+# vi keybinds
+plugins=(
+    vi-mode
+)
+
+# zsh-autosuggest config
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#666666"
+export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+
+################################################################################
+#                                   EXPORTS                                    #
+################################################################################
+
+export PS1="➜ "
+export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+    export EDITOR='vim'
+else
+    export EDITOR='nvim'
+fi
+
+export MANPAGER="less -R --use-color -Dd+r -Du+b"
+
+export PATH="$HOME/bin:$PATH" # this allows me to run the bash scripts i wrote
+
+################################################################################
+#                                     XDG                                      #
+################################################################################
+
+# https://specifications.freedesktop.org/basedir-spec/latest/
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_STATE_HOME="$HOME/.local/state"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_DIRS="/usr/local/share/:/usr/share/"
+export XDG_CONFIG_DIRS="/etc/xdg"
+
+################################################################################
+#                            PROGRAMMING LANGUAGES                             #
+################################################################################
+
+export GOROOT=
+export GOPATH="$XDG_DATA_HOME/go"
+export GOBIN="$GOPATH/bin"
+export GOMODCACHE="$XDG_CACHE_HOME/go/mod"
+
+export CARGO_HOME="$XDG_DATA_HOME/cargo"
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
