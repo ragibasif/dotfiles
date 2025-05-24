@@ -165,16 +165,9 @@ restart_shell() {
 autoload -Uz compinit
 compinit -d ~/.config/zsh/.zcompdump
 zmodload zsh/complist
-autoload -U colors && colors
 
 # vi keybinds
-plugins=(
-    vi-mode
-)
-
-# zsh-autosuggest config
-export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#666666"
-export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+bindkey -v
 
 ################################################################################
 #                                     XDG                                      #
@@ -201,4 +194,7 @@ export GOMODCACHE="$XDG_CACHE_HOME/go/mod"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+eval "$(starship init zsh)"
 

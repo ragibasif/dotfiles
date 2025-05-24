@@ -34,6 +34,8 @@ stow --adopt tmux
 
 stow --adopt fastfetch
 
+stow --adopt starship
+
 # Get OS type (Linux, Darwin/macOS, etc.)
 OS="$(uname -s)"
 
