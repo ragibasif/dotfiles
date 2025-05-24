@@ -10,7 +10,7 @@ case $- in
       *) return;;
 esac
 
-export PS1="➜ "
+# export PS1="➜ "
 
 # Auto-start tmux if not running
 if command -v tmux &>/dev/null && [[ -z "$TMUX" ]]; then
@@ -39,6 +39,18 @@ fi
 export MANPAGER="less -R --use-color -Dd+r -Du+b"
 
 export PATH="$HOME/bin:$PATH" # this allows me to run the bash scripts i wrote
+
+################################################################################
+#                                     XDG                                      #
+################################################################################
+
+# https://specifications.freedesktop.org/basedir-spec/latest/
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_STATE_HOME="$HOME/.local/state"
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_DIRS="/usr/local/share/:/usr/share/"
+export XDG_CONFIG_DIRS="/etc/xdg"
 
 ################################################################################
 #                                   ALIASES                                    #
@@ -168,18 +180,6 @@ zmodload zsh/complist
 
 # vi keybinds
 bindkey -v
-
-################################################################################
-#                                     XDG                                      #
-################################################################################
-
-# https://specifications.freedesktop.org/basedir-spec/latest/
-export XDG_DATA_HOME="$HOME/.local/share"
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_STATE_HOME="$HOME/.local/state"
-export XDG_CACHE_HOME="$HOME/.cache"
-export XDG_DATA_DIRS="/usr/local/share/:/usr/share/"
-export XDG_CONFIG_DIRS="/etc/xdg"
 
 ################################################################################
 #                            PROGRAMMING LANGUAGES                             #
