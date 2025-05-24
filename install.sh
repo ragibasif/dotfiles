@@ -1,5 +1,14 @@
 #!/bin/sh
-
+#
+# File: install.sh
+# Author: Ragib Asif
+# Email: ragib.asif30@myhunter.cuny.edu
+# GitHub: https://github.com/ragibasif
+# LinkedIn: https://www.linkedin.com/in/ragibasif/
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2025 Ragib Asif
+# Version 1.0.0
+#
 # Stow all stowable files to the appropriate locations.
 # This approach is preferred over the dot or star command.
 #
@@ -25,8 +34,11 @@ stow --adopt tmux
 
 stow --adopt fastfetch
 
-# on MACOS
-if [[ $OSTYPE == 'darwin'* ]]; then
+# Get OS type (Linux, Darwin/macOS, etc.)
+OS="$(uname -s)"
+
+# macOS-specific install
+if [ "$OS" = "Darwin" ]; then
     sudo cp -i ~/dotfiles/bin/bin/* /usr/local/bin/
     cp -i ~/dotfiles/Code/.config/Code/User/settings.json ~/Library/Application\ Support/Code/User/settings.json
     stow --adopt amethyst

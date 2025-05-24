@@ -10,6 +10,8 @@ case $- in
       *) return;;
 esac
 
+export PS1="➜ "
+
 # Auto-start tmux if not running
 if command -v tmux &>/dev/null && [[ -z "$TMUX" ]]; then
     tmux attach || tmux new
@@ -20,6 +22,23 @@ fi
 if command -v fastfetch &>/dev/null; then
     fastfetch
 fi
+
+################################################################################
+#                                    BASICS                                    #
+################################################################################
+
+export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+    export EDITOR='vim'
+else
+    export EDITOR='nvim'
+fi
+
+export MANPAGER="less -R --use-color -Dd+r -Du+b"
+
+export PATH="$HOME/bin:$PATH" # this allows me to run the bash scripts i wrote
 
 ################################################################################
 #                                   ALIASES                                    #
@@ -122,23 +141,6 @@ alias valgrind='valgrind --tool=memcheck --leak-check=full --show-reachable=yes 
 ## For brew (macOS)
 alias brewup='brew update && brew upgrade && brew cleanup'
 
-# Completion
-LISTMAX=10000  # do not show warning if there is too much items in completion
-setopt hash_cmds  # hash command locations
-setopt list_packed
-
-# main opts
-setopt append_history inc_append_history share_history # better history
-setopt auto_menu menu_complete # autocmp first menu match
-setopt autocd # type a dir to cd
-setopt auto_param_slash # when a dir is completed, add a / instead of a trailing space
-setopt no_case_glob no_case_match # make cmp case insensitive
-setopt globdots # include dotfiles
-setopt extended_glob # match ~ # ^
-setopt interactive_comments # allow comments in shell
-unsetopt prompt_sp # don't autoclean blanklines
-# stty stop undef # disable accidental ctrl s
-
 # history opts
 HISTSIZE=1000
 SAVEHIST=1000
@@ -148,11 +150,6 @@ HISTCONTROL=ignoreboth # consecutive duplicates & commands starting with space a
 ################################################################################
 #                                  FUNCTIONS                                   #
 ################################################################################
-
-# free command doesn't exist in MacOS :(
-free_mac() {
-    vm_stat | perl -ne '/page size of (\d+)/ and $size=$1; /Pages\s+([^:]+)[^\d]+(\d+)/ and printf("%-16s % 16.2f Mi\n", "$1:", $2 * $size / 1048576);'
-}
 
 # Restart the shell.
 restart_shell() {
@@ -170,13 +167,6 @@ compinit -d ~/.config/zsh/.zcompdump
 zmodload zsh/complist
 autoload -U colors && colors
 
-# cmp opts
-zstyle ':completion:*' menu select # tab opens cmp menu
-zstyle ':completion:*' special-dirs true # force . and .. to show in cmp menu
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS} ma=0\;33 # colorize cmp menu
-# zstyle ':completion:*' file-list true # more detailed list
-zstyle ':completion:*' squeeze-slashes false # explicit disable to allow /*/ expansion
-
 # vi keybinds
 plugins=(
     vi-mode
@@ -185,24 +175,6 @@ plugins=(
 # zsh-autosuggest config
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#666666"
 export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-
-################################################################################
-#                                   EXPORTS                                    #
-################################################################################
-
-export PS1="➜ "
-export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-    export EDITOR='vim'
-else
-    export EDITOR='nvim'
-fi
-
-export MANPAGER="less -R --use-color -Dd+r -Du+b"
-
-export PATH="$HOME/bin:$PATH" # this allows me to run the bash scripts i wrote
 
 ################################################################################
 #                                     XDG                                      #
@@ -225,8 +197,6 @@ export GOPATH="$XDG_DATA_HOME/go"
 export GOBIN="$GOPATH/bin"
 export GOMODCACHE="$XDG_CACHE_HOME/go/mod"
 
-export CARGO_HOME="$XDG_DATA_HOME/cargo"
-export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
