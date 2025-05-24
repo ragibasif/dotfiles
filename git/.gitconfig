@@ -17,9 +17,7 @@
 	pager = less -F -X
     autocrlf = input  # keep newlines as in input
     excludesfile = ~/.gitignore_global
-    fsync = none
-[web]
-	browser = google-chrome
+    ; fsync = none
 
 [status]
     branch = true
@@ -103,8 +101,4 @@
 # Colors
 [color "blame"]
     highlightRecent = black bold,1 year ago,white,1 month ago,default,7 days ago,blue
-
-# URL shortcuts
-[url "git@github.com:"]
-    insteadOf = "gh:"
 
