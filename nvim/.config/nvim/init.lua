@@ -1,13 +1,15 @@
--- .__   __.  _______   ______   ____    ____  __  .___  ___.
--- |  \ |  | |   ____| /  __  \  \   \  /   / |  | |   \/   |
--- |   \|  | |  |__   |  |  |  |  \   \/   /  |  | |  \  /  |
--- |  . `  | |   __|  |  |  |  |   \      /   |  | |  |\/|  |
--- |  |\   | |  |____ |  `--'  |    \    /    |  | |  |  |  |
--- |__| \__| |_______| \______/      \__/     |__| |__|  |__|
+-- init.lua
 
-require("config.options")
-require("config.keymaps")
-require("config.autocmd")
-require("config.lastplace")
-require("config.lazy")
-require("config.colorscheme")
+local modules = {
+	[1] = "options",
+	[2] = "keymaps",
+	[3] = "autocommands",
+	[4] = "lazy",
+	[5] = "colorscheme",
+}
+
+local dir = "core"
+
+for _, v in ipairs(modules) do
+	require(dir .. "." .. v)
+end

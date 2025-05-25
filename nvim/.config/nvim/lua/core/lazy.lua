@@ -13,13 +13,22 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 		os.exit(1)
 	end
 end
-vim.opt.rtp:prepend(lazypath)
+
+---@type vim.Option
+local rtp = vim.opt.rtp
+rtp:prepend(lazypath)
+
+-- Use a protected call so we don't error out on first use
+local ok, _ = pcall(require, "lazy")
+if not ok then
+	return
+end
 
 -- Make sure to setup `mapleader` and `maplocalleader` before
 -- loading lazy.nvim so that mappings are correct.
 -- This is also a good place to setup other settings (vim.opt)
-vim.g.mapleader = "\\"
-vim.g.maplocalleader = "\\"
+-- vim.g.mapleader = "\\"
+-- vim.g.maplocalleader = "\\"
 
 -- Setup lazy.nvim
 require("lazy").setup({
@@ -32,7 +41,8 @@ require("lazy").setup({
 		notify = false,
 	},
 	-- colorscheme that will be used when installing plugins.
-	install = { colorscheme = { "quiet" } },
+
+	install = { colorscheme = { "zenbones" } },
 	-- automatically check for plugin updates
 	checker = { enabled = true },
 })

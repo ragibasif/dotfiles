@@ -1,6 +1,16 @@
--- Autocommands
-local autocmd = vim.api.nvim_create_autocmd
-local augroup = vim.api.nvim_create_augroup
+-- autocommands.lua
+
+--------------------------------------------------------------------------------
+--                                AUTOCOMMANDS                                --
+--------------------------------------------------------------------------------
+
+local function autocmd(name, opts)
+	vim.api.nvim_create_autocmd(name, opts)
+end
+
+local function augroup(name, opts)
+	vim.api.nvim_create_augroup(name, opts)
+end
 
 -- Highlight on yank
 augroup("YankHighlight", { clear = true })
@@ -20,11 +30,11 @@ autocmd("BufWritePre", {
 	command = [[%s/\s\+$//e]],
 })
 
--- -- Open a terminal in insert mode
--- autocmd("TermOpen", {
--- 	pattern = "*",
--- 	command = "startinsert",
--- })
+-- Open a terminal in insert mode
+autocmd("TermOpen", {
+	pattern = "*",
+	command = "startinsert",
+})
 
 -- Save and restore folds
 augroup("RememberFolds", { clear = true })
@@ -72,4 +82,17 @@ autocmd("FileType", {
 	group = "FileTypeSettings",
 	pattern = "*",
 	command = "setlocal formatoptions-=cro",
+})
+
+-- Restore cursor position to last place on file open
+augroup("RestoreCursor", { clear = true })
+autocmd("BufReadPre", {
+	group = "RestoreCursor",
+	pattern = "*",
+	callback = function()
+		local line = vim.fn.line("'\"")
+		if line >= 1 and line <= vim.fn.line("$") then
+			vim.cmd("normal! g'\"")
+		end
+	end,
 })

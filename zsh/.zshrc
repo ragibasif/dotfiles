@@ -188,6 +188,7 @@ bindkey -v
 export GOROOT=
 export GOPATH="$XDG_DATA_HOME/go"
 export GOBIN="$GOPATH/bin"
+export PATH=$PATH:$GOBIN
 export GOMODCACHE="$XDG_CACHE_HOME/go/mod"
 
 

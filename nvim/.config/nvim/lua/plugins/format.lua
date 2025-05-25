@@ -1,7 +1,6 @@
--- formatters
 return {
 	"stevearc/conform.nvim",
-	dependencies = "williamboman/mason.nvim", -- dependency updates RTP
+	dependencies = "mason-org/mason.nvim", -- dependency updates RTP
 	event = "BufWritePre",
 	lazy = true,
 	cmd = "ConformInfo",
