@@ -18,6 +18,12 @@ return {
 	{ "wakatime/vim-wakatime", lazy = false },
 
 	{
+		"lukas-reineke/indent-blankline.nvim",
+		main = "ibl",
+		opts = {},
+	},
+
+	{
 		"zenbones-theme/zenbones.nvim",
 		dependencies = "rktjmp/lush.nvim",
 		lazy = false,
