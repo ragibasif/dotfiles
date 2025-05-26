@@ -1,15 +1,20 @@
 # Dotfiles
 
-Welcome to my dotfiles repository! This is where I store and manage my precious configuration files (commonly referred to as "dotfiles"). These files are essential for customizing and optimizing my development environment. To manage these configurations efficiently, I use **GNU Stow**, a symlink manager that helps keep everything organized and easily deployable.
+<!--toc:start-->
 
-## Table of Contents
+- [Dotfiles](#dotfiles)
+  - [Getting Started](#getting-started)
+    - [Prerequisites](#prerequisites)
+    - [Installation](#installation)
+  - [Usage](#usage)
+    - [Stowing Specific Configurations](#stowing-specific-configurations)
+    - [Customizing the `.stow-local-ignore` File](#customizing-the-stow-local-ignore-file)
+    - [Overwriting Existing Files](#overwriting-existing-files)
+  - [License](#license)
+  - [References](#references)
+  <!--toc:end-->
 
-- [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
-- [Usage](#usage)
-- [License](#license)
-- [References](#references)
+Welcome to my configuration files (also known as `dotfiles`) repository! This is where I store and manage my precious configuration files (commonly referred to as "dotfiles"). These files are essential for customizing and optimizing my development environment. To manage these configurations efficiently, I use **GNU Stow**, a symlink manager that helps keep everything organized and easily deployable.
 
 ## Getting Started
 
@@ -31,20 +36,20 @@ Before you begin, ensure you have the following tools installed on your system:
 
 1. **Clone the Repository:**
 
-First, clone this repository into your `$HOME` directory. This ensures that the symlinks created by `stow` point to the correct locations.
+   First, clone this repository into your `$HOME` directory. This ensures that the symlinks created by `stow` point to the correct locations.
 
-```bash
-git clone git@github.com:ragibasif/dotfiles.git ~/dotfiles
-cd ~/dotfiles
-```
+   ```sh
+   git clone git@github.com:ragibasif/dotfiles.git ~/dotfiles
+   cd ~/dotfiles
+   ```
 
 2. **Run the Installation Script:**
 
-The `install.sh` script automates the process of stowing all the configuration files. It will also overwrite any pre-existing configuration files that may conflict with the ones in this repository.
+   The `install.sh` script automates the process of stowing all the configuration files. It will also overwrite any pre-existing configuration files that may conflict with the ones in this repository.
 
-```bash
-./install.sh
-```
+   ```sh
+   ./install.sh
+   ```
 
 Alternatively, you can manually stow specific directories if you don't want to apply all configurations at once.
 
@@ -54,9 +59,8 @@ Alternatively, you can manually stow specific directories if you don't want to a
 
 If you prefer to stow only specific configurations, you can do so by running the `stow` command followed by the directory name. For example:
 
-```bash
+```sh
 stow bash      # Applies bash configurations
-stow kitty     # Applies kitty terminal configurations
 stow nvim      # Applies Neovim configurations
 stow vim       # Applies Vim configurations
 stow git       # Applies Git configurations
@@ -71,13 +75,13 @@ The `.stow-local-ignore` file allows you to specify files or directories that sh
 
 By default, `stow` will not overwrite existing files. If you want to force `stow` to overwrite conflicting files, you can use the `--adopt` or `--override` options. Be cautious with this, as it will replace your existing configurations.
 
-```bash
+```sh
 stow --override bash
 ```
 
 or
 
-```bash
+```sh
 stow --adopt zsh
 ```
 
