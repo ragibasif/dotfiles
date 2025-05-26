@@ -4,13 +4,10 @@ filetype plugin on
 filetype indent on
 syntax on
 
-"colorscheme gruvbox
-" or
-"autocmd vimenter * ++nested colorscheme gruvbox
 
-"colorscheme duckbones
-"colorscheme off
-colorscheme zenbones
+colorscheme off
+"colorscheme zenwritten
+"colorscheme zenbones
 "colorscheme sunbather
 
 

@@ -36,6 +36,8 @@ stow --adopt fastfetch
 
 stow --adopt starship
 
+stow --adopt bat
+
 # Get OS type (Linux, Darwin/macOS, etc.)
 OS="$(uname -s)"
 
