@@ -8,7 +8,7 @@ local modules = {
 	[5] = "colorscheme",
 }
 
-local dir = "core"
+local dir = "config"
 
 for _, v in ipairs(modules) do
 	require(dir .. "." .. v)
