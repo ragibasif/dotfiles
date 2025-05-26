@@ -114,15 +114,15 @@ done
 OUTPUT_DIR=gcs
 mkdir -p "$PWD"/"${OUTPUT_DIR}"
 OUTPUT_FILE="output.$LANGUAGE"
+OUTPUT_LOCATION="${OUTPUT_DIR}"/"${OUTPUT_FILE}"
 
 {
     printf '%s%s%s\n' "$COMMENT_START" "$LINE" "$COMMENT_END"
     printf '%s%*s%*s\n' "$COMMENT_START" $(((${#TITLE} + TOTAL_COLUMNS) / 2)) "$TITLE" $((TOTAL_COLUMNS - ((${#TITLE} + TOTAL_COLUMNS) / 2) + ${#COMMENT_END})) "$COMMENT_END"
     printf '%s%s%s\n' "$COMMENT_START" "$LINE" "$COMMENT_END"
-} >>"$OUTPUT_FILE"
+} >>"$OUTPUT_LOCATION"
 
-mv "$OUTPUT_FILE" "$OUTPUT_DIR"
-printf '%s\n' "Success"
-printf '%s %s\n' "Output location: " "./$OUTPUT_DIR"/"$OUTPUT_FILE"
+printf '%s\n' "Success!"
+printf '%s %s\n' "Output location: " "$PWD"/"$OUTPUT_LOCATION"
 
 exit 0

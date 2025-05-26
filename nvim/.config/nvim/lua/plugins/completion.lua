@@ -17,6 +17,7 @@ return {
 			local cmp = require("cmp")
 
 			cmp.setup({
+				preselect = false,
 				snippet = {
 					-- REQUIRED - you must specify a snippet engine
 					expand = function(args)

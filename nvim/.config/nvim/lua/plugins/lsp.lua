@@ -125,8 +125,22 @@ return {
 				vim.api.nvim_buf_set_keymap(
 					bufnr,
 					"n",
-					"<leader>rn",
+					"<leader>r",
 					"<cmd>lua vim.lsp.buf.rename()<CR>",
+					{ noremap = true, silent = true }
+				)
+				vim.api.nvim_buf_set_keymap(
+					bufnr,
+					"n",
+					"<leader>a",
+					"<cmd>lua vim.lsp.buf.code_action()<CR>",
+					{ noremap = true, silent = true }
+				)
+				vim.api.nvim_buf_set_keymap(
+					bufnr,
+					"n",
+					"<leader>f",
+					"<cmd>lua vim.lsp.buf.format()<CR>",
 					{ noremap = true, silent = true }
 				)
 			end

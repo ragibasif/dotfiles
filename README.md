@@ -9,7 +9,7 @@ Welcome to my dotfiles repository! This is where I store and manage my precious 
   - [Installation](#installation)
 - [Usage](#usage)
 - [License](#license)
-- [Resources](#resources)
+- [References](#references)
 
 ## Getting Started
 

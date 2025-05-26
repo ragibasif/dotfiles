@@ -17,10 +17,77 @@ local footer = [[
 return {
 	{ "wakatime/vim-wakatime", lazy = false },
 
+	-- Indentation guides
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		main = "ibl",
 		opts = {},
+		config = function()
+			require("ibl").setup({
+				indent = { char = "¦" },
+				scope = {
+					enabled = true,
+					show_start = false,
+					show_end = false,
+				},
+			})
+		end,
+	},
+
+	-- Highlight TODO-style comments
+	{
+		"folke/todo-comments.nvim",
+		event = "VeryLazy",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		config = function()
+			local todos = require("todo-comments")
+			todos.setup({
+				keywords = {
+					FIX = { icon = " ", color = "error", alt = { "FIXME", "BUG", "FIXIT", "ISSUE" } },
+					TODO = { icon = " ", color = "info" },
+					HACK = { icon = "󰈸 ", color = "warning" },
+					WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
+					PERF = { icon = " ", color = "info", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
+					NOTE = { icon = " ", color = "info", alt = { "INFO" } },
+					TEST = { icon = "󰙨 ", color = "warning", alt = { "TESTING", "PASSED", "FAILED" } },
+				},
+				highlight = {
+					multiline = false,
+					pattern = [[.*<(KEYWORDS)\s*]],
+					keyword = "fg",
+					after = "",
+				},
+				colors = {
+					error = { "ErrorMsg" },
+					warning = { "WarningMsg" },
+					info = { "Todo", "Normal" },
+					hint = { "Comment" },
+				},
+			})
+		end,
+	},
+
+	-- Color column as a characters
+	{
+		"lukas-reineke/virt-column.nvim",
+		opts = {},
+		config = function()
+			require("virt-column").setup({
+				char = "¦",
+				virtcolumn = "80,120",
+			})
+		end,
+	},
+
+	-- Better notifications
+	{
+		"rcarriga/nvim-notify",
+		event = "VeryLazy",
+		opts = {
+			timeout = 2000,
+			stages = "static",
+			render = "minimal",
+		},
 	},
 
 	{
@@ -256,5 +323,167 @@ return {
 			statuscolumn = {},
 		},
 		keys = {},
+	},
+
+	-- Breadcrumbs
+	{
+		"Bekaboo/dropbar.nvim",
+		event = "VeryLazy",
+		config = function()
+			require("dropbar").setup({
+				icons = {
+					ui = {
+						bar = {
+							separator = "  ",
+						},
+					},
+					kinds = {
+						symbols = {
+							File = " ",
+							Function = "󰊕 ",
+							Method = "󰊕 ",
+							Class = " ",
+							Enum = " ",
+							Struct = " ",
+							Object = "󰬐 ", -- Rust's impl
+						},
+					},
+				},
+				bar = {
+					enable = function(buf, win, _)
+						if
+							not vim.api.nvim_buf_is_valid(buf)
+							or not vim.api.nvim_win_is_valid(win)
+							or vim.fn.win_gettype(win) ~= ""
+							or vim.wo[win].winbar ~= ""
+							or vim.bo[buf].ft == "help"
+						then
+							return false
+						end
+
+						return true
+					end,
+					---@diagnostic disable-next-line: unused-local
+					sources = function(buf, _)
+						local sources = require("dropbar.sources")
+						local bar = require("dropbar.bar")
+
+						local state_source = {
+							get_symbols = function(sym_buf, win, _)
+								local icon_hl = "Title"
+								local name_hl = "Normal"
+
+								if vim.api.nvim_buf_get_option(sym_buf, "modified") then
+									icon_hl = "WarningMsg"
+								end
+
+								if vim.api.nvim_buf_get_option(sym_buf, "readonly") then
+									icon_hl = "Error"
+									name_hl = "Error"
+								end
+
+								local cwd = vim.fn.getcwd()
+								local project_name = vim.fn.fnamemodify(cwd, ":t")
+
+								return {
+									bar.dropbar_symbol_t:new(setmetatable({
+										buf = sym_buf,
+										win = win,
+										icon = "󰏗 ",
+										icon_hl = icon_hl,
+										name = project_name,
+										name_hl = name_hl,
+									}, {})),
+								}
+							end,
+						}
+
+						local function simplify_impl_name(symbol)
+							local name = symbol.name
+							-- Check if the symbol name matches the "impl ... for ..." pattern
+							if name:match("^impl%s+.+for%s+") then
+								-- Extract Trait and Type using pattern matching
+								local trait, type = name:match("^impl%s+(.+)%s+for%s+(.+)$")
+								if trait and type then
+									-- Simplify to "<Type>::<Trait>"
+									symbol.name = string.format("%s::%s", type, trait)
+								end
+							elseif name:match("^impl%s+.+") then
+								-- Extract Type using pattern matching
+								local type = name:match("^impl%s+(.+)$")
+								if type then
+									-- Simplify to "<Type>"
+									symbol.name = type
+								end
+							end
+
+							return symbol
+						end
+
+						local lsp_source = {
+							get_symbols = function(sym_buf, win, cursor)
+								local symbols = sources.lsp.get_symbols(sym_buf, win, cursor)
+								-- Apply the simplification to each symbol
+								for i, symbol in ipairs(symbols) do
+									symbols[i] = simplify_impl_name(symbol)
+								end
+
+								-- Remove symbols for lua
+								if vim.bo[sym_buf].ft == "lua" then
+									symbols = vim.tbl_filter(function(symbol)
+										-- Objects and Packages
+										-- It's statements and tables in reality
+										return (symbol.icon ~= "󰬐 " and symbol.icon ~= "󰆦 ")
+									end, symbols)
+								end
+
+								return symbols
+							end,
+						}
+
+						return {
+							state_source,
+							sources.path,
+							-- sources.lsp,
+							lsp_source,
+						}
+					end,
+				},
+				sources = {
+					path = {
+						max_depth = 1,
+					},
+					lsp = {
+						valid_symbols = {
+							"File",
+							"Module",
+							"Namespace",
+							"Package",
+							"Class",
+							"Method",
+							"Property",
+							"Field",
+							"Constructor",
+							"Enum",
+							"Interface",
+							"Function",
+							"Constant",
+							-- 'String',
+							-- 'Number',
+							-- 'Boolean',
+							-- 'Array',
+							"Object",
+							-- 'Keyword',
+							"Null",
+							-- 'EnumMember',
+							"Struct",
+							"Event",
+							-- 'Operator',
+							"TypeParameter",
+						},
+					},
+				},
+			})
+		end,
 	},
 }

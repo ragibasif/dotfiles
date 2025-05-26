@@ -6,11 +6,16 @@
 
 local options = {
 
+	-- TODO: fix
+	-- spell = true,
+	spelllang = "en",
+
 	-- TODO: Folds
 	-- foldmethod = "",
 	-- foldlevel = -1,
 	-- foldexpr= "",
 
+	-- Show line numbers and relative numbers
 	number = true,
 	relativenumber = true,
 	numberwidth = 4,
@@ -26,11 +31,14 @@ local options = {
 	scrolloff = 10,
 	sidescrolloff = 10,
 
+	-- Disable mouse
 	mouse = "",
 
+	-- Disable swap, backup files
 	swapfile = false,
 	backup = false,
 	writebackup = false,
+	-- Create undo dir
 	undodir = vim.fn.stdpath("config") .. "/undo",
 	undofile = true,
 
@@ -45,6 +53,7 @@ local options = {
 	signcolumn = "yes",
 	termguicolors = true,
 
+	-- Tab as 4 spaces
 	smarttab = true,
 	expandtab = true,
 	shiftwidth = 4,
@@ -75,12 +84,20 @@ local options = {
 	list = true,
 	-- listchars = { tab = "» ", space = "·", trail = "·", extends = "→", precedes = "←", nbsp = "␣", eol = "¬" },
 
+	-- Disable fill character (in gutter)
+	fillchars = "eob: ,vert:¦",
+
+	-- Do hide markdown elements
 	conceallevel = 2,
+
 	showmode = true,
 	showcmd = true,
 	laststatus = 0,
 	ttyfast = true,
 	smoothscroll = true,
+
+	-- Increase gutter spacing
+	statuscolumn = "%s%=%l  ",
 }
 
 for k, v in pairs(options) do
