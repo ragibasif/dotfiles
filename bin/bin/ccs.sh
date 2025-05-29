@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# File: gcs.sh
+# File: ccs.sh
 # Author: Ragib Asif
 # Email: ragib.asif30@myhunter.cuny.edu
 # GitHub: https://github.com/ragibasif
@@ -9,7 +9,8 @@
 # Copyright (c) 2025 Ragib Asif
 # Version 1.0.0
 #
-# Script to generate commented separators.
+# Code Commented Separator is a shell script to generate commented separators
+# for source code. Currently supports: c, cpp, py, lua, sh, go
 #
 
 ################################################################################
@@ -111,7 +112,7 @@ while [ "$START" -lt "$END" ]; do
     LINE="${LINE}${CHAR}"
 done
 
-OUTPUT_DIR=gcs
+OUTPUT_DIR=ccs
 mkdir -p "$PWD"/"${OUTPUT_DIR}"
 OUTPUT_FILE="output.$LANGUAGE"
 OUTPUT_LOCATION="${OUTPUT_DIR}"/"${OUTPUT_FILE}"

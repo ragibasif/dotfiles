@@ -6,7 +6,7 @@ set -Ceuvx
 search_dir="./"
 
 prettify() {
-    if [[ -d "$search_dir" ]]; then
+    if [ -d "$search_dir" ]; then
         for file in "$search_dir"/*; do
 
             # Extract the file name and extension

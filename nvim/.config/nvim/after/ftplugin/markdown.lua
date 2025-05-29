@@ -1,4 +1,4 @@
-vim.o.wrap = true -- Enable line wrap
+vim.o.wrap = false -- Enable line wrap
 vim.o.cursorline = false -- Highlight the current line
 vim.o.inccommand = "split" -- Preview substitutions live, as you type!
 vim.o.autoindent = true
@@ -10,3 +10,4 @@ vim.o.numberwidth = 4
 vim.o.cursorcolumn = false
 vim.o.spell = true
 vim.o.colorcolumn = "0"
+vim.o.textwidth = 80

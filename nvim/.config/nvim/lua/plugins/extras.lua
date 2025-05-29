@@ -90,6 +90,8 @@ return {
 		},
 	},
 
+	-- Colorschemes
+
 	{
 		"zenbones-theme/zenbones.nvim",
 		dependencies = "rktjmp/lush.nvim",
@@ -117,6 +119,8 @@ return {
 	{ "catppuccin/nvim", name = "catppuccin" },
 
 	{ "rose-pine/nvim", name = "rose-pine" },
+
+	-- Git Gutter
 
 	{
 		"lewis6991/gitsigns.nvim",
@@ -161,6 +165,8 @@ return {
 			})
 		end,
 	},
+
+	-- Status line
 
 	{
 		"nvim-lualine/lualine.nvim",
@@ -468,17 +474,17 @@ return {
 							"Interface",
 							"Function",
 							"Constant",
-							-- 'String',
-							-- 'Number',
-							-- 'Boolean',
-							-- 'Array',
+							"String",
+							"Number",
+							"Boolean",
+							"Array",
 							"Object",
-							-- 'Keyword',
+							"Keyword",
 							"Null",
-							-- 'EnumMember',
+							"EnumMember",
 							"Struct",
 							"Event",
-							-- 'Operator',
+							"Operator",
 							"TypeParameter",
 						},
 					},
