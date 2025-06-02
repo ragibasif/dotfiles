@@ -9,15 +9,15 @@
 	name = Ragib Asif
     email = 182296466+ragibasif@users.noreply.github.com
 	username = ragibasif
+
 [init]
 	defaultBranch = master
+
 [core]
 	editor = nvim
 	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
-	pager = less -F -X
     autocrlf = input  # keep newlines as in input
     excludesfile = ~/.gitignore_global
-    ; fsync = none
 
 [status]
     branch = true
@@ -27,6 +27,7 @@
 
 [color]
 	ui = true
+
 [color "branch"]
 	current = yellow bold
 	local = green bold
@@ -40,28 +41,14 @@
 	old = red bold
 	new = green bold
 	whitespace = red reverse
+
 [color "status"]
 	added = green bold
 	changed = yellow bold
 	untracked = red bold
-[difftool]
-	prompt = false
-[gitflow "prefix"]
-	versiontag = v
-[sequence]
-	editor = interactive-rebase-tool
+
 [commit]
 	template = ~/.gitmessage
-
-[diff]
-    tool = nvimdiff
-    context = 3  # less context in diffs
-    renames = copies  # detect copies as renames in diffs
-    interHunkContext = 10  # merge near hunks in diffs
-
-[merge]
-    tool = nvimdiff
-    conflictstyle = diff3
 
 [color]
     ui = true
@@ -73,32 +60,4 @@
 
 [fetch]
     prune = true
-
-[rebase]
-    autosquash = true
-
-[pull]
-    rebase = true
-
-[blame]
-    coloring = highlightRecent
-    date = relative
-
-[log]
-    abbrevCommit = true  # short commits
-    graphColors = blue,yellow,cyan,magenta,green,red
-
-[pager]
-    branch = false  # no need to use pager for git branch
-    diff = $PAGER
-
-[submodule]
-    fetchJobs = 16
-
-[rebase]
-    autoStash = true
-
-# Colors
-[color "blame"]
-    highlightRecent = black bold,1 year ago,white,1 month ago,default,7 days ago,blue
 
