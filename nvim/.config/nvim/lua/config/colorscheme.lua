@@ -5,6 +5,8 @@
 --------------------------------------------------------------------------------
 
 local colorschemes = {
+	"darcubox",
+	"kanagawabones",
 	"zenwritten",
 	"rose-pine",
 	"gruvbox",

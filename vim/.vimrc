@@ -5,7 +5,8 @@ filetype indent on
 syntax on
 
 
-colorscheme off
+"colorscheme default
+"colorscheme off
 "colorscheme zenwritten
 "colorscheme zenbones
 "colorscheme sunbather

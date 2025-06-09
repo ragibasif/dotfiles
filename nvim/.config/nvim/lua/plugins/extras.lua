@@ -103,6 +103,14 @@ return {
 	},
 
 	{
+		"Koalhack/darcubox-nvim",
+		opts = {},
+		config = function()
+			-- vim.cmd("colorscheme darcubox")
+		end,
+	},
+
+	{
 		"folke/tokyonight.nvim",
 		lazy = false,
 		priority = 1000,

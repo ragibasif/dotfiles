@@ -29,6 +29,7 @@ stow --adopt zsh
 
 stow --adopt nvim
 stow --adopt vim
+stow --adopt ideavim
 
 stow --adopt tmux
 
