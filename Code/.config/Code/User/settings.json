@@ -8,13 +8,10 @@
   "javascript.updateImportsOnFileMove.enabled": "always",
   "window.zoomLevel": 0.5,
   "launch": {},
-  "workbench.statusBar.visible": false,
   "editor.minimap.enabled": false,
   "breadcrumbs.enabled": false,
   "update.showReleaseNotes": false,
-  "workbench.activityBar.visible": false,
   "zenMode.hideLineNumbers": false,
-  "zenMode.hideTabs": false,
   "editor.lineNumbers": "relative",
 
   "vim.hlsearch": true,
@@ -29,8 +26,6 @@
     }
   ],
   "go.toolsManagement.autoUpdate": true,
-  "workbench.colorTheme": "Panda Syntax",
-  "workbench.iconTheme": "material-icon-theme",
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -105,13 +100,25 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[markdown]": {
-    "editor.defaultFormatter": "antfu.slidev"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "markdown-preview-enhanced.codeBlockTheme": "auto.css",
-  "markdown-preview-enhanced.previewTheme": "github-dark.css",
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.autopep8"
+  },
   "editor.fontFamily": "FiraCode Nerd Font Mono, Menlo, Monaco, 'Courier New', monospace",
-  "editor.fontLigatures": true
+  "editor.fontLigatures": true,
+  "workbench.colorTheme": "Panda Syntax",
+  "workbench.iconTheme": "material-icon-theme",
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.autoFormatStrings": true,
+  "python.analysis.completeFunctionParens": true,
+  "python.analysis.generateWithTypeAnnotation": true,
+  "python.analysis.inlayHints.callArgumentNames": "all",
+  "python.analysis.inlayHints.functionReturnTypes": true,
+  "python.analysis.inlayHints.pytestParameters": true,
+  "python.analysis.inlayHints.variableTypes": true,
+  "python.analysis.typeCheckingMode": "strict"
 }
