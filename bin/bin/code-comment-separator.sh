@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# File: ccs.sh
+# File: code-comment-separator.sh
 # Author: Ragib Asif
 # Email: ragib.asif30@myhunter.cuny.edu
 # GitHub: https://github.com/ragibasif

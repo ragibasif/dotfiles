@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# File: gup.sh
+# File: git-update.sh
 # Author: Ragib Asif
 # Email: ragib.asif30@myhunter.cuny.edu
 # GitHub: https://github.com/ragibasif

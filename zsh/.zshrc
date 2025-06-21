@@ -1,7 +1,7 @@
 # ~/.zshrc
 
 ################################################################################
-#                                    START                                     #
+# START
 ################################################################################
 
 # If not running interactively, don't do anything
@@ -24,7 +24,50 @@ if command -v fastfetch &>/dev/null; then
 fi
 
 ################################################################################
-#                                    BASICS                                    #
+# OH MY ZSH
+################################################################################
+
+# If you come from bash you might have to change your $PATH.
+export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+export ZSH="$HOME/.oh-my-zsh"
+
+ZSH_THEME="apple"
+
+CASE_SENSITIVE="false"
+HYPHEN_INSENSITIVE="true"
+
+zstyle ':omz:update' mode auto
+zstyle ':omz:update' frequency 1
+
+DISABLE_MAGIC_FUNCTIONS="true"
+DISABLE_LS_COLORS="true"
+DISABLE_AUTO_TITLE="true"
+ENABLE_CORRECTION="true"
+COMPLETION_WAITING_DOTS="false"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
+HIST_STAMPS="dd.mm.yyyy"
+
+plugins=(
+    git
+    macos
+)
+
+source $ZSH/oh-my-zsh.sh
+export LANG=en_US.UTF-8
+export MANPATH="/usr/local/man:$MANPATH"
+
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='nvim'
+fi
+
+export ARCHFLAGS="-arch $(uname -m)"
+alias zshconfig="nvim ~/.zshrc"
+alias ohmyzsh="nvim ~/.oh-my-zsh"
+
+################################################################################
+# BASICS
 ################################################################################
 
 export LANG=en_US.UTF-8
@@ -41,7 +84,7 @@ export MANPAGER="less -R --use-color -Dd+r -Du+b"
 export PATH="$HOME/bin:$PATH" # this allows me to run the bash scripts i wrote
 
 ################################################################################
-#                                     XDG                                      #
+# XDG
 ################################################################################
 
 # https://specifications.freedesktop.org/basedir-spec/latest/
@@ -53,7 +96,7 @@ export XDG_DATA_DIRS="/usr/local/share/:/usr/share/"
 export XDG_CONFIG_DIRS="/etc/xdg"
 
 ################################################################################
-#                                   ALIASES                                    #
+# ALIASES
 ################################################################################
 
 # Aliases
@@ -160,7 +203,7 @@ HISTFILE="$XDG_CACHE_HOME/zsh_history" # move histfile to cache
 HISTCONTROL=ignoreboth # consecutive duplicates & commands starting with space are not saved
 
 ################################################################################
-#                                  FUNCTIONS                                   #
+# FUNCTIONS
 ################################################################################
 
 # Restart the shell.
@@ -169,7 +212,7 @@ restart_shell() {
 }
 
 ################################################################################
-#                                     ZSH                                      #
+# ZSH
 ################################################################################
 
 # load modules
@@ -182,7 +225,7 @@ zmodload zsh/complist
 bindkey -v
 
 ################################################################################
-#                            PROGRAMMING LANGUAGES                             #
+# PROGRAMMING LANGUAGES
 ################################################################################
 
 export GOROOT=
@@ -196,6 +239,5 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-
-eval "$(starship init zsh)"
+# eval "$(starship init zsh)"
 
