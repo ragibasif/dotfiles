@@ -15,7 +15,6 @@ local footer = [[
                                       n e o v i m   ]]
 
 return {
-	{ "wakatime/vim-wakatime", lazy = false },
 
 	-- Indentation guides
 	{
