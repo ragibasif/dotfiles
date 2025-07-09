@@ -45,3 +45,4 @@ export VISUAL=nvim
 
 # this allows me to run the bash scripts i wrote
 export PATH="$HOME/bin:$PATH"
+. "$HOME/.cargo/env"

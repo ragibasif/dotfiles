@@ -13,6 +13,7 @@ return {
 			-- Conform will run multiple formatters sequentially
 			go = { "goimports", "gofmt" },
 			html = { "prettier" },
+			css = { "prettier" },
 			json = { "prettier" },
 			javascript = { "prettier" },
 			-- You can also customize some of the format options for the filetype

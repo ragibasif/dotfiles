@@ -151,6 +151,11 @@ return {
 				cmd = {
 					"clangd",
 					"--fallback-style=llvm",
+					"--background-index",
+					"--clang-tidy",
+					"--completion-style=bundled",
+					"--cross-file-rename",
+					"--header-insertion=iwyu",
 				},
 				root_markers = {
 					{

@@ -42,7 +42,6 @@ zstyle ':omz:update' frequency 1
 DISABLE_MAGIC_FUNCTIONS="true"
 DISABLE_LS_COLORS="true"
 DISABLE_AUTO_TITLE="true"
-ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="false"
 DISABLE_UNTRACKED_FILES_DIRTY="true"
 HIST_STAMPS="dd.mm.yyyy"
@@ -189,7 +188,6 @@ alias tn='tmux new-session -s'
 
 # Extras
 alias yt-dlp-music='yt-dlp -P "~/Music" -x --audio-format mp3 --audio-quality 0 -o "%(uploader)s_%(playlist)s/%(title)s.%(ext)s" --embed-metadata --parse-metadata "%(title)s:%(meta_title)s" --parse-metadata "%(uploader)s:%(meta_artist)s" --parse-metadata "%(playlist)s:%(meta_album)s" --parse-metadata "%(playlist_index)s:%(meta_track)s" -i'
-alias yt-dlp-video='yt-dlp -P "~/Videos" -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best"'
 alias valgrind='valgrind --tool=memcheck --leak-check=full --show-reachable=yes --error-exitcode=1'
 
 # Package Management
