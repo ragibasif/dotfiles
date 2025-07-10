@@ -1,36 +1,15 @@
 # Dotfiles
 
-<!--toc:start-->
-
-- [Dotfiles](#dotfiles)
-  - [Getting Started](#getting-started)
-    - [Prerequisites](#prerequisites)
-    - [Installation](#installation)
-  - [Usage](#usage)
-    - [Stowing Specific Configurations](#stowing-specific-configurations)
-    - [Customizing the `.stow-local-ignore` File](#customizing-the-stow-local-ignore-file)
-    - [Overwriting Existing Files](#overwriting-existing-files)
-  - [License](#license)
-  - [References](#references)
-  <!--toc:end-->
-
-Welcome to my configuration files (also known as `dotfiles`) repository! This
-is where I store and manage my precious configuration files (commonly referred
-to as "dotfiles"). These files are essential for customizing and optimizing my
-development environment. To manage these configurations efficiently, I use
-**GNU Stow**, a symlink manager that helps keep everything organized and easily
-deployable.
+My `dotfiles` managed by `GNU Stow`.
 
 ## Getting Started
 
 ### Prerequisites
 
-Before you begin, ensure you have the following tools installed on your system:
-
 **Required:**
 
 - **`git`**: For cloning and managing the repository.
-- **`stow`**: For symlinking and managing dot files.
+- **`stow`**: For symlinking and managing dotfiles.
 
 **Optional (but recommended):**
 
@@ -41,53 +20,37 @@ Before you begin, ensure you have the following tools installed on your system:
 
 1. **Clone the Repository:**
 
-   First, clone this repository into your `$HOME` directory. This ensures that
-   the symlinks created by `stow` point to the correct locations.
-
    ```sh
-   git clone git@github.com:ragibasif/dotfiles.git ~/dotfiles
-   cd ~/dotfiles
+   git clone git@github.com:ragibasif/dotfiles.git ~/dotfiles && cd ~/dotfiles
    ```
 
 2. **Run the Installation Script:**
-
-   The `install.sh` script automates the process of stowing all the
-   configuration files. It will also overwrite any pre-existing configuration
-   files that may conflict with the ones in this repository.
 
    ```sh
    ./install.sh
    ```
 
-Alternatively, you can manually stow specific directories if you don't want to
-apply all configurations at once.
-
 ## Usage
 
 ### Stowing Specific Configurations
 
-If you prefer to stow only specific configurations, you can do so by running
-the `stow` command followed by the directory name. For example:
-
 ```sh
-stow bash      # Applies bash configurations
-stow nvim      # Applies Neovim configurations
-stow vim       # Applies Vim configurations
-stow git       # Applies Git configurations
-stow tmux      # Applies tmux configurations
+stow bash      # Applies ONLY the bash configurations
+stow nvim      # Applies ONLY the neovim configurations
+stow vim       # Applies ONLY the vim configurations
+stow git       # Applies ONLY the git configurations
+stow tmux      # Applies ONLY the tmux configurations
 ```
 
 ### Customizing the `.stow-local-ignore` File
 
 The `.stow-local-ignore` file allows you to specify files or directories that
-should be ignored when stowing. This is useful if you have local configurations
-that you don't want to overwrite or symlink.
+should be ignored when stowing.
 
 ### Overwriting Existing Files
 
-By default, `stow` will not overwrite existing files. If you want to force
-`stow` to overwrite conflicting files, you can use the `--adopt` or `--override`
-options. Be cautious with this, as it will replace your existing configurations.
+By default, `stow` will not overwrite existing files. Using the `--adopt` or
+`--override` flags will overwrite conflicting files.
 
 ```sh
 stow --override bash

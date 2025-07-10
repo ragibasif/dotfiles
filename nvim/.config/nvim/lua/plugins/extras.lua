@@ -89,44 +89,6 @@ return {
 		},
 	},
 
-	-- Colorschemes
-
-	{
-		"zenbones-theme/zenbones.nvim",
-		dependencies = "rktjmp/lush.nvim",
-		lazy = false,
-		priority = 1000,
-		config = function()
-			vim.g.zenbones_darken_comments = 45
-		end,
-	},
-
-	{
-		"Koalhack/darcubox-nvim",
-		opts = {},
-		config = function()
-			-- vim.cmd("colorscheme darcubox")
-		end,
-	},
-
-	{
-		"folke/tokyonight.nvim",
-		lazy = false,
-		priority = 1000,
-		config = function()
-			require("tokyonight").setup({
-				style = "night",
-				transparent = false,
-			})
-		end,
-	},
-
-	{ "ellisonleao/gruvbox.nvim", name = "gruvbox" },
-
-	{ "catppuccin/nvim", name = "catppuccin" },
-
-	{ "rose-pine/nvim", name = "rose-pine" },
-
 	-- Git Gutter
 
 	{
@@ -224,55 +186,6 @@ return {
 				end,
 			})
 		end,
-	},
-
-	{
-		"folke/which-key.nvim",
-		event = "VeryLazy",
-		opts = {
-			icons = { separator = ":" },
-			spec = {
-				mode = { "n", "v" },
-				{ "<leader>c", group = "Code" },
-				{ "<leader>d", group = "Debug" },
-				{ "<leader>f", group = "File/find" },
-				{ "<leader>g", group = "Git" },
-				{ "<leader>gh", group = "Hunks" },
-				{ "<leader>m", group = "Markdown" },
-				{ "<leader>p", group = "Plugins" },
-				{ "<leader>q", group = "Quit/session" },
-				{ "<leader>s", group = "Search" },
-				{ "<leader>u", group = "Ui" },
-				{ "<leader>x", group = "Diagnostics/quickfix" },
-				{ "z", group = "Folds/jumps/spelling" },
-				{ "g", group = "Goto/actions" },
-				{ "[", group = "Prev" },
-				{ "]", group = "Next" },
-				{
-					"<leader>b",
-					group = "Buffer",
-					expand = function()
-						return require("which-key.extras").expand.buf()
-					end,
-				},
-				{
-					"<leader>w",
-					group = "Windows",
-					proxy = "<c-w>",
-					expand = function()
-						return require("which-key.extras").expand.win()
-					end,
-				},
-				{ "gx", desc = "Open with system app" },
-			},
-		},
-		keys = {
-			{
-				"<leader>?",
-				"<cmd>lua require('which-key').show({ global = false })<cr>",
-				desc = "Buffer keymaps (which-key)",
-			},
-		},
 	},
 
 	{
@@ -498,5 +411,17 @@ return {
 				},
 			})
 		end,
+	},
+
+	-- Markdown rendering --
+
+	{
+		"MeanderingProgrammer/render-markdown.nvim",
+		dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- if you use the mini.nvim suite
+		-- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
+		-- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+		---@module 'render-markdown'
+		---@type render.md.UserConfig
+		opts = {},
 	},
 }
