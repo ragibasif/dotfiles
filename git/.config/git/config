@@ -1,0 +1,99 @@
+# File: ~/config/git/config
+# Author: Ragib Asif
+# Email: 182296466+ragibasif@users.noreply.github.com
+# GitHub: https://github.com/ragibasif
+# LinkedIn: https://www.linkedin.com/in/ragibasif/
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2025 Ragib Asif
+# Version 1.0.0
+
+[user]
+	name = Ragib Asif
+    email = 182296466+ragibasif@users.noreply.github.com
+	username = ragibasif
+    # signingkey =
+
+[core]
+	editor = nvim
+    compression = 9
+	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
+    autocrlf = input
+    preloadindex = true
+    pager = delta
+    fsync = none
+
+[pager]
+    branch = false
+    tag = false
+
+[blame]
+    coloring = highlightRecent
+    date = relative
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true  # use n and N to move between diff sections
+    dark = true
+
+[merge]
+    conflictstyle = zdiff3
+
+[init]
+	defaultBranch = master
+
+[status]
+    branch = true
+    showStash = true
+    showUntrackedFiles = all
+
+[color]
+	ui = true
+
+[log]
+    abbrevCommit = true
+    graphColors = blue,yellow,cyan,magenta,green,red
+
+[commit]
+	template = ~/.config/git/template
+    ; gpgSign = true
+    verbose = true
+
+[push]
+    autoSetupRemote = true
+    default = current
+    followTags = true
+
+
+[pull]
+    default = current
+    rebase = true
+
+[rebase]
+    autoStash = true
+    missingCommitsCheck = warn
+
+[fetch]
+    prune = true
+
+[color "branch"]
+	current = yellow bold
+	local = green bold
+	remote = cyan bold
+    upstream = green
+    plain    = blue
+
+[color "diff"]
+	meta = black bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+	whitespace = yellow reverse
+    context = white
+
+[color "status"]
+	added = green bold
+	changed = yellow bold
+	untracked = red bold
+

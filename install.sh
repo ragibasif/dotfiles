@@ -33,6 +33,8 @@ stow --adopt ideavim
 
 stow --adopt tmux
 
+stow --adopt ssh
+
 stow --adopt fastfetch
 
 stow --adopt starship
