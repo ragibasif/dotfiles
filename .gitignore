@@ -10,7 +10,6 @@
 *.sig
 
 pkg/
-src/
 undo/
 
 /.repro

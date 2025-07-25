@@ -2,7 +2,6 @@
 #
 # File: install.sh
 # Author: Ragib Asif
-# Email: ragib.asif30@myhunter.cuny.edu
 # GitHub: https://github.com/ragibasif
 # LinkedIn: https://www.linkedin.com/in/ragibasif/
 # SPDX-License-Identifier: MIT
@@ -40,6 +39,7 @@ stow --adopt fastfetch
 stow --adopt starship
 
 stow --adopt bat
+stow --adopt freeze
 
 # Get OS type (Linux, Darwin/macOS, etc.)
 OS="$(uname -s)"
