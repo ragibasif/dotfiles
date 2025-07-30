@@ -1,10 +1,9 @@
 -- keymaps.lua
 
---------------------------------------------------------------------------------
---                                  KEYMAPS                                   --
---------------------------------------------------------------------------------
-
+-- Leader key
 local leader = "\\"
+vim.g.mapleader = leader
+vim.g.maplocalleader = leader
 
 local modes = {
 	all = "",
@@ -31,8 +30,7 @@ local arrow_keys = {
 
 local function map(mode, lhs, rhs)
 	local opts = { noremap = true, silent = true }
-	local keymap = vim.api.nvim_set_keymap
-	keymap(mode, lhs, rhs, opts)
+	vim.keymap.set(mode, lhs, rhs, opts)
 end
 
 local function map_escape()
