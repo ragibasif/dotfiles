@@ -4,7 +4,7 @@ filetype plugin on
 filetype indent on
 syntax off
 set background=dark
-set spelllang=en_us
+colorscheme zenwritten
 
 inoremap jk <esc>
 inoremap Jk <esc>
@@ -24,12 +24,16 @@ set nowritebackup
 set noswapfile
 
 set nowrap
+set spelllang=en_us
 
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
 set smarttab
+
+set number
+set relativenumber
 
 set autoindent
 set smartindent
