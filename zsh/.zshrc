@@ -101,8 +101,6 @@ export XDG_CONFIG_DIRS="/etc/xdg"
 # Aliases
 unalias -a
 
-alias lint='golangci-lint run'
-
 # zoxide: https://github.com/ajeetdsouza/zoxide
 if command -v zoxide &>/dev/null; then
     eval "$(zoxide init $(basename "$SHELL"))"
@@ -164,11 +162,8 @@ fi
 alias df='df -h'
 alias du='du -h -d 1'
 
-# Editor
-alias v="nvim"
-
 # Open vim without loading the vimrc.
-alias vimnilla='vi -u NONE'
+alias vimnilla='vim -u NONE'
 
 # Open neovim without loading the init.lua.
 alias nvimnilla='nvim -u NONE'
@@ -181,11 +176,6 @@ alias rm='rm -iv'
 alias cp='cp -iv'
 alias mv='mv -iv'
 
-# Tmux
-alias ta='tmux attach'
-alias tl='tmux list-sessions'
-alias tn='tmux new-session -s'
-
 # Extras
 alias yt-dlp-music='yt-dlp -P "~/Music" -x --audio-format mp3 --audio-quality 0 -o "%(uploader)s_%(playlist)s/%(title)s.%(ext)s" --embed-metadata --parse-metadata "%(title)s:%(meta_title)s" --parse-metadata "%(uploader)s:%(meta_artist)s" --parse-metadata "%(playlist)s:%(meta_album)s" --parse-metadata "%(playlist_index)s:%(meta_track)s" -i'
 alias valgrind='valgrind --tool=memcheck --leak-check=full --show-reachable=yes --error-exitcode=1'
@@ -193,6 +183,10 @@ alias valgrind='valgrind --tool=memcheck --leak-check=full --show-reachable=yes 
 # Package Management
 ## For brew (macOS)
 alias brewup='brew update && brew upgrade && brew cleanup'
+
+# VLC
+
+alias vlc='/Applications/VLC.app/Contents/MacOS/VLC --play-and-pause &'
 
 # history opts
 HISTSIZE=1000
@@ -239,3 +233,4 @@ export NVM_DIR="$HOME/.nvm"
 
 # eval "$(starship init zsh)"
 
+. "$HOME/.local/share/../bin/env"

@@ -3,8 +3,10 @@ filetype on
 filetype plugin on
 filetype indent on
 syntax off
+"syntax on
 set background=dark
 colorscheme zenwritten
+"colorscheme gruvbox
 
 inoremap jk <esc>
 inoremap Jk <esc>
