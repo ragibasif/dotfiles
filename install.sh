@@ -23,20 +23,16 @@ set -Ceuvx
 
 stow --adopt git
 
-stow --adopt bash
 stow --adopt zsh
 
 stow --adopt nvim
 stow --adopt vim
-stow --adopt ideavim
 
 stow --adopt tmux
 
 stow --adopt ssh
 
 stow --adopt fastfetch
-
-stow --adopt starship
 
 stow --adopt bat
 stow --adopt freeze
