@@ -1,4 +1,0 @@
-source ~/.vimrc
-
-set visualbell
-set noerrorbells
