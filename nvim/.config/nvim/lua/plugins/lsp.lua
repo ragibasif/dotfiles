@@ -44,7 +44,6 @@ return {
 	},
 
 	{
-
 		"mason-org/mason-lspconfig.nvim",
 		opts = {},
 	},
@@ -144,6 +143,7 @@ return {
 					{ noremap = true, silent = true }
 				)
 			end
+
 			-- C/C++
 			lspconfig.clangd.setup({
 				capabilities = capabilities,
@@ -182,6 +182,24 @@ return {
 					},
 				},
 			})
+
+			-- Rust
+			lspconfig.rust_analyzer.setup({
+				settings = {
+					["rust-analyzer"] = {
+						cargo = {
+							features = "all",
+						},
+						check = {
+							command = "clippy",
+						},
+						interpret = {
+							tests = true,
+						},
+					},
+				},
+			})
+
 			-- Lua
 			lspconfig.lua_ls.setup({
 				settings = {
@@ -194,7 +212,7 @@ return {
 							},
 						},
 						runtime = { version = "LuaJIT" },
-						diagnostics = { globals = { "vim" } },
+						diagnostics = { globals = { "vim", "require" } },
 						workspace = { library = vim.api.nvim_get_runtime_file("", true) },
 						telemetry = { enable = false },
 					},
