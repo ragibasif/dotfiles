@@ -2,7 +2,7 @@
 #
 # File: git-obliterate-commits.sh
 # Author: Ragib Asif
-# Email: ragib.asif30@myhunter.cuny.edu
+# Email: ragibasif@tuta.io
 # GitHub: https://github.com/ragibasif
 # LinkedIn: https://www.linkedin.com/in/ragibasif/
 # SPDX-License-Identifier: MIT
@@ -25,7 +25,7 @@ echo "${FILE}"
 
 git checkout --orphan newBranch
 git add -A # Add all files and commit them
-git commit -m "obliterate git commit history"
+git commit -m "Initial commit"
 git branch -D master                     # Deletes the master branch
 git branch -m master                     # Rename the current branch to master
 git push -f --set-upstream origin master # Force push master branch to github
