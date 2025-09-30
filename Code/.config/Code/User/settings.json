@@ -124,5 +124,6 @@
   "redhat.telemetry.enabled": false,
   "[typescript]": {
     "editor.defaultFormatter": "vscode.typescript-language-features"
-  }
+  },
+  "svelte.enable-ts-plugin": true
 }

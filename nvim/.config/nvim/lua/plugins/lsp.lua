@@ -150,23 +150,28 @@ return {
 				on_attach = on_attach,
 				cmd = {
 					"clangd",
-					"--fallback-style=llvm",
 					"--background-index",
 					"--clang-tidy",
 					"--completion-style=bundled",
 					"--cross-file-rename",
 					"--header-insertion=iwyu",
+					"--fallback-style=llvm",
+					"--pch-storage=memory", -- Store precompiled headers in memory (faster)
 				},
-				root_markers = {
-					{
-						".clangd",
-						".clang-tidy",
-						".clang-format",
-						"compile_commands.json",
-						"compile_flags.txt",
-						"configure.ac",
-						".git",
-					},
+				root_dir = lspconfig.util.root_pattern(
+					".clangd",
+					".clang-tidy",
+					".clang-format",
+					"compile_commands.json",
+					"compile_flags.txt",
+					"configure.ac",
+					".git"
+				),
+				init_options = {
+					clangdFileStatus = true, -- Show file status in statusline
+					usePlaceholders = true,
+					completeUnimported = true,
+					semanticHighlighting = true,
 				},
 			})
 
