@@ -20,34 +20,42 @@ colorscheme zenwritten
 " Alternative color scheme (currently commented out)
 "colorscheme gruvbox
 
-" Disable arrow keys in normal mode
+" Disable arrow keys and page navigation in normal mode
 nnoremap <Up> <Nop>
 nnoremap <Down> <Nop>
 nnoremap <Left> <Nop>
 nnoremap <Right> <Nop>
+nnoremap <PageUp> <Nop>
+nnoremap <PageDown> <Nop>
 
-" Disable arrow keys in insert mode
+" Disable arrow keys and page navigation in insert mode
 inoremap <Up> <Nop>
 inoremap <Down> <Nop>
 inoremap <Left> <Nop>
 inoremap <Right> <Nop>
+inoremap <PageUp> <Nop>
+inoremap <PageDown> <Nop>
 
-" Disable arrow keys in visual mode
+" Disable arrow keys and page navigation in visual mode
 vnoremap <Up> <Nop>
 vnoremap <Down> <Nop>
 vnoremap <Left> <Nop>
 vnoremap <Right> <Nop>
+vnoremap <PageUp> <Nop>
+vnoremap <PageDown> <Nop>
 
 " Map 'jk' to escape key in insert mode (all case variations)
 inoremap jk <esc>
 inoremap Jk <esc>
 inoremap JK <esc>
 inoremap jK <esc>
+
 " Map 'jk' to escape key in visual mode (all case variations)
 vnoremap jk <esc>
 vnoremap Jk <esc>
 vnoremap JK <esc>
 vnoremap jK <esc>
+
 " Map 'jk' to escape key in command-line mode (all case variations)
 cnoremap jk <esc>
 cnoremap Jk <esc>
@@ -75,7 +83,7 @@ set shiftwidth=4
 set softtabstop=4
 " Convert tabs to spaces
 set expandtab
-" Make backspace delete 4 spaces (one 'tab') at once
+" Insert/delete blanks according to 'shiftwidth', 'tabstop', or 'softtabstop'
 set smarttab
 
 " Show absolute line numbers
@@ -116,8 +124,9 @@ set smartcase
 " Automatically reload files changed outside of Vim
 set autoread
 
-" Allow backspace to delete indentation, line breaks, and past insertion point
-set backspace=indent,eol,start
+" (Dis)Allow backspace to delete indentation, line breaks, and past insertion point
+"set backspace=indent,eol,start
+set backspace=0
 
 " Set filetype to tmux, disable text width limit, and disable wrapping
 set ft=tmux tw=0 nowrap
@@ -166,7 +175,8 @@ set undodir=~/.vim/undo/
 " Enable persistent undo across sessions
 set undofile
 
-
+" Allow recursive file searching with commands like :find and gf
+set path+=**
 
 " Enable folding (code collapsing)
 set foldenable
