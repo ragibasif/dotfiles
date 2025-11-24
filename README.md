@@ -1,31 +1,11 @@
-<div align="center">
-<h1>
-Dotfiles
-</h1>
-</div>
+# Dotfiles
 
-<div align="center">
-<p>
-  <a href="https://github.com/ragibasif/dotfiles">
-    <img alt="GitHub" src="https://img.shields.io/badge/GitHub-0D1117?style=for-the-badge&logo=github&logoColor=C9D1D9">
-  </a>
-  <a href="https://github.com/ragibasif/dotfiles/pulse">
-    <img alt="Last Commit" src="https://img.shields.io/github/last-commit/ragibasif/dotfiles?style=for-the-badge&logo=github&color=58A6FF&logoColor=C9D1D9&labelColor=0D1117">
-  </a>
-  <a href="https://github.com/ragibasif/dotfiles/stargazers">
-    <img alt="Stars" src="https://img.shields.io/github/stars/ragibasif/dotfiles?style=for-the-badge&logo=apachespark&color=D29922&logoColor=C9D1D9&labelColor=0D1117">
-  </a>
-  <a href="https://github.com/ragibasif/dotfiles/network/members">
-    <img alt="Forks" src="https://img.shields.io/github/forks/ragibasif/dotfiles?style=for-the-badge&logo=github&color=3FB950&logoColor=C9D1D9&labelColor=0D1117">
-  </a>
-  <a href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fragibasif%2Fdotfiles">
-    <img alt="Visitors" src="https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fragibasif%2Fdotfiles&label=visitors&labelColor=%230D1117&countColor=%2358A6FF">
-  </a>
-  <a href="https://github.com/ragibasif/dotfiles/blob/master/LICENSE">
-    <img alt="License" src="https://img.shields.io/github/license/ragibasif/dotfiles?style=for-the-badge&logo=starship&color=8957E5&logoColor=C9D1D9&labelColor=0D1117">
-  </a>
-</p>
-</div>
+[![GitHub](https://img.shields.io/badge/GitHub-0D1117?style=for-the-badge&logo=github&logoColor=C9D1D9)](https://github.com/ragibasif/dotfiles)
+[![Last Commit](https://img.shields.io/github/last-commit/ragibasif/dotfiles?style=for-the-badge&logo=github&color=58A6FF&logoColor=C9D1D9&labelColor=0D1117)](https://github.com/ragibasif/dotfiles/pulse)
+[![Stars](https://img.shields.io/github/stars/ragibasif/dotfiles?style=for-the-badge&logo=apachespark&color=D29922&logoColor=C9D1D9&labelColor=0D1117)](https://github.com/ragibasif/dotfiles/stargazers)
+[![Forks](https://img.shields.io/github/forks/ragibasif/dotfiles?style=for-the-badge&logo=github&color=3FB950&logoColor=C9D1D9&labelColor=0D1117)](https://github.com/ragibasif/dotfiles/network/members)
+[![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fragibasif%2Fdotfiles&label=visitors&labelColor=%230D1117&countColor=%2358A6FF)](https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2Fragibasif%2Fdotfiles)
+[![License](https://img.shields.io/github/license/ragibasif/dotfiles?style=for-the-badge&logo=starship&color=8957E5&logoColor=C9D1D9&labelColor=0D1117)](https://github.com/ragibasif/dotfiles/blob/master/LICENSE)
 
 My `dotfiles` managed by `GNU Stow`.
 
@@ -33,33 +13,33 @@ My `dotfiles` managed by `GNU Stow`.
 
 ### Prerequisites
 
-**Required:**
+Required:
 
-- **`git`**: For cloning and managing the repository.
-- **`stow`**: For symlinking and managing dotfiles.
+- `git`: For cloning and managing the repository.
+- `stow`: For symlinking and managing dotfiles.
 
-**Optional (but recommended):**
+Optional (but recommended):
 
-- **`neovim`**: For a modern Vim experience.
-- **`tmux`**: For terminal multiplexing and session management.
+- `neovim`: For a modern Vim experience.
+- `tmux`: For terminal multiplexing and session management.
 
 ### Installation
 
-1. **Clone the Repository:**
+1. Clone the Repository:
 
-   ```sh
+   ```bash
    git clone git@github.com:ragibasif/dotfiles.git ~/dotfiles
    ```
 
-2. **Enter the Directory:**
+2. Enter the Directory:
 
-   ```sh
+   ```bash
    cd ~/dotfiles
    ```
 
-3. **Run the Installation Script:**
+3. Run the Installation Script:
 
-   ```sh
+   ```bash
    ./install.sh
    ```
 
@@ -67,7 +47,7 @@ My `dotfiles` managed by `GNU Stow`.
 
 ### Stowing Specific Configurations
 
-```sh
+```bash
 stow bash      # Applies ONLY the bash configurations
 stow nvim      # Applies ONLY the neovim configurations
 stow vim       # Applies ONLY the vim configurations
@@ -85,19 +65,19 @@ should be ignored when stowing.
 By default, `stow` will not overwrite existing files. Using the `--adopt` or
 `--override` flags will overwrite conflicting files.
 
-```sh
+```bash
 stow --override bash
 ```
 
 Or
 
-```sh
+```bash
 stow --adopt zsh
 ```
 
 ## License
 
-This project is licensed under the **MIT License**. Feel free to use, modify,
+This project is licensed under the MIT License. Feel free to use, modify,
 and distribute the code as you see fit. For more details, see the
 [LICENSE](LICENSE) file.
 
