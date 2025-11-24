@@ -1,6 +1,6 @@
-#!/bin/sh
+#!/usr/bin/env bash
 #
-# File: git-update.sh
+# File: git_update.sh
 # Author: Ragib Asif
 # Email: ragib.asif30@myhunter.cuny.edu
 # GitHub: https://github.com/ragibasif
@@ -9,22 +9,33 @@
 # Copyright (c) 2025 Ragib Asif
 # Version 1.0.0
 #
-# This script will add all files in the directory, commit them with a message
-# and timestamp, and pushes them to master.
+# Script to stage, commit, and push changes
 #
 
-set -Ceuvx
-# set -n
+set -o noclobber
+set -o nounset
+set -o errexit # Exit on error
+set -o errtrace
+set -o pipefail
 
-MAGENTA='\033[95m'
-BOLD='\033[1m'
-RESET='\033[0m' # No Color
-FILE="${BOLD}${MAGENTA}$(eval basename "$0")${RESET}"
-echo "${FILE}"
+set -vx
 
-gitleaks git
-git add -A # Add all files and commit them
-git commit -m "backup: automated update $(date +%c)"
-git push origin master # push master branch to github
+# set -o noexec # set -n
 
-exit 0
+IFS=$'\n\t'
+
+_THIS="$(basename "${0}")"
+_VERSION="1.0.0"
+
+_TITLE="chore: synchronize data and content"
+_DESCRIPTION="$(date +%c) Refreshed project data, content files, and related assets with the latest information. Ensured all synchronized resources are current and reflect recent changes from upstream sources."
+
+_main() {
+    echo "Running script ${_THIS}, version ${_VERSION}"
+    gitleaks git
+    git add -A # Add all files and commit them
+    git commit -m "${_TITLE}" -m "${_DESCRIPTION}"
+    git push # push branch to github
+}
+
+_main
