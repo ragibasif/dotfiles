@@ -1,6 +1,6 @@
-#!/bin/sh
+#!/usr/bin/env bash
 #
-# File: git-obliterate-commits.sh
+# File: git_obliterate_commits.sh
 # Author: Ragib Asif
 # Email: ragibasif@tuta.io
 # GitHub: https://github.com/ragibasif
@@ -13,15 +13,17 @@
 # at your own risk.
 #
 # https://stackoverflow.com/questions/9683279/make-the-current-commit-the-only-initial-commit-in-a-git-repository
+#
 
-set -Ceuvx
-# set -n # debugging
+set -o noclobber
+set -o nounset
+set -o errexit # Exit on error
+set -o errtrace
+set -o pipefail
 
-MAGENTA='\033[95m'
-BOLD='\033[1m'
-RESET='\033[0m' # No Color
-FILE="${BOLD}${MAGENTA}$(eval basename "$0")${RESET}"
-echo "${FILE}"
+set -vx
+
+# set -o noexec # set -n # debugging
 
 git checkout --orphan newBranch
 git add -A # Add all files and commit them

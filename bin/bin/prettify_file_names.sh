@@ -1,11 +1,30 @@
-#!/bin/sh
+#!/usr/bin/env bash
+#
+# File: prettify_file_names.sh
+# Author: Ragib Asif
+# Email: ragibasif@tuta.io
+# GitHub: https://github.com/ragibasif
+# LinkedIn: https://www.linkedin.com/in/ragibasif/
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2025 Ragib Asif
+# Version 1.0.0
+#
+# Script to stage, commit, and push changes
+#
 
-set -Ceuvx
-# set -n # debugging
+set -o noclobber
+set -o nounset
+set -o errexit # Exit on error
+set -o errtrace
+set -o pipefail
+
+set -vx
+
+# set -o noexec # set -n
 
 search_dir="./"
 
-prettify() {
+_prettify() {
     if [ -d "$search_dir" ]; then
         for file in "$search_dir"/*; do
 
@@ -28,16 +47,17 @@ prettify() {
 
 }
 
-
 chars=(" " "-" "(" ")" "[" "]" "{" "}" "," ";" ":" "$" "%" "&" "*" "^" "#" "@" "!" "'" "\`" "\"" "~" "|" "+" "=" "<" ">" "＂")
 
 for char in "${chars[@]}"; do
-    prettify "$char"
+    _prettify "$char"
 done
 
-
-for f in *.*; do pre="${f%.*}"; suf="${f##*.}"; \
-                 mv -- "$f" "${pre//./_}.${suf}"; done
+for f in *.*; do
+    pre="${f%.*}"
+    suf="${f##*.}"
+    mv -- "$f" "${pre//./_}.${suf}"
+done
 
 for file in *; do
     new_name=$(echo "$file" | sed 's/_*_/_/g')
