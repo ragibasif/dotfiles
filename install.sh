@@ -35,40 +35,35 @@ set -o pipefail
 
 IFS=$'\n\t'
 
-_main() {
+stow --adopt git
 
-    stow --adopt git
+stow --adopt zsh
 
-    stow --adopt zsh
+stow --adopt nvim
+stow --adopt vim
 
-    stow --adopt nvim
-    stow --adopt vim
+stow --adopt tmux
 
-    stow --adopt tmux
+stow --adopt ssh
 
-    stow --adopt ssh
+stow --adopt fastfetch
 
-    stow --adopt fastfetch
+stow --adopt bat
+stow --adopt freeze
 
-    stow --adopt bat
-    stow --adopt freeze
+# Get OS type (Linux, Darwin/macOS, etc.)
+OS="$(uname -s)"
 
-    # Get OS type (Linux, Darwin/macOS, etc.)
-    OS="$(uname -s)"
+# macOS-specific install
+if [ "$OS" = "Darwin" ]; then
+    sudo cp -i ~/dotfiles/bin/bin/* /usr/local/bin/
+    cp -i ~/dotfiles/Code/.config/Code/User/settings.json ~/Library/Application\ Support/Code/User/settings.json
+    stow --adopt amethyst
+else
+    stow --adopt bin
+    stow --adopt Code
+fi
 
-    # macOS-specific install
-    if [ "$OS" = "Darwin" ]; then
-        sudo cp -i ~/dotfiles/bin/bin/* /usr/local/bin/
-        cp -i ~/dotfiles/Code/.config/Code/User/settings.json ~/Library/Application\ Support/Code/User/settings.json
-        stow --adopt amethyst
-    else
-        stow --adopt bin
-        stow --adopt Code
-    fi
+git restore .
 
-    git restore .
-
-}
-
-_main
 exit 0
