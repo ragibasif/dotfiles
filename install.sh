@@ -21,10 +21,17 @@
 #   - Stow will create a symlink and overwrite the files inside your repository and git will undo the changes and return to the original files but the symlinks will stay there.
 #
 
-set -o errexit
-set -o errtrace
+set -o verbose   # set -v
+set -o xtrace    # set -x
+set -o noclobber # set -C
+set -o posix
+set -o nounset # set -u
+set -o errexit # set -e
+trap 'echo "Aborting due to errexit on line $LINENO. Exit code: $?" >&2' ERR
+set -o errtrace # set -E
 set -o pipefail
-set -xv
+
+# set -o noexec # set -n
 
 IFS=$'\n\t'
 

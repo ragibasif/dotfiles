@@ -9,18 +9,21 @@
 # Copyright (c) 2025 Ragib Asif
 # Version 1.0.0
 #
-# Script to stage, commit, and push changes
 #
 
-set -o noclobber
-set -o nounset
-set -o errexit # Exit on error
-set -o errtrace
+set -o verbose   # set -v
+set -o xtrace    # set -x
+set -o noclobber # set -C
+set -o posix
+set -o nounset # set -u
+set -o errexit # set -e
+trap 'echo "Aborting due to errexit on line $LINENO. Exit code: $?" >&2' ERR
+set -o errtrace # set -E
 set -o pipefail
 
-set -vx
-
 # set -o noexec # set -n
+
+IFS=$'\n\t'
 
 search_dir="./"
 
