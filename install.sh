@@ -56,9 +56,9 @@ OS="$(uname -s)"
 
 # macOS-specific install
 if [ "$OS" = "Darwin" ]; then
+    stow --adopt amethyst
     sudo cp -i ~/dotfiles/bin/bin/* /usr/local/bin/
     cp -i ~/dotfiles/Code/.config/Code/User/settings.json ~/Library/Application\ Support/Code/User/settings.json
-    stow --adopt amethyst
 else
     stow --adopt bin
     stow --adopt Code
