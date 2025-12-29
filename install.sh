@@ -1,14 +1,5 @@
 #!/usr/bin/env bash
 #
-# File: install.sh
-# Author: Ragib Asif
-# Email: ragibasif@tuta.io
-# GitHub: https://github.com/ragibasif
-# LinkedIn: https://www.linkedin.com/in/ragibasif/
-# SPDX-License-Identifier: MIT
-# Copyright (c) 2025 Ragib Asif
-# Version 1.0.0
-#
 # Description:
 #   - Stow all stowable files to the appropriate locations.
 #   - This approach is preferred over the dot or star command.
