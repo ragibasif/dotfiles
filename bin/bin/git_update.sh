@@ -30,7 +30,7 @@ _THIS="$(basename "${0}")"
 _VERSION="1.0.0"
 
 _TITLE="chore: synchronize data and content"
-_DESCRIPTION="$(date +%c) Refreshed project data, content files, and related assets with the latest information. Ensured all synchronized resources are current and reflect recent changes from upstream sources."
+_DESCRIPTION="Refreshed project data, content files, and related assets with the latest information. Ensured all synchronized resources are current and reflect recent changes from upstream sources."
 
 _default() {
     echo "Running script ${_THIS}, version ${_VERSION}"
