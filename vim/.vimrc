@@ -5,6 +5,8 @@ filetype indent on
 syntax off
 set background=dark
 colorscheme zenwritten
+let mapleader = "\\"
+let maplocalleader = "\\"
 
 inoremap jk <esc>
 inoremap Jk <esc>
@@ -39,6 +41,8 @@ set nrformats+=octal
 set nrformats+=hex
 set nrformats+=bin
 set nrformats+=blank
+set showmode
+set showcmd
 set showmatch
 set hlsearch
 set incsearch
@@ -52,9 +56,11 @@ set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8
 set ttyfast
+set ruler
 set smoothscroll
 set hidden
 set wildmenu
+set wildmode=list:longest
 set scrolloff=10
 set sidescrolloff=10
 set noerrorbells visualbell t_vb=
@@ -75,3 +81,6 @@ set foldnestmax=10
 set foldlevelstart=10
 set foldminlines=1
 set foldcolumn=2
+
+nnoremap <leader>d :r!date <CR>
+autocmd BufWritePre * %s/\s\+$//e
