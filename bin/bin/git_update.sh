@@ -1,16 +1,4 @@
 #!/usr/bin/env bash
-#
-# File: git_update.sh
-# Author: Ragib Asif
-# Email: ragibasif@tuta.io
-# GitHub: https://github.com/ragibasif
-# LinkedIn: https://www.linkedin.com/in/ragibasif/
-# SPDX-License-Identifier: MIT
-# Copyright (c) 2025 Ragib Asif
-# Version 1.0.0
-#
-# Script to stage, commit, and push changes
-#
 
 set -o verbose   # set -v
 set -o xtrace    # set -x

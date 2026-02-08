@@ -1,19 +1,9 @@
 #!/usr/bin/env bash
-#
-# File: git_obliterate_commits.sh
-# Author: Ragib Asif
-# Email: ragibasif@tuta.io
-# GitHub: https://github.com/ragibasif
-# LinkedIn: https://www.linkedin.com/in/ragibasif/
-# SPDX-License-Identifier: MIT
-# Copyright (c) 2025 Ragib Asif
-# Version 1.0.0
-#
+
 # This script will obliterate all commit history in local and remote repo. Use
 # at your own risk.
 #
 # https://stackoverflow.com/questions/9683279/make-the-current-commit-the-only-initial-commit-in-a-git-repository
-#
 
 set -o verbose   # set -v
 set -o xtrace    # set -x
