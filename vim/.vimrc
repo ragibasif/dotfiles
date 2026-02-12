@@ -83,4 +83,5 @@ set foldminlines=1
 set foldcolumn=2
 
 nnoremap <leader>d :r!date <CR>
+map <leader>i gg=G``
 autocmd BufWritePre * %s/\s\+$//e
