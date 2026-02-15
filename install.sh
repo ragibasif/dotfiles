@@ -16,7 +16,6 @@ stow --adopt git
 stow --adopt zsh
 
 stow --adopt vim
-stow --adopt nvim
 
 stow --adopt tmux
 

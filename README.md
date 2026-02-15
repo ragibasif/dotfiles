@@ -20,7 +20,7 @@ Required:
 
 Optional (but recommended):
 
-- `neovim`: For a modern Vim experience.
+- `vim`: For text editing.
 - `tmux`: For terminal multiplexing and session management.
 
 ### Installation
@@ -49,7 +49,6 @@ Optional (but recommended):
 
 ```bash
 stow bash      # Applies ONLY the bash configurations
-stow nvim      # Applies ONLY the neovim configurations
 stow vim       # Applies ONLY the vim configurations
 stow git       # Applies ONLY the git configurations
 stow tmux      # Applies ONLY the tmux configurations
