@@ -47,9 +47,10 @@ def prettify(wd=None):
                 if old_path != new_path:
                     old_path.rename(new_path)
                     print(f"Renamed: {old_path.name} -> {new_file_name}")
-        dir_name = dir.stem
+    for i in range(len(dirs)):
+        dir_name = dirs[i].stem
         new_dir_name = fix_name(dir_name)
-        old_path = Path(dir)
+        old_path = Path(dirs[i])
         new_path = old_path.with_name(new_dir_name)
         if old_path != new_path:
             old_path.rename(new_path)
