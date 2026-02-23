@@ -1,0 +1,9 @@
+{
+    "editor.aiStats.enabled": false,
+    "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+    "editor.cursorStyle": "block",
+    "vim.vimrc.enable": true,
+    "vim.surround": false,
+    "vim.vimrc.path": "$HOME/.vimrc"
+}
+
