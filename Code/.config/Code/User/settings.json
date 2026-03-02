@@ -17,6 +17,7 @@
     "python.analysis.typeEvaluation.strictListInference": true,
     "python.analysis.typeEvaluation.strictSetInference": true,
     "python.analysis.autoImportCompletions": true,
-    "python.analysis.autoFormatStrings": true
+    "python.analysis.autoFormatStrings": true,
+    "editor.formatOnSave": true,
+    "claudeCode.preferredLocation": "panel"
 }
-
