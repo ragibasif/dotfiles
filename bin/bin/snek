@@ -1,11 +1,67 @@
 #!/usr/bin/env python3
 """
 Name: snek
-Description: A lightweight CLI utility that sanitizes file and directory names in the current working directory by replacing non-alphanumeric characters with underscores.
-Repository: https://github.com/ragibasif/snek
 Author: Ragib Asif
 Date:   2026-02-24
 Version: 1.0.0
+
+Description:
+
+    A lightweight CLI utility that sanitizes file and directory names in the current working directory by replacing non-alphanumeric characters with underscores.
+
+    Snek renames files and directories so their names contain only alphanumeric characters and underscores:
+
+    - Every character that is not a-z, A-Z, or 0-9 is replaced with _
+    - Consecutive underscores are collapsed into one
+    - Leading and trailing underscores are removed
+    - If the resulting name is empty (e.g. the original name was all symbols), the file is renamed to a UTC timestamp
+
+    Hidden files and directories (names starting with .) are skipped.
+
+Requirements:
+
+    Python 3.13+
+
+Copy:
+
+    cp snek /usr/local/bin/snek
+
+Move:
+
+    mv snek /usr/local/bin/snek
+
+Usage:
+
+    snek [-h] [-v] [-r]
+
+    # Sanitize only the current directory (non-recursive)
+    snek
+
+    # Sanitize the current directory and all subdirectories
+    snek --recursive
+
+    # Enable verbose output
+    snek --verbose
+
+    # Recursive with verbose output
+    snek --verbose --recursive
+
+Options:
+
+    Flag	Long form	Description
+    -h	    --help	    Show help message and exit
+    -v	    --verbose	Enable DEBUG-level logging
+    -r	    --recursive	Recurse into subdirectories
+
+
+Examples:
+
+    my file (1).txt     ->  my_file_1.txt
+    __Hello, World!__   ->  Hello_World
+    résumé.pdf          ->  r_sum.pdf
+    2024-01-15_notes    ->  2024_01_15_notes
+    !!!.log             ->  20260224153000000000UTC.log
+
 
 Copyright (c) 2026 Ragib Asif
 All rights reserved.
