@@ -4,7 +4,6 @@ Name: snek
 Description: A lightweight CLI utility that sanitizes file and directory names in the current working directory by replacing non-alphanumeric characters with underscores.
 Repository: https://github.com/ragibasif/snek
 Author: Ragib Asif
-Email:  ragibasif@tuta.io
 Date:   2026-02-24
 Version: 1.0.0
 
