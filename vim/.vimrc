@@ -38,6 +38,7 @@ vnoremap <Right> <Nop>
 
 set nobackup
 set nowritebackup
+set viminfo=
 set noswapfile
 set nowrap
 set spelllang=en_us
@@ -80,6 +81,7 @@ set scrolloff=10
 set sidescrolloff=10
 set noerrorbells visualbell t_vb=
 set path+=**
+set cryptmethod=xchacha20v2
 
 if !isdirectory($HOME."/.vim")
     call mkdir($HOME."/.vim", "", 0770)
