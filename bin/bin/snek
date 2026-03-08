@@ -32,7 +32,7 @@ Move:
 
 Usage:
 
-    snek [-h] [-v] [-r]
+    snek [-h] [-v] [-r | -f FILE]
 
     # Sanitize only the current directory (non-recursive)
     snek
@@ -46,12 +46,16 @@ Usage:
     # Recursive with verbose output
     snek --verbose --recursive
 
+    # Operate on a single file or directory
+    snek --file my\ file\ (1).txt
+
 Options:
 
     Flag	Long form	Description
     -h	    --help	    Show help message and exit
     -v	    --verbose	Enable DEBUG-level logging
-    -r	    --recursive	Recurse into subdirectories
+    -r	    --recursive	Recurse into subdirectories (mutually exclusive with -f)
+    -f	    --file	    Operate on a single file or directory (mutually exclusive with -r)
 
 
 Examples:
@@ -108,11 +112,18 @@ Examples:
         help="Enable verbose (DEBUG) output",
     )
 
-    parser.add_argument(
+    group = parser.add_mutually_exclusive_group()
+    group.add_argument(
         "-r",
         "--recursive",
         action="store_true",
         help="Enable recursive editing",
+    )
+    group.add_argument(
+        "-f",
+        "--file",
+        metavar="FILE",
+        help="Operate on a single file or directory",
     )
 
     return parser.parse_args()
@@ -187,7 +198,15 @@ def main() -> None:
 
     cwd: Path = Path.cwd()
 
-    if args.recursive:
+    if args.file:
+        target = Path(args.file)
+        if not target.is_absolute():
+            target = cwd / target
+        if not target.exists():
+            logger.error(f"'{target}' not found")
+            return
+        fix(target)
+    elif args.recursive:
         recursive(cwd)
     else:
         non_recursive(cwd)
