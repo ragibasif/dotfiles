@@ -32,7 +32,7 @@ Move:
 
 Usage:
 
-    snek [-h] [-v] [-r | -f FILE]
+    snek [-h] [-v] [-r] [-f FILE | -d DIR]
 
     # Sanitize only the current directory (non-recursive)
     snek
@@ -49,13 +49,20 @@ Usage:
     # Operate on a single file or directory
     snek --file my\ file\ (1).txt
 
+    # Operate on a specific directory (non-recursive)
+    snek --directory path/to/dir
+
+    # Operate on a specific directory recursively
+    snek --recursive --directory path/to/dir
+
 Options:
 
-    Flag	Long form	Description
-    -h	    --help	    Show help message and exit
-    -v	    --verbose	Enable DEBUG-level logging
-    -r	    --recursive	Recurse into subdirectories (mutually exclusive with -f)
-    -f	    --file	    Operate on a single file or directory (mutually exclusive with -r)
+    Flag	Long form	    Description
+    -h	    --help	        Show help message and exit
+    -v	    --verbose	    Enable DEBUG-level logging
+    -r	    --recursive	    Recurse into subdirectories (not usable with -f)
+    -f	    --file	        Operate on a single file or directory (mutually exclusive with -d, -r)
+    -d	    --directory	    Operate on a specific directory (mutually exclusive with -f)
 
 
 Examples:
@@ -112,21 +119,31 @@ Examples:
         help="Enable verbose (DEBUG) output",
     )
 
-    group = parser.add_mutually_exclusive_group()
-    group.add_argument(
+    parser.add_argument(
         "-r",
         "--recursive",
         action="store_true",
-        help="Enable recursive editing",
+        help="Enable recursive editing (usable with -d, not with -f)",
     )
+
+    group = parser.add_mutually_exclusive_group()
     group.add_argument(
         "-f",
         "--file",
         metavar="FILE",
-        help="Operate on a single file or directory",
+        help="Operate on a single file or directory (mutually exclusive with -d, -r)",
+    )
+    group.add_argument(
+        "-d",
+        "--directory",
+        metavar="DIR",
+        help="Operate on a specific directory (mutually exclusive with -f)",
     )
 
-    return parser.parse_args()
+    args = parser.parse_args()
+    if args.file and args.recursive:
+        parser.error("-r/--recursive cannot be used with -f/--file")
+    return args
 
 
 
@@ -206,6 +223,17 @@ def main() -> None:
             logger.error(f"'{target}' not found")
             return
         fix(target)
+    elif args.directory:
+        target = Path(args.directory)
+        if not target.is_absolute():
+            target = cwd / target
+        if not target.exists() or not target.is_dir():
+            logger.error(f"'{target}' is not a valid directory")
+            return
+        if args.recursive:
+            recursive(target)
+        else:
+            non_recursive(target)
     elif args.recursive:
         recursive(cwd)
     else:
