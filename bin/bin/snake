@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Name: snek
+Name: snake
 Author: Ragib Asif
 Date:   2026-02-24
 Version: 1.0.0
@@ -9,7 +9,7 @@ Description:
 
     A lightweight CLI utility that sanitizes file and directory names in the current working directory by replacing non-alphanumeric characters with underscores.
 
-    Snek renames files and directories so their names contain only alphanumeric characters and underscores:
+    Snake renames files and directories so their names contain only alphanumeric characters and underscores:
 
     - Every character that is not a-z, A-Z, or 0-9 is replaced with _
     - Consecutive underscores are collapsed into one
@@ -24,36 +24,36 @@ Requirements:
 
 Copy:
 
-    cp snek /usr/local/bin/snek
+    cp snake /usr/local/bin/snake
 
 Move:
 
-    mv snek /usr/local/bin/snek
+    mv snake /usr/local/bin/snake
 
 Usage:
 
-    snek [-h] [-v] [-r] [-f FILE | -d DIR]
+    snake [-h] [-v] [-r] [-f FILE | -d DIR]
 
     # Sanitize only the current directory (non-recursive)
-    snek
+    snake
 
     # Sanitize the current directory and all subdirectories
-    snek --recursive
+    snake --recursive
 
     # Enable verbose output
-    snek --verbose
+    snake --verbose
 
     # Recursive with verbose output
-    snek --verbose --recursive
+    snake --verbose --recursive
 
     # Operate on a single file or directory
-    snek --file my\ file\ (1).txt
+    snake --file my\ file\ (1).txt
 
     # Operate on a specific directory (non-recursive)
-    snek --directory path/to/dir
+    snake --directory path/to/dir
 
     # Operate on a specific directory recursively
-    snek --recursive --directory path/to/dir
+    snake --recursive --directory path/to/dir
 
 Options:
 
@@ -90,7 +90,7 @@ from pathlib import Path
 def setup_logging(level: str) -> None:
     logging.basicConfig(
         level=getattr(logging, level.upper(), logging.INFO),
-        format="[snek] %(asctime)s [%(levelname)s] - %(message)s",
+        format="[snake] %(asctime)s [%(levelname)s] - %(message)s",
         datefmt="%Y-%m-%d %H:%M:%S",
     )
 
@@ -101,14 +101,14 @@ logger = logging.getLogger(__name__)
 def parse_args() -> argparse.Namespace:
     """Parse command-line arguments."""
     parser = argparse.ArgumentParser(
-        description="Snek",
+        description="Snake",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  snek
-  snek --verbose
-  snek --recursive
-  snek --verbose --recursive
+  snake
+  snake --verbose
+  snake --recursive
+  snake --verbose --recursive
         """,
     )
 
