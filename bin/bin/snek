@@ -147,10 +147,14 @@ def fix(path: Path) -> None:
     dt: str = datetime.datetime.now(tz=datetime.timezone.utc).strftime(
         format="%Y%m%d%H%M%S%f%Z"
     )
-    name = clean(path.stem)
+    if path.is_dir():
+        name = clean(path.name)
+        ext = ""
+    else:
+        name = clean(path.stem)
+        ext = path.suffix
     if len(name) == 0:
         name = dt
-    ext = path.suffix
     new_path = path.parent / f"{name}{ext}"
     if not new_path.exists():
         path.rename(new_path)
