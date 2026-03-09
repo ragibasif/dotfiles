@@ -1,39 +1,59 @@
 #!/usr/bin/env bash
 
-
 # <https://www.reddit.com/r/linux4noobs/comments/b5ig2h/is_there_any_way_to_force_gnu_stow_to_overwrite/>
 # Have the files inside a git repository
 # stow --adopt *
 # git restore .
 # Stow will create a symlink and overwrite the files inside your repository and git will undo the changes and return to the original files but the symlinks will stay there.
 
-set -x
+set -euo pipefail
 
 IFS=$'\n\t'
 
-stow --adopt git
+DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-stow --adopt zsh
+DRY_RUN=""
+VERBOSE=""
 
-stow --adopt vim
+usage() {
+    echo "Usage: $0 [--dry-run] [--verbose] [--help]"
+    echo ""
+    echo "  --dry-run   Simulate stow operations without making changes"
+    echo "  --verbose   Enable command tracing (set -x)"
+    echo "  --help      Show this help message"
+    exit 0
+}
 
-stow --adopt tmux
+for arg in "$@"; do
+    case "$arg" in
+        --dry-run)  DRY_RUN="--simulate" ;;
+        --verbose)  VERBOSE=1 ;;
+        --help)     usage ;;
+        *) echo "Unknown argument: $arg" >&2; usage ;;
+    esac
+done
 
-stow --adopt ssh
+[[ -n "$VERBOSE" ]] && set -x
 
-stow --adopt fastfetch
-
-# Get OS type (Linux, Darwin/macOS, etc.)
-OS="$(uname -s)"
-
-# macOS-specific install
-if [ "$OS" = "Darwin" ]; then
-    sudo cp -i ~/dotfiles/bin/bin/* /usr/local/bin/
-    cp -i ~/dotfiles/Code/.config/Code/User/settings.json ~/Library/Application\ Support/Code/User/settings.json
-else
-    stow --adopt bin
-    stow --adopt Code
+if ! command -v stow &>/dev/null; then
+    echo "Error: GNU stow is not installed." >&2
+    exit 1
 fi
 
-git restore .
+packages=(git zsh vim tmux ssh fastfetch)
+for pkg in "${packages[@]}"; do
+    stow $DRY_RUN --adopt "$pkg"
+done
 
+OS="$(uname -s)"
+
+if [ "$OS" = "Darwin" ]; then
+    stow $DRY_RUN --adopt --target=/usr/local/bin bin
+    cp -i "$DOTFILES_DIR/Code/.config/Code/User/settings.json" \
+        "$HOME/Library/Application Support/Code/User/settings.json"
+else
+    stow $DRY_RUN --adopt bin
+    stow $DRY_RUN --adopt Code
+fi
+
+git -C "$DOTFILES_DIR" restore .
