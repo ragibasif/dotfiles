@@ -154,4 +154,5 @@ and distribute the code as you see fit. For more details, see the
 - [Using GNU Stow to manage your dot files](https://brandon.invergo.net/news/2012-05-26-using-gnu-stow-to-manage-your-dotfiles.html): Comprehensive guide on using `stow` for dotfiles management.
 - [Force GNU stow to overwrite existing configuration file](https://www.reddit.com/r/linux4noobs/comments/b5ig2h/is_there_any_way_to_force_gnu_stow_to_overwrite/): Handling conflicts with `stow`.
 - [GNU Stow manual](https://www.gnu.org/software/stow/manual/stow.html): Official documentation.
+- [snake](https://github.com/ragibasif/snake): A lightweight script that sanitizes file and directory names.
 - [delta](https://github.com/dandavison/delta): Syntax-highlighting pager for git diffs.
