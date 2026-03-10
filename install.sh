@@ -50,7 +50,7 @@ done
 OS="$(uname -s)"
 
 if [ "$OS" = "Darwin" ]; then
-    sudo stow $DRY_RUN --adopt --target=/usr/local/bin bin
+    sudo stow $DRY_RUN --adopt --target=/usr/local bin
     cp -i "$DOTFILES_DIR/Code/.config/Code/User/settings.json" \
         "$HOME/Library/Application Support/Code/User/settings.json"
 else
