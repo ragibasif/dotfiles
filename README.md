@@ -9,6 +9,35 @@
 
 My `dotfiles` managed by `GNU Stow`.
 
+## Overview
+
+| Package | Tool | Description |
+|---------|------|-------------|
+| `git` | Git | User config, delta diff pager, global ignore, commit template |
+| `zsh` | Zsh + Oh My Zsh | Shell configuration and aliases |
+| `vim` | Vim | Editor settings, keymaps, color schemes |
+| `tmux` | Tmux | Terminal multiplexer with custom keymaps and theme |
+| `ssh` | SSH | Host configuration for GitHub (ed25519) |
+| `fastfetch` | Fastfetch | System information display |
+| `Code` | VS Code | Editor settings with Vim keybindings |
+| `bin` | Scripts | Custom utility scripts (see [Scripts](#scripts)) |
+
+## Directory Structure
+
+```
+dotfiles/
+├── bin/            # Custom utility scripts
+├── Code/           # VS Code settings
+├── fastfetch/      # Fastfetch config
+├── git/            # Git config, ignore, and commit template
+├── ssh/            # SSH config
+├── tmux/           # Tmux config (options, keymaps, colorscheme)
+├── vim/            # Vimrc and plugins
+├── zsh/            # Zshrc and Oh My Zsh setup
+├── install.sh      # Automated installation script
+└── LICENSE
+```
+
 ## Getting Started
 
 ### Prerequisites
@@ -18,61 +47,101 @@ Required:
 - `git`: For cloning and managing the repository.
 - `stow`: For symlinking and managing dotfiles.
 
-Optional (but recommended):
+Optional (install for full setup):
 
-- `vim`: For text editing.
-- `tmux`: For terminal multiplexing and session management.
+- `zsh` + [Oh My Zsh](https://ohmyz.sh/): Shell and plugin framework.
+- `vim`: Text editor.
+- `tmux`: Terminal multiplexer.
+- `delta`: Enhanced git diff pager.
+- `fastfetch`: System information tool.
+- `exiftool` + `qpdf`: Required by the `clean_pdf_metadata` script.
 
 ### Installation
 
-1. Clone the Repository:
+1. Clone the repository:
 
    ```bash
    git clone git@github.com:ragibasif/dotfiles.git ~/dotfiles
    ```
 
-2. Enter the Directory:
+2. Enter the directory:
 
    ```bash
    cd ~/dotfiles
    ```
 
-3. Run the Installation Script:
+3. Run the installation script:
 
    ```bash
    ./install.sh
    ```
 
+The script automatically stows all packages and handles platform differences between macOS and Linux.
+
+#### Install script flags
+
+```
+--dry-run    Preview what would be stowed without making changes
+--verbose    Show detailed output during installation
+--help       Display usage information
+```
+
 ## Usage
 
-### Stowing Specific Configurations
+### Stowing specific packages
+
+To apply only a subset of configurations:
 
 ```bash
-stow bash      # Applies ONLY the bash configurations
-stow vim       # Applies ONLY the vim configurations
-stow git       # Applies ONLY the git configurations
-stow tmux      # Applies ONLY the tmux configurations
+stow zsh       # Applies ONLY the zsh configuration
+stow vim       # Applies ONLY the vim configuration
+stow git       # Applies ONLY the git configuration
+stow tmux      # Applies ONLY the tmux configuration
+stow ssh       # Applies ONLY the SSH configuration
+stow fastfetch # Applies ONLY the fastfetch configuration
 ```
 
-### Customizing the `.stow-local-ignore` File
+### Unstowing
 
-The `.stow-local-ignore` file allows you to specify files or directories that
-should be ignored when stowing.
-
-### Overwriting Existing Files
-
-By default, `stow` will not overwrite existing files. Using the `--adopt` or
-`--override` flags will overwrite conflicting files.
+To remove symlinks for a package:
 
 ```bash
-stow --override bash
+stow -D zsh    # Remove zsh symlinks
+stow -D vim    # Remove vim symlinks
 ```
 
-Or
+### Overwriting existing files
+
+By default, `stow` will not overwrite existing files. Use `--adopt` or `--override` to handle conflicts:
 
 ```bash
-stow --adopt zsh
+stow --override zsh   # Overwrite existing files with symlinks
+stow --adopt zsh      # Pull existing files into the repo, then symlink
 ```
+
+> **Note:** After using `--adopt`, run `git restore .` to revert any pulled-in files back to the repo versions.
+
+### Customizing `.stow-local-ignore`
+
+The `.stow-local-ignore` file specifies files or directories that `stow` should skip when symlinking.
+
+## Scripts
+
+Custom utility scripts installed to `bin/`:
+
+| Script | Description |
+|--------|-------------|
+| `snake` | Sanitizes filenames by replacing non-alphanumeric characters with underscores. Supports single files or recursive directory mode. |
+| `git_update` | Runs a gitleaks security scan, commits with a standard message, and pushes to GitHub. |
+| `git_obliterate_commits` | **Destructive.** Rewrites repository history by creating a new orphan branch and force-pushing. Use with caution. |
+| `clean_pdf_metadata` | Strips metadata from PDF files using `exiftool` and `qpdf`. Supports recursive directory processing. |
+| `clean_image_metadata` | Strips metadata from image files. |
+| `remove_z_library` | Removes `_Z_Library_` prefix from PDF and EPUB filenames. |
+
+## Platform Notes
+
+- **macOS:** `bin/` scripts are installed to `/usr/local/bin` (requires `sudo`). VS Code settings are copied rather than symlinked.
+- **Linux:** `bin/` scripts are installed to `~/bin`. VS Code settings are symlinked via `stow`.
 
 ## License
 
@@ -82,5 +151,7 @@ and distribute the code as you see fit. For more details, see the
 
 ## References
 
-- [Using GNU Stow to manage your dot files](https://brandon.invergo.net/news/2012-05-26-using-gnu-stow-to-manage-your-dotfiles.html): A comprehensive guide on using `stow` for dotfiles management.
-- [Force GNU stow to overwrite existing configuration file](https://www.reddit.com/r/linux4noobs/comments/b5ig2h/is_there_any_way_to_force_gnu_stow_to_overwrite/): A Reddit thread discussing how to handle conflicts with `stow`.
+- [Using GNU Stow to manage your dot files](https://brandon.invergo.net/news/2012-05-26-using-gnu-stow-to-manage-your-dotfiles.html): Comprehensive guide on using `stow` for dotfiles management.
+- [Force GNU stow to overwrite existing configuration file](https://www.reddit.com/r/linux4noobs/comments/b5ig2h/is_there_any_way_to_force_gnu_stow_to_overwrite/): Handling conflicts with `stow`.
+- [GNU Stow manual](https://www.gnu.org/software/stow/manual/stow.html): Official documentation.
+- [delta](https://github.com/dandavison/delta): Syntax-highlighting pager for git diffs.
