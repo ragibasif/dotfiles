@@ -6,11 +6,13 @@
 # git restore .
 # Stow will create a symlink and overwrite the files inside your repository and git will undo the changes and return to the original files but the symlinks will stay there.
 
+set -x
 set -euo pipefail
 
 IFS=$'\n\t'
 
 DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+echo "$DOTFILES_DIR"
 
 DRY_RUN=""
 VERBOSE=""
@@ -48,7 +50,7 @@ done
 OS="$(uname -s)"
 
 if [ "$OS" = "Darwin" ]; then
-    stow $DRY_RUN --adopt --target=/usr/local/bin bin
+    sudo stow $DRY_RUN --adopt --target=/usr/local/bin bin
     cp -i "$DOTFILES_DIR/Code/.config/Code/User/settings.json" \
         "$HOME/Library/Application Support/Code/User/settings.json"
 else
