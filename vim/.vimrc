@@ -1,41 +1,19 @@
+" Basic
 set nocompatible
 filetype on
 filetype plugin on
 filetype indent on
 syntax off
-set background=dark
-colorscheme zenwritten
+
+" Leader
 let mapleader = "\\"
 let maplocalleader = "\\"
 
-" Map J and K to escape
-inoremap jk <esc>
-inoremap Jk <esc>
-inoremap JK <esc>
-inoremap jK <esc>
-vnoremap jk <esc>
-vnoremap Jk <esc>
-vnoremap JK <esc>
-vnoremap jK <esc>
-cnoremap jk <esc>
-cnoremap Jk <esc>
-cnoremap JK <esc>
-cnoremap jK <esc>
+" Theme
+set background=dark
+colorscheme zenwritten
 
-" Disable arrow keys
-nnoremap <Up>    <Nop>
-nnoremap <Down>  <Nop>
-nnoremap <Left>  <Nop>
-nnoremap <Right> <Nop>
-inoremap <Up>    <Nop>
-inoremap <Down>  <Nop>
-inoremap <Left>  <Nop>
-inoremap <Right> <Nop>
-vnoremap <Up>    <Nop>
-vnoremap <Down>  <Nop>
-vnoremap <Left>  <Nop>
-vnoremap <Right> <Nop>
-
+" Options
 set nobackup
 set nowritebackup
 set viminfo=
@@ -86,12 +64,57 @@ set cryptmethod=xchacha20v2
 if !isdirectory($HOME."/.vim")
     call mkdir($HOME."/.vim", "", 0770)
 endif
+
 if !isdirectory($HOME."/.vim/undo")
     call mkdir($HOME."/.vim/undo", "", 0700)
 endif
+
 set undodir=~/.vim/undo/
 set undofile
 
+" Keymaps
+" Map J and K to escape
+inoremap jk <esc>
+inoremap Jk <esc>
+inoremap JK <esc>
+inoremap jK <esc>
+vnoremap jk <esc>
+vnoremap Jk <esc>
+vnoremap JK <esc>
+vnoremap jK <esc>
+cnoremap jk <esc>
+cnoremap Jk <esc>
+cnoremap JK <esc>
+cnoremap jK <esc>
+
+" Disable arrow keys
+nnoremap <Up>    <Nop>
+nnoremap <Down>  <Nop>
+nnoremap <Left>  <Nop>
+nnoremap <Right> <Nop>
+inoremap <Up>    <Nop>
+inoremap <Down>  <Nop>
+inoremap <Left>  <Nop>
+inoremap <Right> <Nop>
+vnoremap <Up>    <Nop>
+vnoremap <Down>  <Nop>
+vnoremap <Left>  <Nop>
+vnoremap <Right> <Nop>
+
+
+" Create fold (visual mode): zf
+" Create fold over N lines: zfNj
+" Delete fold: zd
+" Delete all folds: zE
+" Close fold under cursor: zc
+" Open fold under cursor: zo
+" Toggle fold: za
+" Close all folds: zM
+" Open all folds: zR
+" Close folds recursively: zC
+" Open folds recursively: zO
+" Jump to next fold: zj
+" Jump to previous fold: zk
 set foldenable
 set foldmethod=manual
 set foldnestmax=10
@@ -99,11 +122,15 @@ set foldlevelstart=10
 set foldminlines=1
 set foldcolumn=2
 
-" stamp the current date and time
+" Persist Folds Across Sessions
+autocmd BufWinLeave *.* mkview
+autocmd BufWinEnter *.* silent loadview
+
+" Stamp the current date and time
 nnoremap <leader>d :r!date <CR>
 
-" quick indenting and return to last place
+" Quick indenting and return to last place
 map <leader>i gg=G``
 
-" remove trailing white space
+" Remove trailing white space
 autocmd BufWritePre * %s/\s\+$//e

@@ -19,5 +19,9 @@
     "python.analysis.autoImportCompletions": true,
     "python.analysis.autoFormatStrings": true,
     "editor.formatOnSave": true,
-    "claudeCode.preferredLocation": "panel"
+    "claudeCode.preferredLocation": "panel",
+    "redhat.telemetry.enabled": false,
+    "files.autoSave": "afterDelay",
+    "python.analysis.completeFunctionParens": true,
+    "workbench.startupEditor": "none",
 }
